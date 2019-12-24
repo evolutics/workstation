@@ -1,9 +1,4 @@
 - hosts: localhost
   become: true
   tasks:
-    - name: Install packages
-      apt:
-        state: latest
-        update_cache: true
-        pkg:
-          - htop
+    - import_tasks: tasks/packages.yaml
