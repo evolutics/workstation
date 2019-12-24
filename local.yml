@@ -1,8 +1,9 @@
 - hosts: localhost
   become: true
   tasks:
-    - name: Install htop
+    - name: Install packages
       apt:
-        name: htop
         state: latest
         update_cache: true
+        pkg:
+          - htop
