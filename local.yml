@@ -5,3 +5,4 @@
       apt:
         name: htop
         state: latest
+        update_cache: true
