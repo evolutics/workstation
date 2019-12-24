@@ -1,6 +1,3 @@
-- name: Update repositories cache
-  apt:
-    update_cache: true
 - name: Update all present packages
   apt:
     upgrade: full
