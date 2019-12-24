@@ -1,6 +1,8 @@
+- name: Update repositories cache
+  apt:
+    update_cache: true
 - name: Install packages
   apt:
     state: latest
-    update_cache: true
     pkg:
       - htop
