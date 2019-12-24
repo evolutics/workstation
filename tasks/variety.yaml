@@ -2,13 +2,13 @@
   apt:
     name: variety
     state: latest
-- name: Configure Variety `safe_mode`
+- name: Configure Variety
   lineinfile:
     path: "{{ ansible_env.HOME }}/.config/variety/variety.conf"
-    regexp: "^safe_mode ="
-    line: "safe_mode = True"
-- name: Configure Variety `stats_enabled`
-  lineinfile:
-    path: "{{ ansible_env.HOME }}/.config/variety/variety.conf"
-    regexp: "^stats_enabled ="
-    line: "stats_enabled = False"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - regexp: "^safe_mode ="
+      line: "safe_mode = True"
+    - regexp: "^stats_enabled ="
+      line: "stats_enabled = False"
