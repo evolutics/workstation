@@ -4,7 +4,7 @@
 - name: Update all present packages
   apt:
     upgrade: full
-- name: Install packages
+- name: Install absent or update present packages given
   apt:
     state: latest
     pkg:
