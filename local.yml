@@ -4,6 +4,7 @@
     - import_tasks: tasks/package_repositories.yaml
   tasks:
     - import_tasks: tasks/bash.yaml
+    - import_tasks: tasks/git.yaml
     - import_tasks: tasks/keyboard_layout.yaml
     - import_tasks: tasks/packages.yaml
     - import_tasks: tasks/variety.yaml
