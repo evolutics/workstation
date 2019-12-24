@@ -1,3 +1,7 @@
+- name: Install or update Variety
+  apt:
+    name: variety
+    state: latest
 - name: Configure Variety `safe_mode`
   lineinfile:
     path: "{{ ansible_env.HOME }}/.config/variety/variety.conf"
