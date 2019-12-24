@@ -1,0 +1,4 @@
+- name: Remove `numlockx` due to issue with Neo 2 keyboard layout
+  apt:
+    name: numlockx
+    state: absent
