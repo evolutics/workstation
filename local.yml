@@ -1,4 +1,5 @@
 - hosts: localhost
   become: true
   tasks:
+    - import_tasks: tasks/bash.yaml
     - import_tasks: tasks/packages.yaml

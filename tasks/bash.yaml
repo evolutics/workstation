@@ -1,0 +1,10 @@
+- name: Configure Bash `HISTFILESIZE`
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.bashrc"
+    regexp: "^export HISTFILESIZE="
+    line: "export HISTFILESIZE=20000"
+- name: Configure Bash `HISTSIZE`
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.bashrc"
+    regexp: "^export HISTSIZE="
+    line: "export HISTSIZE=10000"
