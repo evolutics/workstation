@@ -8,4 +8,4 @@
   apt:
     state: latest
     pkg:
-      - htop
+      - variety

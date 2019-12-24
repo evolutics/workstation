@@ -3,3 +3,4 @@
   tasks:
     - import_tasks: tasks/bash.yaml
     - import_tasks: tasks/packages.yaml
+    - import_tasks: tasks/variety.yaml

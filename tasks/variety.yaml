@@ -1,0 +1,10 @@
+- name: Configure Variety `safe_mode`
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.config/variety/variety.conf"
+    regexp: "^safe_mode ="
+    line: "safe_mode = True"
+- name: Configure Variety `stats_enabled`
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.config/variety/variety.conf"
+    regexp: "^stats_enabled ="
+    line: "stats_enabled = False"
