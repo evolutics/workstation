@@ -6,6 +6,7 @@
     - import_role: { name: crivetimihai.virtualization.virtualbox }
     - import_role: { name: geerlingguy.docker }
     - import_tasks: tasks/bash.yml
+    - import_tasks: tasks/direnv.yml
     - import_tasks: tasks/git.yml
     - import_tasks: tasks/keyboard_layout.yml
     - import_tasks: tasks/variety.yml
