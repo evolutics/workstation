@@ -3,6 +3,7 @@
     name: variety
 - name: Configure Variety
   lineinfile:
+    create: true
     path: "{{ ansible_env.HOME }}/.config/variety/variety.conf"
     regexp: "{{ item.regexp }}"
     line: "{{ item.line }}"
