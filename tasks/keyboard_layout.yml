@@ -1,13 +1,8 @@
-- name: Remove `numlockx` due to issue with Neo 2 keyboard layout
-  apt:
-    name: numlockx
-    state: absent
-  become: true
-- name: Configure Neo 2 as major and US as minor keyboard layout
-  command: localectl --no-convert set-x11-keymap de,us '' neo,
-- name: Restart X to apply keyboard layout changes
-  become: true
-  systemd:
-    name: display-manager
-    state: restarted
-    daemon_reload: true
+- name: Configure keyboard layouts Neo 2 as major and US as minor
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.profile"
+    line: "setxkbmap -layout de,us -variant neo,"
+  register: keyboard_layouts
+- name: Reload profile to apply keyboard layout changes now
+  shell: ". {{ ansible_env.HOME }}/.profile"
+  when: keyboard_layouts.changed
