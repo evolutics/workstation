@@ -1,1 +1,5 @@
-- src: geerlingguy.docker
+collections:
+  - name: crivetimihai.virtualization
+
+roles:
+  - src: geerlingguy.docker

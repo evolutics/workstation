@@ -9,6 +9,7 @@
    pushd "${folder}"
    git clone https://github.com/evolutics/workstation .
    ansible-galaxy role install --role-file requirements.yml
+   ansible-galaxy collection install --requirements-file requirements.yml
    sudo ansible-playbook local.yml
    popd
    rm --force --recursive -- "${folder}"
