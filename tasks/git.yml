@@ -1,6 +1,7 @@
 - name: Install Git
   apt:
     name: git
+  become: true
 - name: Configure Git
   git_config:
     name: "{{ item.name }}"
@@ -16,3 +17,4 @@
 - name: Install gitk
   apt:
     name: gitk
+  become: true

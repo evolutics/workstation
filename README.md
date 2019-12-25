@@ -11,7 +11,7 @@
 
    ansible-galaxy collection install --requirements-file requirements.yml
    ansible-galaxy role install --role-file requirements.yml
-   sudo ansible-playbook local.yml
+   ansible-playbook --ask-become-pass local.yml
 
    popd
    rm --force --recursive -- "${folder}"

@@ -1,5 +1,4 @@
 - hosts: localhost
-  become: true
   pre_tasks:
     - import_tasks: tasks/package_repositories.yml
   tasks:

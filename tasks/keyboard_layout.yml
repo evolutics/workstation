@@ -2,3 +2,4 @@
   apt:
     name: numlockx
     state: absent
+  become: true

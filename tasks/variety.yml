@@ -1,6 +1,7 @@
 - name: Install Variety
   apt:
     name: variety
+  become: true
 - name: Configure Variety
   lineinfile:
     create: true

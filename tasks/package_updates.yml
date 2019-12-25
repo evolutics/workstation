@@ -1,3 +1,4 @@
 - name: Update all present packages
   apt:
     upgrade: full
+  become: true
