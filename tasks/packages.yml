@@ -1,6 +1,3 @@
-- name: Update all present packages
-  apt:
-    upgrade: full
 - name: Install absent or update present packages given
   apt:
     state: latest
