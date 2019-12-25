@@ -4,6 +4,7 @@
     - import_tasks: tasks/package_repositories.yml
   tasks:
     - import_role: { name: crivetimihai.virtualization.virtualbox }
+    - import_role: { name: gantsign.visual-studio-code }
     - import_role: { name: geerlingguy.docker }
     - import_tasks: tasks/bash.yml
     - import_tasks: tasks/direnv.yml
