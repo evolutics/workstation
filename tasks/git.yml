@@ -1,7 +1,6 @@
-- name: Install or update Git
+- name: Install Git
   apt:
     name: git
-    state: latest
 - name: Configure Git
   git_config:
     name: "{{ item.name }}"
@@ -14,7 +13,6 @@
       value: Benjamin Fischer
     - name: core.editor
       value: code --wait
-- name: Install or update gitk
+- name: Install gitk
   apt:
     name: gitk
-    state: latest

@@ -1,7 +1,6 @@
-- name: Install or update Variety
+- name: Install Variety
   apt:
     name: variety
-    state: latest
 - name: Configure Variety
   lineinfile:
     path: "{{ ansible_env.HOME }}/.config/variety/variety.conf"
