@@ -8,7 +8,6 @@
     - import_tasks: tasks/bash.yml
     - import_tasks: tasks/git.yml
     - import_tasks: tasks/keyboard_layout.yml
-    - import_tasks: tasks/packages.yml
     - import_tasks: tasks/variety.yml
   post_tasks:
     - import_tasks: tasks/package_updates.yml

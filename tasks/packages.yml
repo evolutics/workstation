@@ -1,5 +1,0 @@
-- name: Install absent or update present packages given
-  apt:
-    state: latest
-    pkg:
-      - htop
