@@ -3,3 +3,11 @@
     name: numlockx
     state: absent
   become: true
+- name: Configure Neo 2 as major and US as minor keyboard layout
+  command: localectl --no-convert set-x11-keymap de,us '' neo,
+- name: Restart X to apply keyboard layout changes
+  become: true
+  systemd:
+    name: display-manager
+    state: restarted
+    daemon_reload: true
