@@ -3,6 +3,30 @@
     path: "{{ ansible_env.HOME }}/.profile"
     line: "setxkbmap -layout de,us -variant neo,"
   register: keyboard_layouts
-- name: Reload profile to apply keyboard layout changes now
+- name: Reload profile to apply keyboard layout changes now # noqa 305 503
   shell: ". {{ ansible_env.HOME }}/.profile"
   when: keyboard_layouts.changed
+- name: Configure XKB plugin for Xfce panel
+  block:
+    - name: Add plugin
+      command: xfce4-panel --add=xkb
+    - name: List plugins
+      command: >
+        xfconf-query --channel xfce4-panel --property /plugins --list --verbose
+      register: plugins
+    - name: Get property key
+      set_fact:
+        xkb_plugin: "{{ plugins.stdout
+          | regex_search('^(/plugins/\\S+)\\s+xkb$', '\\1', multiline=True)
+          | first }}"
+    - name: Set property values
+      command: "xfconf-query --channel xfce4-panel
+        --property {{ xkb_plugin }}/{{ item.property }}
+        --create --set {{ item.set }} --type {{ item.type }}"
+      with_items:
+        - property: display-type
+          set: 2
+          type: uint
+        - property: group-policy
+          set: 0
+          type: uint
