@@ -4,4 +4,6 @@
     purge: true
     name:
       - mousepad
+      - pidgin
+      - thunderbird
   become: true
