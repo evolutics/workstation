@@ -2,3 +2,6 @@
   import_role:
     name: geerlingguy.docker
   become: true
+  vars:
+    docker_users:
+      - "{{ ansible_user_id }}"
