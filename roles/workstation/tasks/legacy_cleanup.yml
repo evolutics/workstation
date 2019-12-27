@@ -1,0 +1,7 @@
+- name: Remove unused default packages
+  apt:
+    state: absent
+    purge: true
+    name:
+      - mousepad
+  become: true

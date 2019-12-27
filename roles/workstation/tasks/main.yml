@@ -1,3 +1,4 @@
+- import_tasks: legacy_cleanup.yml
 - import_tasks: package_repositories.yml
 
 - import_tasks: bash.yml
