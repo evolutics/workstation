@@ -11,3 +11,4 @@
 - import_tasks: visual_studio_code.yml
 
 - import_tasks: package_updates.yml
+- import_tasks: package_cleanup.yml
