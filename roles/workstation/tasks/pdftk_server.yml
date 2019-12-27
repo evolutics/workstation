@@ -1,0 +1,4 @@
+- name: Install PDFtk Server
+  snap:
+    name: pdftk
+  become: true
