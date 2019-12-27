@@ -1,3 +1,4 @@
 - name: Install Docker
   import_role:
     name: geerlingguy.docker
+  become: true
