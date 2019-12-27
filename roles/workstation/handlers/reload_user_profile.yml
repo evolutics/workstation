@@ -1,0 +1,2 @@
+- name: Reload user profile # noqa 305
+  shell: ". {{ ansible_env.HOME }}/.profile"

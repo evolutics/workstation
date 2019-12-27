@@ -2,10 +2,7 @@
   lineinfile:
     path: "{{ ansible_env.HOME }}/.profile"
     line: "setxkbmap -layout de,us -variant neo,"
-  register: keyboard_layouts
-- name: Reload profile to apply keyboard layout changes now # noqa 305 503
-  shell: ". {{ ansible_env.HOME }}/.profile"
-  when: keyboard_layouts.changed
+  notify: Reload user profile
 - name: Configure XKB plugin for Xfce panel
   block:
     - name: Add plugin
