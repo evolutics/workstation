@@ -1,3 +1,9 @@
+- name: Remove `numlockx` due to possible issue with Neo 2 keyboard layout
+  apt:
+    name: numlockx
+    state: absent
+    purge: true
+  become: true
 - name: Configure keyboard layouts Neo 2 as major and US as minor
   lineinfile:
     path: "{{ ansible_env.HOME }}/.profile"
