@@ -18,6 +18,7 @@
 - import_tasks: multimedia/vlc_media_player.yml
 - import_tasks: security/keepassxc.yml
 - import_tasks: virtualization/docker.yml
+- import_tasks: virtualization/vagrant.yml
 - import_tasks: virtualization/virtualbox.yml
 
 - import_tasks: maintenance/package_updates.yml
