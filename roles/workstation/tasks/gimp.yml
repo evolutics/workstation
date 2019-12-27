@@ -1,0 +1,4 @@
+- name: Install GIMP
+  apt:
+    name: gimp
+  become: true
