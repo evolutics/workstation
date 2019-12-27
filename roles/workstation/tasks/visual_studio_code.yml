@@ -1,3 +1,14 @@
 - name: Install Visual Studio Code
   import_role:
     name: gantsign.visual-studio-code
+  vars:
+    users:
+      - username: "{{ ansible_user_id }}"
+        visual_studio_code_extensions:
+          - eamodio.gitlens
+          - esbenp.prettier-vscode
+          - streetsidesoftware.code-spell-checker
+        visual_studio_code_settings:
+          diffEditor.ignoreTrimWhitespace: false
+          editor.rulers:
+            - 80
