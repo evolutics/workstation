@@ -1,0 +1,4 @@
+- name: Install Startup Disk Creator
+  apt:
+    name: usb-creator-gtk
+  become: true

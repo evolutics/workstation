@@ -7,6 +7,7 @@
 - import_tasks: docker.yml
 - import_tasks: git.yml
 - import_tasks: keyboard_layout.yml
+- import_tasks: startup_disk_creator.yml
 - import_tasks: variety.yml
 - import_tasks: virtualbox.yml
 - import_tasks: visual_studio_code.yml
