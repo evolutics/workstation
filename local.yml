@@ -2,13 +2,13 @@
   pre_tasks:
     - import_tasks: tasks/package_repositories.yml
   tasks:
-    - import_role: { name: crivetimihai.virtualization.virtualbox }
-    - import_role: { name: gantsign.visual-studio-code }
-    - import_role: { name: geerlingguy.docker }
     - import_tasks: tasks/bash.yml
     - import_tasks: tasks/direnv.yml
+    - import_tasks: tasks/docker.yml
     - import_tasks: tasks/git.yml
     - import_tasks: tasks/keyboard_layout.yml
     - import_tasks: tasks/variety.yml
+    - import_tasks: tasks/virtualbox.yml
+    - import_tasks: tasks/visual_studio_code.yml
   post_tasks:
     - import_tasks: tasks/package_updates.yml

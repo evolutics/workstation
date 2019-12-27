@@ -1,0 +1,3 @@
+- name: Install VirtualBox
+  import_role:
+    name: crivetimihai.virtualization.virtualbox

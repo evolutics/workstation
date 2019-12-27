@@ -1,0 +1,3 @@
+- name: Install Visual Studio Code
+  import_role:
+    name: gantsign.visual-studio-code
