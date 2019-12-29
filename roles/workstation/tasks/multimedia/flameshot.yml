@@ -2,3 +2,8 @@
   become: true
   apt:
     name: flameshot
+- name: Configure Flameshot keyboard shortcut # noqa 301
+  command: >
+    xfconf-query --channel xfce4-keyboard-shortcuts
+    --property /commands/custom/Print
+    --create --set 'flameshot gui' --type string
