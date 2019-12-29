@@ -8,6 +8,7 @@
 - import_tasks: development/direnv.yml
 - import_tasks: development/git.yml
 - import_tasks: development/visual_studio_code.yml
+- import_tasks: development/xclip.yml
 - import_tasks: document_processing/pdftk_server.yml
 - import_tasks: locale/keyboard_layout.yml
 - import_tasks: maintenance/startup_disk_creator.yml
