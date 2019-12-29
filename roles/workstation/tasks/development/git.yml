@@ -1,7 +1,7 @@
 - name: Install Git
+  become: true
   apt:
     name: git
-  become: true
 - name: Configure Git
   git_config:
     name: "{{ item.name }}"
@@ -15,6 +15,6 @@
     - name: core.editor
       value: code --wait
 - name: Install gitk
+  become: true
   apt:
     name: gitk
-  become: true

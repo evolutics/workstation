@@ -1,4 +1,4 @@
 - name: Install KeePassXC
+  become: true
   apt:
     name: keepassxc
-  become: true

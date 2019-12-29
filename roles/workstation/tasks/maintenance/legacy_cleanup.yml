@@ -1,4 +1,5 @@
 - name: Remove unused default packages
+  become: true
   apt:
     state: absent
     purge: true
@@ -6,4 +7,3 @@
       - mousepad
       - pidgin
       - thunderbird
-  become: true

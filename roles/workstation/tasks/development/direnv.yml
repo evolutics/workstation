@@ -1,7 +1,7 @@
 - name: Install direnv
+  become: true
   apt:
     name: direnv
-  become: true
 - name: Configure direnv
   lineinfile:
     path: "{{ ansible_env.HOME }}/.bashrc"

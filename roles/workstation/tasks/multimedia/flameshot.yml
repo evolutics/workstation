@@ -1,4 +1,4 @@
 - name: Install Flameshot
+  become: true
   apt:
     name: flameshot
-  become: true
