@@ -15,4 +15,6 @@
 
    popd
    rm --force --recursive -- "${folder}"
+
+   reboot
    ```
