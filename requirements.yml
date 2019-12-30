@@ -3,4 +3,5 @@ collections:
 
 roles:
   - src: gantsign.visual-studio-code
+  - src: geerlingguy.ansible
   - src: geerlingguy.docker

@@ -1,0 +1,4 @@
+- name: Install Ansible
+  become: true
+  import_role:
+    name: geerlingguy.ansible
