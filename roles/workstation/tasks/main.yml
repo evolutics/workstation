@@ -18,6 +18,7 @@
 - import_tasks: multimedia/gimp.yml
 - import_tasks: multimedia/inkscape.yml
 - import_tasks: multimedia/kazam.yml
+- import_tasks: multimedia/kdenlive.yml
 - import_tasks: multimedia/vlc_media_player.yml
 - import_tasks: security/keepassxc.yml
 - import_tasks: virtualization/docker.yml
