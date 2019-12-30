@@ -4,6 +4,11 @@
     state: absent
     purge: true
     name:
+      - gnome-mines
+      - gnome-sudoku
+      - libreoffice-math
       - mousepad
+      - parole
       - pidgin
+      - sgt-launcher
       - thunderbird
