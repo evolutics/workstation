@@ -2,7 +2,7 @@
 - import_tasks: maintenance/package_repositories.yml
 
 - import_tasks: communication/chromium.yml
-- import_tasks: desktop/desktop_design.yml
+- import_tasks: desktop/design.yml
 - import_tasks: desktop/variety.yml
 - import_tasks: development/bash.yml
 - import_tasks: development/direnv.yml
