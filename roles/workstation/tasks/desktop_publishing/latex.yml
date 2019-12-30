@@ -1,0 +1,4 @@
+- name: Install TeX Live
+  become: true
+  apt:
+    name: texlive-full
