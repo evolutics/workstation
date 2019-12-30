@@ -12,6 +12,7 @@
 - import_tasks: development/general/git.yml
 - import_tasks: development/general/visual_studio_code.yml
 - import_tasks: development/general/xclip.yml
+- import_tasks: development/special/jetbrains_toolbox_app.yml
 - import_tasks: locale/keyboard_layout.yml
 - import_tasks: maintenance/startup_disk_creator.yml
 - import_tasks: multimedia/flameshot.yml

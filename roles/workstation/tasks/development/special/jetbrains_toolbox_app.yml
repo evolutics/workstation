@@ -1,0 +1,7 @@
+- name: Install dependency JMESPath
+  become: true
+  apt:
+    name: python-jmespath
+- name: Install JetBrains Toolbox App
+  import_role:
+    name: jaredhocutt.jetbrains_toolbox
