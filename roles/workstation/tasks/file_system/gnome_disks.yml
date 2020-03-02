@@ -1,0 +1,4 @@
+- name: Install GNOME Disks
+  become: true
+  apt:
+    name: gnome-disk-utility
