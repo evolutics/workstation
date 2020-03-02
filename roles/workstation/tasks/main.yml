@@ -23,6 +23,7 @@
 - import_tasks: multimedia/kazam.yml
 - import_tasks: multimedia/kdenlive.yml
 - import_tasks: multimedia/vlc_media_player.yml
+- import_tasks: remote_desktop/openvpn.yml
 - import_tasks: remote_desktop/remmina.yml
 - import_tasks: security/keepassxc.yml
 - import_tasks: virtualization/docker.yml
