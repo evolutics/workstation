@@ -15,8 +15,8 @@ main() {
     --build-arg git=2.24.1 \
     --build-arg gitlint=0.13.1 \
     --build-arg hunspell=1.7.0 \
-    --build-arg prettier=1.19.1 \
-    https://github.com/evolutics/code-cleaner-buffet.git#0.9.0)"
+    --build-arg prettier=2.0.2 \
+    https://github.com/evolutics/code-cleaner-buffet.git#0.10.0)"
   docker run --rm --volume "$(pwd)":/workdir "${image_id}" ci/check.sh
 
   popd
