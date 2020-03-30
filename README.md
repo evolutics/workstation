@@ -10,7 +10,7 @@
    ansible-galaxy collection install --requirements-file requirements.yml
    ansible-galaxy role install --role-file requirements.yml
    ansible-playbook --ask-become-pass local.yml \
-     --extra-vars '{"email_address": "…"}'
+     --extra-vars '{"email_address": "…", "expansions": false}'
 
    popd
    rm --force --recursive -- "${folder}"
