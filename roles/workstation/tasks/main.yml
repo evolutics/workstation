@@ -1,33 +1,39 @@
-- import_tasks: maintenance/legacy_cleanup.yml
-- import_tasks: maintenance/package_repositories.yml
+- name: Before
+  block:
+    - import_tasks: maintenance/legacy_cleanup.yml
+    - import_tasks: maintenance/package_repositories.yml
 
-- import_tasks: communication/chromium.yml
-- import_tasks: desktop_environment/design.yml
-- import_tasks: desktop_environment/variety.yml
-- import_tasks: desktop_publishing/latex.yml
-- import_tasks: desktop_publishing/pdftk_server.yml
-- import_tasks: development/general/ansible.yml
-- import_tasks: development/general/bash.yml
-- import_tasks: development/general/direnv.yml
-- import_tasks: development/general/git.yml
-- import_tasks: development/general/visual_studio_code.yml
-- import_tasks: development/general/xclip.yml
-- import_tasks: development/special/jetbrains_toolbox_app.yml
-- import_tasks: file_system/gnome_disks.yml
-- import_tasks: locale/keyboard_layout.yml
-- import_tasks: maintenance/startup_disk_creator.yml
-- import_tasks: multimedia/flameshot.yml
-- import_tasks: multimedia/gimp.yml
-- import_tasks: multimedia/inkscape.yml
-- import_tasks: multimedia/kazam.yml
-- import_tasks: multimedia/kdenlive.yml
-- import_tasks: multimedia/vlc_media_player.yml
-- import_tasks: remote_desktop/openvpn.yml
-- import_tasks: remote_desktop/remmina.yml
-- import_tasks: security/keepassxc.yml
-- import_tasks: virtualization/docker.yml
-- import_tasks: virtualization/vagrant.yml
-- import_tasks: virtualization/virtualbox.yml
+- name: Main
+  block:
+    - import_tasks: communication/chromium.yml
+    - import_tasks: desktop_environment/design.yml
+    - import_tasks: desktop_environment/variety.yml
+    - import_tasks: desktop_publishing/latex.yml
+    - import_tasks: desktop_publishing/pdftk_server.yml
+    - import_tasks: development/general/ansible.yml
+    - import_tasks: development/general/bash.yml
+    - import_tasks: development/general/direnv.yml
+    - import_tasks: development/general/git.yml
+    - import_tasks: development/general/visual_studio_code.yml
+    - import_tasks: development/general/xclip.yml
+    - import_tasks: development/special/jetbrains_toolbox_app.yml
+    - import_tasks: file_system/gnome_disks.yml
+    - import_tasks: locale/keyboard_layout.yml
+    - import_tasks: maintenance/startup_disk_creator.yml
+    - import_tasks: multimedia/flameshot.yml
+    - import_tasks: multimedia/gimp.yml
+    - import_tasks: multimedia/inkscape.yml
+    - import_tasks: multimedia/kazam.yml
+    - import_tasks: multimedia/kdenlive.yml
+    - import_tasks: multimedia/vlc_media_player.yml
+    - import_tasks: remote_desktop/openvpn.yml
+    - import_tasks: remote_desktop/remmina.yml
+    - import_tasks: security/keepassxc.yml
+    - import_tasks: virtualization/docker.yml
+    - import_tasks: virtualization/vagrant.yml
+    - import_tasks: virtualization/virtualbox.yml
 
-- import_tasks: maintenance/package_updates.yml
-- import_tasks: maintenance/package_cleanup.yml
+- name: After
+  block:
+    - import_tasks: maintenance/package_updates.yml
+    - import_tasks: maintenance/package_cleanup.yml
