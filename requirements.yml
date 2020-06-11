@@ -1,8 +1,4 @@
-collections:
-  - name: crivetimihai.virtualization
-
 roles:
   - src: gantsign.visual-studio-code
-  - src: geerlingguy.ansible
   - src: geerlingguy.docker
   - src: jaredhocutt.jetbrains_toolbox

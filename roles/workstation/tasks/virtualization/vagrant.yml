@@ -1,3 +1,4 @@
 - name: Install Vagrant
-  import_role:
-    name: crivetimihai.virtualization.vagrant
+  become: true
+  apt:
+    name: vagrant
