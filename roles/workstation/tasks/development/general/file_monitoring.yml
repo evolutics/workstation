@@ -1,0 +1,5 @@
+- name: Configure file monitoring limit for editors
+  become: true
+  sysctl:
+    name: fs.inotify.max_user_watches
+    value: "524288"

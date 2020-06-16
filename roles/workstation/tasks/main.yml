@@ -11,6 +11,7 @@
     - import_tasks: development/general/ansible.yml
     - import_tasks: development/general/bash.yml
     - import_tasks: development/general/direnv.yml
+    - import_tasks: development/general/file_monitoring.yml
     - import_tasks: development/general/git.yml
     - import_tasks: development/general/visual_studio_code.yml
     - import_tasks: development/general/xclip.yml
