@@ -1,0 +1,7 @@
+- name: Configure Firefox defaults
+  become: true
+  lineinfile:
+    path: /etc/firefox/syspref.js
+    line: "{{ item }}"
+  with_items:
+    - 'pref("signon.rememberSignons", false);'

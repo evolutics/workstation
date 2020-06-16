@@ -5,6 +5,7 @@
 
 - name: Main
   block:
+    - import_tasks: communication/browser_configuration.yml
     - import_tasks: desktop_environment/design.yml
     - import_tasks: desktop_environment/variety.yml
     - import_tasks: desktop_publishing/pdftk_server.yml
