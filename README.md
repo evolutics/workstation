@@ -9,7 +9,7 @@
 
    ansible-galaxy collection install --requirements-file requirements.yml
    ansible-galaxy role install --role-file requirements.yml
-   ansible-playbook --ask-become-pass local.yml \
+   ansible-playbook --ask-become-pass playbook.yml \
      --extra-vars '{"email_address": "…", "expansions": false}'
 
    popd

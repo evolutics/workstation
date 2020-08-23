@@ -5,7 +5,7 @@ set -o nounset
 set -o pipefail
 
 check_with_ansible_lint() {
-  ansible-lint local.yml
+  ansible-lint playbook.yml
 }
 
 check_with_git() {
