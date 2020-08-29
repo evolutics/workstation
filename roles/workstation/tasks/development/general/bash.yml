@@ -4,7 +4,7 @@
     regexp: "{{ item.regexp }}"
     line: "{{ item.line }}"
   with_items:
-    - regexp: "^export HISTFILESIZE="
-      line: "export HISTFILESIZE=200000"
-    - regexp: "^export HISTSIZE="
-      line: "export HISTSIZE=100000"
+    - regexp: "^HISTFILESIZE="
+      line: "HISTFILESIZE=200000"
+    - regexp: "^HISTSIZE="
+      line: "HISTSIZE=100000"
