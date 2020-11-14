@@ -16,7 +16,7 @@ main() {
 
   docker run --rm --volume "$(pwd)":/workdir \
     "$(DOCKER_BUILDKIT=1 docker build --build-arg ansible_lint=4.3.5 --quiet \
-    https://github.com/evolutics/code-cleaner-buffet.git#0.14.0)" \
+      https://github.com/evolutics/code-cleaner-buffet.git#0.14.0)" \
     ansible-lint
 
   popd
