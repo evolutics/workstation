@@ -7,8 +7,7 @@ set -o pipefail
 main() {
   local -r script_folder="$(dirname "$(readlink --canonicalize "$0")")"
   local -r project_folder="$(dirname "${script_folder}")"
-
-  pushd "${project_folder}"
+  cd "${project_folder}"
 
   docker run --entrypoint sh --rm --volume "$(pwd)":/workdir \
     evolutics/travel-kit:0.6.0 -c \
@@ -18,8 +17,6 @@ main() {
     "$(DOCKER_BUILDKIT=1 docker build --build-arg ansible_lint=4.3.5 --quiet \
       https://github.com/evolutics/code-cleaner-buffet.git#0.14.0)" \
     ansible-lint
-
-  popd
 }
 
 main "$@"
