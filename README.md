@@ -4,7 +4,7 @@
    sudo apt install git
 
    folder="$(mktemp --directory)"
-   pushd "${folder}"
+   cd "${folder}"
    git clone https://github.com/evolutics/workstation .
 
    ansible-galaxy collection install --requirements-file requirements.yml
@@ -12,7 +12,7 @@
    ansible-playbook --ask-become-pass playbook.yml \
      --extra-vars '{"email_address": "…", "expansions": false}'
 
-   popd
+   cd -
    rm --force --recursive -- "${folder}"
 
    reboot
