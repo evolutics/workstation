@@ -1,4 +1,6 @@
-- name: Install VirtualBox
+- name: Install VirtualBox with extras
   become: true
   apt:
-    name: virtualbox
+    pkg:
+      - virtualbox
+      - virtualbox-ext-pack
