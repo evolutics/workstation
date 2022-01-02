@@ -1,6 +1,5 @@
 - name: Before
   block:
-    - import_tasks: maintenance/legacy_cleanup.yml
     - import_tasks: maintenance/package_repositories.yml
 
 - name: Main
