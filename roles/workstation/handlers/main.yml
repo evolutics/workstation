@@ -1,1 +1,1 @@
-- import_tasks: reload_user_profile.yml
+- import_tasks: reconfigure_keyboard_configuration.yml

@@ -1,0 +1,3 @@
+- name: Reconfigure keyboard configuration
+  become: true
+  command: dpkg-reconfigure --frontend noninteractive keyboard-configuration

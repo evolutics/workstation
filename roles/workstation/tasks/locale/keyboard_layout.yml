@@ -5,11 +5,17 @@
     state: absent
     purge: true
 - name: Configure keyboard layouts Neo 2 as major and US as minor
+  become: true
   lineinfile:
-    path: "{{ ansible_env.HOME }}/.profile"
-    regexp: "^setxkbmap "
-    line: "setxkbmap -layout de,us -variant neo,"
-  notify: Reload user profile
+    path: /etc/default/keyboard
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - regexp: "^XKBLAYOUT="
+      line: 'XKBLAYOUT="de,us"'
+    - regexp: "^XKBVARIANT="
+      line: 'XKBVARIANT="neo,"'
+  notify: Reconfigure keyboard configuration
 - name: Configure XKB plugin for Xfce panel
   block:
     - name: Add plugin
