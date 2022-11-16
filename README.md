@@ -5,7 +5,7 @@
 
    folder="$(mktemp --directory)"
    cd "${folder}"
-   git clone https://github.com/evolutics/workstation .
+   git clone git@github.com:evolutics/workstation.git .
 
    ansible-galaxy collection install --requirements-file requirements.yml
    ansible-galaxy role install --role-file requirements.yml
