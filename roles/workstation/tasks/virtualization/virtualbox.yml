@@ -1,6 +1,0 @@
-- name: Install VirtualBox with extras
-  become: true
-  apt:
-    pkg:
-      - virtualbox
-      - virtualbox-ext-pack

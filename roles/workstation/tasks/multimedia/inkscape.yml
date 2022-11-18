@@ -1,4 +1,0 @@
-- name: Install Inkscape
-  become: true
-  apt:
-    name: inkscape

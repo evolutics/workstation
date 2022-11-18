@@ -1,8 +1,0 @@
-- name: Install Docker
-  become: true
-  import_role:
-    name: geerlingguy.docker
-  vars:
-    docker_compose_version: "1.29.2"
-    docker_users:
-      - "{{ ansible_user_id }}"

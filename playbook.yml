@@ -1,3 +1,56 @@
 - hosts: localhost
-  roles:
-    - workstation
+  tasks:
+    - name: Update repositories cache
+      become: true
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Remove packages
+      become: true
+      ansible.builtin.package:
+        name:
+          - mousepad
+          - numlockx # Remove due to possible issue with Neo 2 keyboard layout.
+        state: absent
+
+    - name: Configure keyboard layouts Neo 2 as major and US as minor
+      become: true
+      ansible.builtin.lineinfile:
+        line: "{{ item.line }}"
+        path: /etc/default/keyboard
+        regexp: "{{ item.regexp }}"
+      notify: Reconfigure keyboard configuration
+      with_items:
+        - line: 'XKBLAYOUT="de,us"'
+          regexp: "^XKBLAYOUT="
+        - line: 'XKBVARIANT="neo,"'
+          regexp: "^XKBVARIANT="
+
+    - name: Modify Firefox default preferences
+      become: true
+      ansible.builtin.copy:
+        dest: /etc/firefox
+        src: firefox/policies
+
+    - name: Install packages
+      become: true
+      ansible.builtin.package:
+        name:
+          - usb-creator-gtk
+          - variety
+          - virtualbox
+
+    - name: Update all present packages
+      become: true
+      ansible.builtin.apt:
+        upgrade: full
+
+    - name: Clean up packages
+      become: true
+      ansible.builtin.apt:
+        autoclean: true
+        autoremove: true
+  handlers:
+    - name: Reconfigure keyboard configuration
+      become: true
+      ansible.builtin.command: dpkg-reconfigure --frontend noninteractive keyboard-configuration

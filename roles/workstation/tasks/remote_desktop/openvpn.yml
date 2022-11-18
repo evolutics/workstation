@@ -1,7 +1,0 @@
-- name: Install OpenVPN
-  become: true
-  apt:
-    name:
-      - net-tools
-      - openvpn
-      - openvpn-systemd-resolved

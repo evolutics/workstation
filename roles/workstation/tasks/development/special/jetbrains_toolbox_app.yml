@@ -1,3 +1,0 @@
-- name: Install JetBrains Toolbox App
-  import_role:
-    name: jaredhocutt.jetbrains_toolbox

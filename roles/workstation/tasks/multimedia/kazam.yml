@@ -1,4 +1,0 @@
-- name: Install Kazam
-  become: true
-  apt:
-    name: kazam

@@ -1,4 +1,0 @@
-roles:
-  - src: gantsign.visual-studio-code
-  - src: geerlingguy.docker
-  - src: jaredhocutt.jetbrains_toolbox

@@ -1,4 +1,0 @@
-- name: Install VLC media player
-  become: true
-  apt:
-    name: vlc
