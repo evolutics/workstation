@@ -19,6 +19,7 @@
       vscode-extensions.eamodio.gitlens
       vscode-extensions.esbenp.prettier-vscode
       vscode-extensions.streetsidesoftware.code-spell-checker
+      xclip
     ];
 
     stateVersion = "22.05";
