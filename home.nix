@@ -16,6 +16,13 @@
 
   programs.home-manager.enable = true;
 
+  programs.bash = {
+    enable = true;
+    historyControl = ["ignoredups" "ignorespace"];
+    historyFileSize = 200000;
+    historySize = 100000;
+  };
+
   programs.git = {
     enable = true;
     userName = "Foo Bar";
