@@ -16,6 +16,7 @@
       flameshot
       git
       pdftk
+      vlc
       vscode
       vscode-extensions.eamodio.gitlens
       vscode-extensions.esbenp.prettier-vscode
