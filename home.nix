@@ -13,6 +13,7 @@
     packages = with pkgs; [
       alejandra
       ansible
+      flameshot
       git
       pdftk
       vscode
@@ -69,6 +70,9 @@
   };
 
   xfconf.settings = {
+    xfce4-keyboard-shortcuts = {
+      "commands/custom/Print" = "flameshot gui";
+    };
     xfwm4 = {
       "general/theme" = "Numix";
     };
