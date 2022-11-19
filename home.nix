@@ -21,6 +21,9 @@
     historyControl = ["ignoredups" "ignorespace"];
     historyFileSize = 200000;
     historySize = 100000;
+    shellAliases = {
+      ls = "ls --color=auto";
+    };
   };
 
   programs.git = {
