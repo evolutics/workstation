@@ -26,6 +26,7 @@ in
         vscode
         vscode-extensions.eamodio.gitlens
         vscode-extensions.esbenp.prettier-vscode
+        vscode-extensions.kamadorueda.alejandra
         vscode-extensions.streetsidesoftware.code-spell-checker
         xclip
       ];
@@ -66,6 +67,7 @@ in
         extensions = with pkgs.vscode-extensions; [
           eamodio.gitlens
           esbenp.prettier-vscode
+          kamadorueda.alejandra
           streetsidesoftware.code-spell-checker
         ];
         userSettings = {
