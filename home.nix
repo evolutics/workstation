@@ -10,9 +10,12 @@
     pkgs.ansible
     pkgs.git
     pkgs.pdftk
+    pkgs.vscode
   ];
 
   home.stateVersion = "22.05";
+
+  nixpkgs.config.allowUnfree = true;
 
   programs.home-manager.enable = true;
 
