@@ -4,6 +4,10 @@
   ...
 }: {
   home = {
+    file.".config/nix/nix.conf".text = ''
+      experimental-features = flakes nix-command
+    '';
+
     homeDirectory = "/home/foo";
 
     packages = [
