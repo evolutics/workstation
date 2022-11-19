@@ -1,87 +1,90 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  home = {
-    file.".config/nix/nix.conf".text = ''
-      experimental-features = flakes nix-command
-    '';
+let
+  customization = import ./customization.nix;
+in
+  {
+    config,
+    pkgs,
+    ...
+  }: {
+    home = {
+      file.".config/nix/nix.conf".text = ''
+        experimental-features = flakes nix-command
+      '';
 
-    homeDirectory = "/home/foo";
+      homeDirectory = "/home/${customization.username}";
 
-    packages = with pkgs; [
-      alejandra
-      ansible
-      docker
-      flameshot
-      git
-      keepassxc
-      pdftk
-      vagrant
-      vlc
-      vscode
-      vscode-extensions.eamodio.gitlens
-      vscode-extensions.esbenp.prettier-vscode
-      vscode-extensions.streetsidesoftware.code-spell-checker
-      xclip
-    ];
+      packages = with pkgs; [
+        alejandra
+        ansible
+        docker
+        flameshot
+        git
+        keepassxc
+        pdftk
+        vagrant
+        vlc
+        vscode
+        vscode-extensions.eamodio.gitlens
+        vscode-extensions.esbenp.prettier-vscode
+        vscode-extensions.streetsidesoftware.code-spell-checker
+        xclip
+      ];
 
-    stateVersion = "22.05";
+      stateVersion = "22.05";
 
-    username = "foo";
-  };
-
-  nixpkgs.config.allowUnfree = true;
-
-  programs = {
-    bash = {
-      enable = true;
-      historyControl = ["ignoredups" "ignorespace"];
-      historyFileSize = 200000;
-      historySize = 100000;
-      shellAliases = {
-        ls = "ls --color=auto";
-      };
+      username = customization.username;
     };
 
-    git = {
-      enable = true;
-      extraConfig = {
-        core = {
-          editor = "code --wait";
+    nixpkgs.config.allowUnfree = true;
+
+    programs = {
+      bash = {
+        enable = true;
+        historyControl = ["ignoredups" "ignorespace"];
+        historyFileSize = 200000;
+        historySize = 100000;
+        shellAliases = {
+          ls = "ls --color=auto";
         };
       };
-      userEmail = "foo@example.com";
-      userName = "Foo Bar";
-    };
 
-    home-manager.enable = true;
+      git = {
+        enable = true;
+        extraConfig = {
+          core = {
+            editor = "code --wait";
+          };
+        };
+        userEmail = customization.email;
+        userName = customization.name;
+      };
 
-    vscode = {
-      enable = true;
-      extensions = with pkgs.vscode-extensions; [
-        eamodio.gitlens
-        esbenp.prettier-vscode
-        streetsidesoftware.code-spell-checker
-      ];
-      userSettings = {
-        "diffEditor.ignoreTrimWhitespace" = false;
-        "editor.formatOnSave" = true;
-        "editor.rulers" = [80];
+      home-manager.enable = true;
+
+      vscode = {
+        enable = true;
+        extensions = with pkgs.vscode-extensions; [
+          eamodio.gitlens
+          esbenp.prettier-vscode
+          streetsidesoftware.code-spell-checker
+        ];
+        userSettings = {
+          "diffEditor.ignoreTrimWhitespace" = false;
+          "editor.formatOnSave" = true;
+          "editor.rulers" = [80];
+        };
       };
     };
-  };
 
-  xfconf.settings = {
-    xfce4-keyboard-shortcuts = {
-      "commands/custom/Print" = "flameshot gui";
+    xfconf.settings = {
+      xfce4-keyboard-shortcuts = {
+        "commands/custom/Print" = "flameshot gui";
+      };
+      xfwm4 = {
+        "general/theme" = "Numix";
+      };
+      xsettings = {
+        "Net/ThemeName" = "Numix";
+      };
     };
-    xfwm4 = {
-      "general/theme" = "Numix";
-    };
-    xsettings = {
-      "Net/ThemeName" = "Numix";
-    };
-  };
-}
+  }
