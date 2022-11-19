@@ -16,6 +16,9 @@
       pkgs.git
       pkgs.pdftk
       pkgs.vscode
+      pkgs.vscode-extensions.eamodio.gitlens
+      pkgs.vscode-extensions.esbenp.prettier-vscode
+      pkgs.vscode-extensions.streetsidesoftware.code-spell-checker
     ];
 
     stateVersion = "22.05";
@@ -48,6 +51,15 @@
     };
 
     home-manager.enable = true;
+
+    vscode = {
+      enable = true;
+      extensions = with pkgs.vscode-extensions; [
+        eamodio.gitlens
+        esbenp.prettier-vscode
+        streetsidesoftware.code-spell-checker
+      ];
+    };
   };
 
   xfconf.settings = {
