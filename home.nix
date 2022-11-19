@@ -59,6 +59,11 @@
         esbenp.prettier-vscode
         streetsidesoftware.code-spell-checker
       ];
+      userSettings = {
+        "diffEditor.ignoreTrimWhitespace" = false;
+        "editor.formatOnSave" = true;
+        "editor.rulers" = [80];
+      };
     };
   };
 
