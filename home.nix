@@ -8,6 +8,7 @@
 
   home.packages = [
     pkgs.git
+    pkgs.ansible
   ];
 
   home.stateVersion = "22.05";
