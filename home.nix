@@ -9,6 +9,7 @@
   home.packages = [
     pkgs.ansible
     pkgs.git
+    pkgs.pdftk
   ];
 
   home.stateVersion = "22.05";
