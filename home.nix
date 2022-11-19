@@ -15,6 +15,7 @@
       ansible
       flameshot
       git
+      keepassxc
       pdftk
       vlc
       vscode
