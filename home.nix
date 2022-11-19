@@ -86,6 +86,7 @@ in
       };
       xfwm4 = {
         "general/theme" = "Numix";
+        "general/workspace_count" = 2;
       };
       xsettings = {
         "Net/ThemeName" = "Numix";
