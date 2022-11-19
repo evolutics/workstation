@@ -20,4 +20,13 @@
     userName = "Foo Bar";
     userEmail = "foo@example.com";
   };
+
+  xfconf.settings = {
+    xfwm4 = {
+      "general/theme" = "Numix";
+    };
+    xsettings = {
+      "Net/ThemeName" = "Numix";
+    };
+  };
 }
