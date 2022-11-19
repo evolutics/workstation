@@ -13,6 +13,7 @@
     packages = with pkgs; [
       alejandra
       ansible
+      docker
       flameshot
       git
       keepassxc
