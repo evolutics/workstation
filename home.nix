@@ -33,6 +33,11 @@
 
     git = {
       enable = true;
+      extraConfig = {
+        core = {
+          editor = "code --wait";
+        };
+      };
       userEmail = "foo@example.com";
       userName = "Foo Bar";
     };
