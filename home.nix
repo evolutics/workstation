@@ -10,15 +10,15 @@
 
     homeDirectory = "/home/foo";
 
-    packages = [
-      pkgs.alejandra
-      pkgs.ansible
-      pkgs.git
-      pkgs.pdftk
-      pkgs.vscode
-      pkgs.vscode-extensions.eamodio.gitlens
-      pkgs.vscode-extensions.esbenp.prettier-vscode
-      pkgs.vscode-extensions.streetsidesoftware.code-spell-checker
+    packages = with pkgs; [
+      alejandra
+      ansible
+      git
+      pdftk
+      vscode
+      vscode-extensions.eamodio.gitlens
+      vscode-extensions.esbenp.prettier-vscode
+      vscode-extensions.streetsidesoftware.code-spell-checker
     ];
 
     stateVersion = "22.05";
