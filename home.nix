@@ -7,6 +7,7 @@
     homeDirectory = "/home/foo";
 
     packages = [
+      pkgs.alejandra
       pkgs.ansible
       pkgs.git
       pkgs.pdftk
