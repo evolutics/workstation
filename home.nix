@@ -4,7 +4,6 @@
   ...
 }: {
   home = {
-    username = "foo";
     homeDirectory = "/home/foo";
 
     packages = [
@@ -15,13 +14,13 @@
     ];
 
     stateVersion = "22.05";
+
+    username = "foo";
   };
 
   nixpkgs.config.allowUnfree = true;
 
   programs = {
-    home-manager.enable = true;
-
     bash = {
       enable = true;
       historyControl = ["ignoredups" "ignorespace"];
@@ -34,9 +33,11 @@
 
     git = {
       enable = true;
-      userName = "Foo Bar";
       userEmail = "foo@example.com";
+      userName = "Foo Bar";
     };
+
+    home-manager.enable = true;
   };
 
   xfconf.settings = {
