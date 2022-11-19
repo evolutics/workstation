@@ -28,6 +28,7 @@ in
         vscode-extensions.esbenp.prettier-vscode
         vscode-extensions.kamadorueda.alejandra
         vscode-extensions.streetsidesoftware.code-spell-checker
+        vscode-extensions.timonwong.shellcheck
         xclip
       ];
 
@@ -69,6 +70,7 @@ in
           esbenp.prettier-vscode
           kamadorueda.alejandra
           streetsidesoftware.code-spell-checker
+          timonwong.shellcheck
         ];
         userSettings = {
           "diffEditor.ignoreTrimWhitespace" = false;
