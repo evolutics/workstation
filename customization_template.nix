@@ -6,6 +6,8 @@
       inkscape
       jetbrains.idea-community
       kazam
+      nettools
+      openvpn
       remmina
     ];
   name = "Foo Bar";
