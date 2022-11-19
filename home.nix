@@ -7,8 +7,8 @@
   home.homeDirectory = "/home/foo";
 
   home.packages = [
-    pkgs.git
     pkgs.ansible
+    pkgs.git
   ];
 
   home.stateVersion = "22.05";
