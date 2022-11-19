@@ -18,6 +18,7 @@
       git
       keepassxc
       pdftk
+      vagrant
       vlc
       vscode
       vscode-extensions.eamodio.gitlens
