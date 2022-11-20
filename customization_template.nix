@@ -3,6 +3,7 @@
   extra_packages = pkgs:
     with pkgs; [
       chromium
+      gradle
       inkscape
       jetbrains.idea-community
       kazam
