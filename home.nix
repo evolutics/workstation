@@ -7,7 +7,7 @@
 in {
   home = {
     file = let
-      standard_files = {
+      standardFiles = {
         ".config/nix/nix.conf" = ''
           experimental-features = flakes nix-command
         '';
@@ -15,13 +15,13 @@ in {
     in
       builtins.mapAttrs (file: contents: {
         text = contents;
-      }) (standard_files // customization.extras.files);
+      }) (standardFiles // customization.extras.files);
 
     homeDirectory = "/home/${customization.identity.username}";
 
     packages = let
-      extra_packages = customization.extras.packages pkgs;
-      standard_packages = with pkgs; [
+      extraPackages = customization.extras.packages pkgs;
+      standardPackages = with pkgs; [
         alejandra
         ansible
         curl
@@ -39,7 +39,7 @@ in {
         xclip
       ];
     in
-      standard_packages ++ extra_packages;
+      standardPackages ++ extraPackages;
 
     stateVersion = "22.05";
 

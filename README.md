@@ -14,7 +14,7 @@
    cd ~/.config/nixpkgs
    rm home.nix
    git clone git@github.com:evolutics/workstation.git .
-   cp customization_template.nix customization.nix
+   cp customization.template.nix customization.nix
 
    sudo apt remove git
    ```
@@ -27,7 +27,7 @@
 
    # Customize as you wish.
    nano customization.nix
-   diff customization_template.nix customization.nix
+   diff customization.template.nix customization.nix
 
    nix-channel --update
    home-manager switch
