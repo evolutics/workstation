@@ -75,6 +75,7 @@ in {
     };
 
     git = {
+      delta.enable = true;
       enable = true;
       extraConfig = {
         core = {
