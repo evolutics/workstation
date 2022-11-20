@@ -23,7 +23,7 @@
           - variety
           - virtualbox
 
-    - name: Configure keyboard layouts Neo 2 as major and US as minor
+    - name: Configure keyboard layouts
       become: true
       ansible.builtin.lineinfile:
         line: "{{ item.line }}"
@@ -35,7 +35,7 @@
         - line: 'XKBVARIANT="neo,"'
           regexp: "^XKBVARIANT="
 
-    - name: Modify Firefox default preferences
+    - name: Configure Firefox
       become: true
       ansible.builtin.copy:
         dest: /etc/firefox
