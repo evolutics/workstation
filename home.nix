@@ -21,6 +21,7 @@ in {
         flameshot
         keepassxc
         kubectl
+        nodePackages.npm
         pdftk
         podman
         rustup
