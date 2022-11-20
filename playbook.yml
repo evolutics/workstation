@@ -1,4 +1,5 @@
-- hosts: localhost
+- name: Do system-wide setup
+  hosts: localhost
   tasks:
     - name: Update repositories cache
       become: true
