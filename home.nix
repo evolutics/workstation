@@ -81,6 +81,7 @@ in {
           editor = "code --wait";
         };
       };
+      package = pkgs.gitAndTools.gitFull;
       userEmail = customization.identity.email;
       userName = customization.identity.name;
     };
