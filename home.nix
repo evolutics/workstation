@@ -21,6 +21,7 @@ in {
         flameshot
         git
         keepassxc
+        kubectl
         pdftk
         podman
         vagrant
