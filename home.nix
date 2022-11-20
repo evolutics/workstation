@@ -94,6 +94,9 @@ in {
         "diffEditor.ignoreTrimWhitespace" = false;
         "editor.formatOnSave" = true;
         "editor.rulers" = [80];
+        "workbench.editorAssociations" = {
+          "git-rebase-todo" = "default";
+        };
       };
     };
   };
