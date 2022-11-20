@@ -10,10 +10,10 @@ in {
       experimental-features = flakes nix-command
     '';
 
-    homeDirectory = "/home/${customization.username}";
+    homeDirectory = "/home/${customization.identity.username}";
 
     packages = let
-      extra_packages = customization.extra_packages pkgs;
+      extra_packages = customization.extras.packages pkgs;
       standard_packages = with pkgs; [
         alejandra
         ansible
@@ -36,7 +36,7 @@ in {
 
     stateVersion = "22.05";
 
-    username = customization.username;
+    username = customization.identity.username;
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -64,8 +64,8 @@ in {
           editor = "code --wait";
         };
       };
-      userEmail = customization.email;
-      userName = customization.name;
+      userEmail = customization.identity.email;
+      userName = customization.identity.name;
     };
 
     home-manager.enable = true;
