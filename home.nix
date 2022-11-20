@@ -24,6 +24,7 @@ in {
         kubectl
         pdftk
         podman
+        skaffold
         vagrant
         vlc
         vscode
