@@ -23,6 +23,7 @@ in
           git
           keepassxc
           pdftk
+          podman
           vagrant
           vlc
           vscode
