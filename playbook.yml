@@ -36,6 +36,7 @@
       become: true
       ansible.builtin.package:
         name:
+          - uidmap # For Podman.
           - usb-creator-gtk
           - variety
           - virtualbox

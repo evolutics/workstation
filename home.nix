@@ -8,6 +8,13 @@ in {
   home = {
     file = let
       standardFiles = {
+        ".config/containers/policy.json" = builtins.toJSON {
+          default = [
+            {
+              type = "insecureAcceptAnything";
+            }
+          ];
+        };
         ".config/nix/nix.conf" = ''
           experimental-features = flakes nix-command
         '';
