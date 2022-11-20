@@ -1,41 +1,37 @@
 1. Install [Xubuntu](https://xubuntu.org).
 1. Install [Nix](https://nixos.org).
 1. Install [Home Manager](https://nix-community.github.io/home-manager/).
-1. Interactively run
+1. As a one time setup, run
 
    ```bash
    sudo apt install git
 
    cd ~/.config/nixpkgs
    rm home.nix
-   git clone git@github.com:evolutics/managed-home.git .
-
+   git clone git@github.com:evolutics/workstation.git .
    cp customization_template.nix customization.nix
+
+   sudo apt remove git
+   ```
+
+1. Then, run
+
+   ```bash
+   cd ~/.config/nixpkgs
+   git pull
+
    # Customize as you wish.
    nano customization.nix
+   diff customization_template.nix customization.nix
 
+   nix-channel --update
    home-manager switch
 
-   folder="$(mktemp --directory)"
-   cd "${folder}"
-   git clone git@github.com:evolutics/workstation.git .
    ansible-playbook --ask-become-pass playbook.yml
-   cd -
-   rm --force --recursive -- "${folder}"
-
    # Do this in interactive shell to accept license.
    sudo apt install virtualbox-ext-pack
 
    reboot
    ```
 
-1. Every time you wish to **update**, run
-
-   ```bash
-   cd ~/.config/nixpkgs
-   git pull
-   nix-channel --update
-   home-manager switch
-
-   ansible-playbook --ask-become-pass playbook.yml
-   ```
+   Repeat this step whenever you wish to **update**.
