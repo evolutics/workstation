@@ -17,6 +17,7 @@ in {
       standard_packages = with pkgs; [
         alejandra
         ansible
+        curl
         docker
         flameshot
         keepassxc
