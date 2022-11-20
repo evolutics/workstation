@@ -1,2 +1,0 @@
-warn_list:
-  - '208'  # File permissions unset or incorrect

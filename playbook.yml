@@ -30,6 +30,7 @@
       become: true
       ansible.builtin.copy:
         dest: /etc/firefox
+        mode: preserve
         src: firefox/policies
 
     - name: Install packages
