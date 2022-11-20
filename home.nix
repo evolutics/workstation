@@ -6,9 +6,16 @@
   customization = import ./customization.nix;
 in {
   home = {
-    file.".config/nix/nix.conf".text = ''
-      experimental-features = flakes nix-command
-    '';
+    file = let
+      standard_files = {
+        ".config/nix/nix.conf" = ''
+          experimental-features = flakes nix-command
+        '';
+      };
+    in
+      builtins.mapAttrs (file: contents: {
+        text = contents;
+      }) (standard_files // customization.extras.files);
 
     homeDirectory = "/home/${customization.identity.username}";
 
