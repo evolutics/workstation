@@ -23,6 +23,7 @@ in {
         kubectl
         pdftk
         podman
+        rustup
         skaffold
         vagrant
         vlc
