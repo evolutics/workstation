@@ -20,7 +20,6 @@
         line: "{{ item.line }}"
         path: /etc/default/keyboard
         regexp: "{{ item.regexp }}"
-      notify: Reconfigure keyboard configuration
       with_items:
         - line: 'XKBLAYOUT="de,us"'
           regexp: "^XKBLAYOUT="
@@ -52,7 +51,3 @@
       ansible.builtin.apt:
         autoclean: true
         autoremove: true
-  handlers:
-    - name: Reconfigure keyboard configuration
-      become: true
-      ansible.builtin.command: dpkg-reconfigure --frontend noninteractive keyboard-configuration
