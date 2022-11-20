@@ -19,7 +19,6 @@ in {
         ansible
         docker
         flameshot
-        git
         keepassxc
         kubectl
         pdftk
@@ -27,12 +26,6 @@ in {
         skaffold
         vagrant
         vlc
-        vscode
-        vscode-extensions.eamodio.gitlens
-        vscode-extensions.esbenp.prettier-vscode
-        vscode-extensions.kamadorueda.alejandra
-        vscode-extensions.streetsidesoftware.code-spell-checker
-        vscode-extensions.timonwong.shellcheck
         xclip
       ];
     in
