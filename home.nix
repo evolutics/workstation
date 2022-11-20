@@ -73,6 +73,7 @@ in {
         eamodio.gitlens
         esbenp.prettier-vscode
         kamadorueda.alejandra
+        matklad.rust-analyzer
         streetsidesoftware.code-spell-checker
         timonwong.shellcheck
       ];
