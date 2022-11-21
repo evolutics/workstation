@@ -72,7 +72,7 @@ in {
     };
 
     git = {
-      delta.enable = true;
+      diff-so-fancy.enable = true;
       enable = true;
       extraConfig = {
         core = {
