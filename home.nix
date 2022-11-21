@@ -53,19 +53,6 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   programs = {
-    bash = {
-      enable = true;
-      historyControl = ["ignoredups" "ignorespace"];
-      historyFileSize = 200000;
-      historySize = 100000;
-      initExtra = ''
-        export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
-      '';
-      shellAliases = {
-        ls = "ls --color=auto";
-      };
-    };
-
     direnv = {
       enable = true;
       nix-direnv.enable = true;
