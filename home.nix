@@ -32,6 +32,7 @@ in {
         flameshot
         keepassxc
         kubectl
+        minikube
         nodePackages.npm
         pdftk
         podman
