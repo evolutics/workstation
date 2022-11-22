@@ -15,8 +15,6 @@
    rm home.nix
    git clone git@github.com:evolutics/workstation.git .
    cp customization.template.nix customization.nix
-
-   sudo apt remove git
    ```
 
 1. Then, run
@@ -24,6 +22,7 @@
    ```bash
    cd ~/.config/nixpkgs
    git pull
+   sudo apt remove git
 
    # Customize as you wish.
    nano customization.nix
