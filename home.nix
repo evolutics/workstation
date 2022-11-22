@@ -95,12 +95,9 @@ in {
 
     zsh = {
       enable = true;
-      localVariables = {
-        ZSH_THEME_RANDOM_CANDIDATES = ["af-magic" "agnoster" "robbyrussell"];
-      };
       oh-my-zsh = {
         enable = true;
-        theme = "random";
+        theme = "af-magic";
       };
     };
   };
