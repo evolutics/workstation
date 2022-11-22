@@ -2,6 +2,7 @@
   extras = {
     files = {
       ".docker/daemon.json" = builtins.toJSON {
+        ip = "127.0.0.1";
         registry-mirrors = ["https://example.com"];
       };
       ".npmrc" = ''

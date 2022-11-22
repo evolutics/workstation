@@ -14,6 +14,9 @@ in {
         ".config/nix/nix.conf" = ''
           experimental-features = flakes nix-command
         '';
+        ".docker/daemon.json" = builtins.toJSON {
+          ip = "127.0.0.1";
+        };
       };
     in
       builtins.mapAttrs (file: contents: {
