@@ -78,14 +78,18 @@ in {
 
     vscode = {
       enable = true;
-      extensions = with pkgs.vscode-extensions; [
-        eamodio.gitlens
-        esbenp.prettier-vscode
-        kamadorueda.alejandra
-        matklad.rust-analyzer
-        streetsidesoftware.code-spell-checker
-        timonwong.shellcheck
-      ];
+      extensions = let
+        base = with pkgs.vscode-extensions; [
+          eamodio.gitlens
+          esbenp.prettier-vscode
+          kamadorueda.alejandra
+          matklad.rust-analyzer
+          streetsidesoftware.code-spell-checker
+          timonwong.shellcheck
+        ];
+        extra = customization.extra.vscodeExtensions pkgs;
+      in
+        base ++ extra;
       userSettings = {
         "diffEditor.ignoreTrimWhitespace" = false;
         "editor.formatOnSave" = true;
