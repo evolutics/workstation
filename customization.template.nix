@@ -1,5 +1,5 @@
 {
-  extras = {
+  extra = {
     files = {
       ".docker/daemon.json" = builtins.toJSON {
         ip = "127.0.0.1";

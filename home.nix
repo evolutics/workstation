@@ -3,7 +3,7 @@
 in {
   home = {
     file = let
-      standardFiles = {
+      base = {
         ".config/containers/policy.json" = builtins.toJSON {
           default = [
             {
@@ -21,13 +21,12 @@ in {
     in
       builtins.mapAttrs (file: contents: {
         text = contents;
-      }) (standardFiles // customization.extras.files);
+      }) (base // customization.extra.files);
 
     homeDirectory = "/home/${customization.identity.username}";
 
     packages = let
-      extraPackages = customization.extras.packages pkgs;
-      standardPackages = with pkgs; [
+      base = with pkgs; [
         alejandra
         ansible
         curl
@@ -45,8 +44,9 @@ in {
         vlc
         xclip
       ];
+      extra = customization.extra.packages pkgs;
     in
-      standardPackages ++ extraPackages;
+      base ++ extra;
 
     stateVersion = "22.05";
 
