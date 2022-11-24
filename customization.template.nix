@@ -20,7 +20,10 @@
         openvpn
         remmina
       ];
-    vscodeExtensions = pkgs: [];
+    vscodeExtensions = pkgs:
+      with pkgs.vscode-extensions; [
+        angular.ng-template
+      ];
   };
   identity = {
     email = "foo@example.com";
