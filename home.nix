@@ -80,6 +80,7 @@ in {
       enable = true;
       extensions = let
         base = with pkgs.vscode-extensions; [
+          bbenoist.nix
           eamodio.gitlens
           esbenp.prettier-vscode
           kamadorueda.alejandra
