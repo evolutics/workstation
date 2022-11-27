@@ -35,7 +35,6 @@ in {
         keepassxc
         kubectl
         minikube
-        nodePackages.npm
         pdftk
         podman
         rustup
