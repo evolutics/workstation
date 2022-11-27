@@ -18,6 +18,7 @@
       become: true
       ansible.builtin.package:
         name:
+          - libclang-dev
           - uidmap # For Podman.
           - usb-creator-gtk
           - variety
