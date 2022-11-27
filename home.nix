@@ -41,7 +41,6 @@ in {
         skaffold
         vagrant
         vlc
-        xclip
       ];
       extra = customization.extra.packages pkgs;
     in
