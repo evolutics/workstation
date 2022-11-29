@@ -59,6 +59,7 @@ in {
       historyControl = ["ignoredups" "ignorespace"];
       initExtra = ''
         export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+        PS1='\[\033[01;34m\]\w\[\033[00m\]\$ '
       '';
       shellAliases = {
         ls = "ls --color=auto";
