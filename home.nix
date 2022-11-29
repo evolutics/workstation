@@ -57,8 +57,6 @@ in {
     bash = {
       enable = true;
       historyControl = ["ignoredups" "ignorespace"];
-      historyFileSize = 200000;
-      historySize = 100000;
       initExtra = ''
         export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
       '';
