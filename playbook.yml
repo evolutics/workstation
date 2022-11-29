@@ -24,12 +24,6 @@
           - variety
           - virtualbox
 
-    - name: Configure login shell
-      become: true
-      ansible.builtin.user:
-        name: "{{ ansible_user_id }}"
-        shell: "{{ lookup('ansible.builtin.env', 'HOME') }}/.nix-profile/bin/zsh"
-
     - name: Configure keyboard layouts
       become: true
       ansible.builtin.lineinfile:
