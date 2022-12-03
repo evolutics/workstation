@@ -57,10 +57,7 @@ in {
     bash = {
       enable = true;
       historyControl = ["ignoredups" "ignorespace"];
-      initExtra = ''
-        export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
-        PS1='\[\033[01;34m\]\w\[\033[00m\]\$ '
-      '';
+      initExtra = builtins.readFile ./scripts/bash_init_extra.sh;
       shellAliases = {
         ls = "ls --color=auto";
       };
