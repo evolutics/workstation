@@ -2,7 +2,7 @@
 
 export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
 
-PS1='\[\e]0;\w\a$(_get_current_prompt_color_code)\]\w\[\e[0m\]\$ '
+PS1='\[\e]0;\w\a$(_get_current_prompt_color_code)\]\w\[\e[0m\] • '
 
 _get_current_prompt_color_code() {
   local -r seconds_per_day=86400
