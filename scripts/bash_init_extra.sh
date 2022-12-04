@@ -12,12 +12,20 @@ _get_current_prompt_color_code() {
   local -r seconds_per_color=$((seconds_per_day / (color_cycles_per_day * color_count)))
   local -r color_index=$(((EPOCHSECONDS / seconds_per_color) % color_count))
 
-  _cycle_through_4x4x4_cube _6_bit_xyz_to_ansi_color_code "${color_index}"
+  local xyz
+  mapfile -t xyz < <(_cycle_through_4x4x4_cube "${color_index}")
+  readonly xyz
+
+  local -r r=$((xyz[0] + 1))
+  local -r g=$((xyz[1] + 1))
+  local -r b=$((xyz[2] + 1))
+  local -r ansi_color_number=$((16 + 36 * r + 6 * g + b))
+
+  printf '\e[38;5;%sm' "${ansi_color_number}"
 }
 
 _cycle_through_4x4x4_cube() {
-  local -r process_xyz="$1"
-  local -r index="$2"
+  local -r index="$1"
 
   # Go through cube corners on this cycle (recursively):
   #
@@ -54,18 +62,5 @@ _cycle_through_4x4x4_cube() {
   local -r y=$((${high_xyz:1:1} << 1 | ${low_xyz:1:1}))
   local -r z=$((${high_xyz:2:1} << 1 | ${low_xyz:2:1}))
 
-  "${process_xyz}" "${x}" "${y}" "${z}"
-}
-
-_6_bit_xyz_to_ansi_color_code() {
-  local -r x=$1
-  local -r y=$2
-  local -r z=$3
-
-  local -r r=$((x + 1))
-  local -r g=$((y + 1))
-  local -r b=$((z + 1))
-  local -r number=$((16 + 36 * r + 6 * g + b))
-
-  printf '\e[38;5;%sm' "${number}"
+  printf '%s\n%s\n%s\n' "${x}" "${y}" "${z}"
 }
