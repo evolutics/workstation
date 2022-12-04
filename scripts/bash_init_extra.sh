@@ -31,6 +31,14 @@ _cycle_through_4x4x4_cube() {
   #
   # The shifts guarantee that the cycle does not have "jumps": 2 consecutive
   # coordinate triples (x, y, z) always differ by exactly 1 in terms of 1-norm.
+  # For example, the first 2 subcubes (0 and 1 above) are visited on this path:
+  #
+  #       ┌──────7 ┄┄┄┄ 8──────
+  #       │                   ╱
+  #     ┏━━━━━━0      ┏━━━━━━
+  #     ┃ └──────     ┃ 15─────
+  #     ┃       ╱     ┃       ╱
+  #     ┗━━━━━━       ┗━━━━━━
 
   local -r cube_cycle=(000 100 110 010 011 111 101 001)
   local -r cycle_shifts=(6 4 0 6 2 0 4 2)
