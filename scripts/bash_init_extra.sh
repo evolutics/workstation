@@ -5,6 +5,7 @@ export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
 PROMPT_COMMAND=_update_current_bash_prompt
 
 _update_current_bash_prompt() {
+  local -r exit_status="$?"
   local -r terminal_title='\[\e]0;\w\a\]'
 
   local -r seconds_per_day=86400
@@ -26,7 +27,13 @@ _update_current_bash_prompt() {
   local -r color_code="\e[38;5;${ansi_color_number}m"
   local -r color_reset='\e[0m'
 
-  local -r separator=' • '
+  local separator
+  if [[ "${exit_status}" -eq 0 ]]; then
+    separator=' • '
+  else
+    separator=' ◘ '
+  fi
+  readonly separator
 
   PS1="${terminal_title}\[${color_code}\]\w\[${color_reset}\]${separator}"
 }
