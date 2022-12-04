@@ -2,9 +2,11 @@
 
 export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
 
-PS1='\[\e]0;\w\a$(_get_current_prompt_color_code)\]\w\[\e[0m\] • '
+PROMPT_COMMAND=_update_current_bash_prompt
 
-_get_current_prompt_color_code() {
+_update_current_bash_prompt() {
+  local -r terminal_title='\[\e]0;\w\a\]'
+
   local -r seconds_per_day=86400
   local -r color_cycles_per_day=2
   local -r color_count=64
@@ -21,7 +23,12 @@ _get_current_prompt_color_code() {
   local -r b=$((xyz[2] + 1))
   local -r ansi_color_number=$((16 + 36 * r + 6 * g + b))
 
-  printf '\e[38;5;%sm' "${ansi_color_number}"
+  local -r color_code="\e[38;5;${ansi_color_number}m"
+  local -r color_reset='\e[0m'
+
+  local -r separator=' • '
+
+  PS1="${terminal_title}\[${color_code}\]\w\[${color_reset}\]${separator}"
 }
 
 _cycle_through_4x4x4_cube() {
