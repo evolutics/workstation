@@ -15,16 +15,16 @@ _update_current_bash_prompt() {
   local -r seconds_per_color=$((seconds_per_day / (color_cycles_per_day * color_count)))
   local -r color_index=$(((EPOCHSECONDS / seconds_per_color) % color_count))
 
-  local xyz
-  mapfile -t xyz < <(_cycle_through_4x4x4_cube "${color_index}")
-  readonly xyz
+  local color_xyz
+  mapfile -t color_xyz < <(_cycle_through_4x4x4_cube "${color_index}")
+  readonly color_xyz
 
-  local -r r=$((xyz[0] + 1))
-  local -r g=$((xyz[1] + 1))
-  local -r b=$((xyz[2] + 1))
-  local -r ansi_color_number=$((16 + 36 * r + 6 * g + b))
+  local -r red=$((color_xyz[0] + 1))
+  local -r green=$((color_xyz[1] + 1))
+  local -r blue=$((color_xyz[2] + 1))
+  local -r ansi_8_bit_color_number=$((16 + 36 * red + 6 * green + blue))
 
-  local -r color_code="\e[38;5;${ansi_color_number}m"
+  local -r color_code="\e[38;5;${ansi_8_bit_color_number}m"
   local -r color_reset='\e[0m'
 
   local separator
