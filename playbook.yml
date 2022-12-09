@@ -19,6 +19,7 @@
       ansible.builtin.package:
         name:
           - libclang-dev
+          - python3-venv
           - uidmap # For Podman.
           - usb-creator-gtk
           - variety
