@@ -18,6 +18,7 @@
       become: true
       ansible.builtin.package:
         name:
+          - containernetworking-plugins # For Podman.
           - libclang-dev
           - python3-venv
           - uidmap # For Podman.
