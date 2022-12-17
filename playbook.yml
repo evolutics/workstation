@@ -19,6 +19,7 @@
       ansible.builtin.package:
         name:
           - containernetworking-plugins # For Podman.
+          - golang-github-containernetworking-plugin-dnsname # For Podman.
           - libclang-dev
           - python3-venv
           - uidmap # For Podman.
