@@ -11,6 +11,11 @@ in {
             }
           ];
         };
+        ".config/containers/registries.conf" = ''
+          [[registry]]
+          prefix = "docker.io"
+          location = "mirror.gcr.io"
+        '';
         ".config/nix/nix.conf" = ''
           experimental-features = flakes nix-command
         '';

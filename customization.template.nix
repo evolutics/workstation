@@ -1,6 +1,11 @@
 {
   extra = {
     files = {
+      ".config/containers/registries.conf" = ''
+        [[registry]]
+        prefix = "docker.io"
+        location = "example.com"
+      '';
       ".docker/daemon.json" = builtins.toJSON {
         ip = "127.0.0.1";
         registry-mirrors = ["https://example.com"];
