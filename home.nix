@@ -99,6 +99,7 @@ in {
           esbenp.prettier-vscode
           kamadorueda.alejandra
           matklad.rust-analyzer
+          ms-python.python
           streetsidesoftware.code-spell-checker
           timonwong.shellcheck
         ];
@@ -110,6 +111,7 @@ in {
         "editor.formatOnSave" = true;
         "editor.inlayHints.enabled" = "offUnlessPressed";
         "editor.rulers" = [80];
+        "python.formatting.provider" = "black";
         "workbench.editorAssociations" = {
           "git-rebase-todo" = "default";
         };
