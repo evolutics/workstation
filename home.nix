@@ -35,6 +35,7 @@ in {
       base = with pkgs; [
         alejandra
         ansible
+        black
         curl
         docker
         flameshot
