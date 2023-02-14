@@ -30,10 +30,7 @@
 
    nix-channel --update
    home-manager switch
-
    ansible-playbook --ask-become-pass playbook.yml
-   # Do this in interactive shell to accept license.
-   sudo apt install virtualbox-ext-pack
 
    reboot
    ```
