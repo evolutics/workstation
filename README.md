@@ -31,6 +31,7 @@
    nix-channel --update
    home-manager switch
    ansible-playbook --ask-become-pass playbook.yml
+   snap refresh
 
    reboot
    ```
