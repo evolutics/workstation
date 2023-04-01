@@ -40,6 +40,7 @@ in {
         curl
         docker
         flameshot
+        haskellPackages.hadolint
         keepassxc
         kubectl
         minikube
