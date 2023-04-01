@@ -11,7 +11,7 @@
    ```bash
    sudo apt install git
 
-   cd ~/.config/nixpkgs
+   cd ~/.config/home-manager
    rm home.nix
    git clone git@github.com:evolutics/workstation.git .
    cp customization.template.nix customization.nix
@@ -20,7 +20,7 @@
 1. Then, run
 
    ```bash
-   cd ~/.config/nixpkgs
+   cd ~/.config/home-manager
    git pull
    sudo apt remove git
 
