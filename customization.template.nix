@@ -3,7 +3,8 @@
     files = {
       ".config/containers/registries.conf" = ''
         [[registry]]
-        prefix = "docker.io"
+        location = "docker.io"
+        [[registry.mirror]]
         location = "example.com"
       '';
       ".docker/daemon.json" = builtins.toJSON {
