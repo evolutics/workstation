@@ -4,6 +4,8 @@
      additional driver later.
    - If you like to encrypt your system, it is easiest to do so by selecting
      this option now during the installation.
+   - If the desktop freezes on first usage, try booting in recovery mode, then
+     choose "dpkg: Repair broken packages" from the menu.
 1. Install [Nix](https://nixos.org).
 1. Install [Home Manager](https://nix-community.github.io/home-manager/).
 1. As a one time setup, run
