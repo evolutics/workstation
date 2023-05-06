@@ -15,7 +15,7 @@
 
    cd ~/.config/home-manager
    rm home.nix
-   git clone git@github.com:evolutics/workstation.git .
+   git clone https://github.com/evolutics/workstation.git .
    cp customization.template.nix customization.nix
    ```
 
