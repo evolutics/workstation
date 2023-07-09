@@ -22,6 +22,7 @@
           - golang-github-containernetworking-plugin-dnsname # For Podman.
           - libclang-dev
           - python3-venv
+          - rsnapshot
           - steam
           - uidmap # For Podman.
           - usb-creator-gtk
@@ -46,6 +47,13 @@
         dest: /etc/firefox
         mode: preserve
         src: firefox/policies
+
+    - name: Configure rsnapshot
+      become: true
+      ansible.builtin.copy:
+        dest: /etc/rsnapshot.conf
+        mode: preserve
+        src: rsnapshot.conf
 
     - name: Update all present packages
       become: true
