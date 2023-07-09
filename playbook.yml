@@ -36,7 +36,7 @@
         line: "{{ item.line }}"
         path: /etc/default/keyboard
         regexp: "{{ item.regexp }}"
-      with_items:
+      loop:
         - line: 'XKBLAYOUT="de,us"'
           regexp: "^XKBLAYOUT="
         - line: 'XKBVARIANT="neo,"'
