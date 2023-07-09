@@ -51,7 +51,7 @@
 
     - name: Configure rsnapshot
       become: true
-      ansible.builtin.copy:
+      ansible.builtin.template:
         dest: /etc/rsnapshot.conf
         mode: preserve
         src: rsnapshot.conf
