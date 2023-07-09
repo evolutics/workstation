@@ -18,6 +18,7 @@
       become: true
       ansible.builtin.package:
         name:
+          - anacron
           - containernetworking-plugins # For Podman.
           - golang-github-containernetworking-plugin-dnsname # For Podman.
           - libclang-dev
@@ -54,6 +55,17 @@
         dest: /etc/rsnapshot.conf
         mode: preserve
         src: rsnapshot.conf
+
+    - name: Configure Anacron jobs
+      become: true
+      ansible.builtin.copy:
+        dest: "/etc/{{ item }}"
+        mode: preserve
+        src: "{{ item }}"
+      loop:
+        - cron.daily/back_up.sh
+        - cron.monthly/back_up.sh
+        - cron.weekly/back_up.sh
 
     - name: Update all present packages
       become: true
