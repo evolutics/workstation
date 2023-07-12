@@ -61,11 +61,11 @@
       ansible.builtin.copy:
         dest: "/etc/{{ item }}"
         mode: preserve
-        src: "{{ item }}"
+        src: "{{ item }}.sh"
       loop:
-        - cron.daily/back_up.sh
-        - cron.monthly/back_up.sh
-        - cron.weekly/back_up.sh
+        - cron.daily/back_up
+        - cron.monthly/back_up
+        - cron.weekly/back_up
 
     - name: Update all present packages
       become: true
