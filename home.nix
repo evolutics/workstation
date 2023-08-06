@@ -55,7 +55,7 @@ in {
     in
       base ++ extra;
 
-    stateVersion = "22.05";
+    stateVersion = "23.05";
 
     username = customization.identity.username;
   };
