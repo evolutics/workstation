@@ -46,6 +46,7 @@ in {
         minikube
         pdftk
         podman
+        podman-compose
         rustup
         skaffold
         vagrant
