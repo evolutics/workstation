@@ -45,6 +45,7 @@ in {
         keepassxc
         kubectl
         minikube
+        nodePackages.prettier
         pdftk
         podman
         podman-compose
