@@ -22,6 +22,7 @@
           - containernetworking-plugins # For Podman.
           - golang-github-containernetworking-plugin-dnsname # For Podman.
           - libclang-dev
+          - linux-headers-generic # For VirtualBox.
           - python3-venv
           - rsnapshot
           - steam
@@ -29,6 +30,7 @@
           - usb-creator-gtk
           - variety
           - virtualbox
+          - virtualbox-dkms # For VirtualBox.
 
     - name: Configure keyboard layouts
       become: true
