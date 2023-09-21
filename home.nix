@@ -41,6 +41,7 @@ in {
         docker
         flameshot
         haskellPackages.hadolint
+        jq
         keepassxc
         kubectl
         minikube
