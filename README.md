@@ -30,7 +30,6 @@
    nano customization.nix
    diff customization.template.nix customization.nix
 
-   nix-channel --update
    home-manager switch
    ansible-playbook --ask-become-pass playbook.yml
    snap refresh
