@@ -51,6 +51,7 @@ in {
         podman-compose
         rustup
         skaffold
+        texlive.combined.scheme-medium
         vagrant
         vlc
       ];
