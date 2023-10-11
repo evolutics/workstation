@@ -18,9 +18,7 @@
     packages = pkgs:
       with pkgs; [
         chromium
-        gradle
         inkscape
-        jetbrains.idea-community
         kazam
         nettools
         openvpn
@@ -28,7 +26,6 @@
       ];
     vscodeExtensions = pkgs:
       with pkgs.vscode-extensions; [
-        angular.ng-template
       ];
   };
   identity = {
