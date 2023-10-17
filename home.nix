@@ -109,7 +109,7 @@ in {
           esbenp.prettier-vscode
           kamadorueda.alejandra
           matklad.rust-analyzer
-          ms-python.python
+          ms-python.black-formatter
           streetsidesoftware.code-spell-checker
           timonwong.shellcheck
         ];
@@ -117,11 +117,13 @@ in {
       in
         base ++ extra;
       userSettings = {
+        "[python]" = {
+          "editor.defaultFormatter" = "ms-python.black-formatter";
+        };
         "diffEditor.ignoreTrimWhitespace" = false;
         "editor.formatOnSave" = true;
         "editor.inlayHints.enabled" = "offUnlessPressed";
         "editor.rulers" = [80];
-        "python.formatting.provider" = "black";
         "workbench.editorAssociations" = {
           "git-rebase-todo" = "default";
         };
