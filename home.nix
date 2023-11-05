@@ -1,6 +1,8 @@
 {pkgs, ...}: let
   customization = import ./customization.nix;
 in {
+  fonts.fontconfig.enable = true;
+
   home = {
     file = let
       base = {
@@ -49,6 +51,7 @@ in {
         pdftk
         podman
         podman-compose
+        roboto
         rustup
         skaffold
         texlive.combined.scheme-medium
