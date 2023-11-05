@@ -23,6 +23,7 @@
         nettools
         openvpn
         remmina
+        terraform
       ];
     vscodeExtensions = pkgs:
       with pkgs.vscode-extensions; [
