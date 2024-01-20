@@ -17,6 +17,7 @@
    rm home.nix
    git clone https://github.com/evolutics/workstation.git .
    cp customization.template.nix customization.nix
+   cp scripts/autostart.template.sh scripts/autostart.sh
    ```
 
 1. Then, run
@@ -29,6 +30,7 @@
    # Customize as you wish.
    nano customization.nix
    diff customization.template.nix customization.nix
+   nano scripts/autostart.sh
 
    rm flake.lock
    home-manager switch
