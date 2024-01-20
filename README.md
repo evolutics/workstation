@@ -20,17 +20,20 @@
    cp scripts/autostart.template.sh scripts/autostart.sh
    ```
 
+1. Customize as you wish with
+
+   ```bash
+   nano customization.nix
+   diff customization.template.nix customization.nix
+   nano scripts/autostart.sh
+   ```
+
 1. Then, run
 
    ```bash
    cd ~/.config/home-manager
    git pull
    sudo apt remove git
-
-   # Customize as you wish.
-   nano customization.nix
-   diff customization.template.nix customization.nix
-   nano scripts/autostart.sh
 
    rm flake.lock
    home-manager switch
