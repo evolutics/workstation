@@ -10,7 +10,6 @@ in {
           [Desktop Entry]
           Exec=/home/${customization.identity.username}/.config/home-manager/scripts/autostart.sh
           Name=Custom autostart
-          Terminal=false
           Type=Application
         '';
         ".config/containers/policy.json" = builtins.toJSON {
