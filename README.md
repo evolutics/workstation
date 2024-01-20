@@ -16,6 +16,7 @@
    cd ~/.config/home-manager
    rm home.nix
    git clone https://github.com/evolutics/workstation.git .
+
    cp customization.template.nix customization.nix
    cp scripts/autostart.template.sh scripts/autostart.sh
    ```
