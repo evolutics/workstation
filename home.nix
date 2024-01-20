@@ -140,6 +140,11 @@ in {
     };
   };
 
+  # The following makes `xdg.mimeApps.defaultApplications` work.
+  targets.genericLinux.enable = true;
+
+  xdg.mimeApps.defaultApplications = {"text/plain" = ["code.desktop"];};
+
   xfconf.settings = {
     xfce4-keyboard-shortcuts = {
       "commands/custom/Print" = "flameshot gui";
