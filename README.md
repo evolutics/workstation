@@ -45,3 +45,9 @@
    ```
 
    Repeat this step whenever you wish to **update**.
+
+1. Optionally collect garbage with
+
+   ```bash
+   nix-collect-garbage --delete-older-than 30d
+   ```
