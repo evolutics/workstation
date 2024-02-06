@@ -90,6 +90,11 @@ in {
     };
 
     direnv = {
+      config = {
+        global = {
+          strict_env = true;
+        };
+      };
       enable = true;
       nix-direnv.enable = true;
     };
