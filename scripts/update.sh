@@ -48,7 +48,8 @@ configure_keyboard_layouts() {
 }
 
 configure_firefox() {
-  sudo rsync --archive --verbose files/firefox/policies /etc/firefox
+  sudo rsync --archive --mkpath --verbose files/firefox_policies.json \
+    /etc/firefox/policies/policies.json
 }
 
 configure_rsnapshot() {
