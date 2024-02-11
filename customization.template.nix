@@ -19,7 +19,6 @@
       with pkgs; [
         # docker
 
-        chromium
         inkscape
         kazam
         nettools

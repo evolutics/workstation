@@ -45,6 +45,7 @@ in {
         alejandra
         ansible
         black
+        chromium
         curl
         flameshot
         haskellPackages.hadolint
