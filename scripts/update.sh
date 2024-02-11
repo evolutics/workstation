@@ -8,12 +8,12 @@ update_repositories_cache() {
   sudo apt-get update
 }
 
-remove_packages() {
+purge_packages() {
   local -r packages=(
     mousepad
-    numlockx # Remove due to possible issue with Neo 2 keyboard layout.
+    numlockx # Purge due to possible issue with Neo 2 keyboard layout.
   )
-  sudo apt-get remove -- "${packages[@]}"
+  sudo apt-get purge -- "${packages[@]}"
 }
 
 install_packages() {
@@ -83,7 +83,7 @@ main() {
 
   for function in \
     update_repositories_cache \
-    remove_packages \
+    purge_packages \
     install_packages \
     configure_keyboard_layouts \
     configure_firefox \
