@@ -23,7 +23,6 @@ install_packages() {
     golang-github-containernetworking-plugin-dnsname # For Podman.
     libclang-dev
     linux-headers-generic # For VirtualBox.
-    python3-venv
     rsnapshot
     steam
     uidmap # For Podman.
