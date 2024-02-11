@@ -32,6 +32,12 @@
           - virtualbox
           - virtualbox-dkms # For VirtualBox.
 
+    - name: Install snaps
+      become: true
+      community.general.snap:
+        name:
+          - chromium
+
     - name: Configure keyboard layouts
       become: true
       ansible.builtin.lineinfile:
