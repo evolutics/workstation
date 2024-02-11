@@ -59,8 +59,8 @@ configure_rsnapshot() {
 
 configure_anacron_jobs() {
   for frequency in daily monthly weekly; do
-    sudo cp "files/cron.${frequency}/back_up.sh" \
-      "/etc/cron.${frequency}/back_up"
+    sed "s/{{ frequency }}/${frequency}/g" files/back_up.sh \
+      | sudo tee "/etc/cron.${frequency}/back_up" >/dev/null
   done
 }
 

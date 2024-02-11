@@ -4,4 +4,4 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-/usr/bin/rsnapshot daily
+/usr/bin/rsnapshot '{{ frequency }}'
