@@ -88,8 +88,11 @@ main() {
     update_all_present_packages \
     configure_home \
     collect_garbage; do
-    printf '§ %s\n\n' "${function}"
-    "${function}"
+    printf '§\n\n'
+    (
+      set -o xtrace
+      "${function}"
+    )
     printf '\n\n'
   done
 }
