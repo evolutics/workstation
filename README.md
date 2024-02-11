@@ -18,7 +18,7 @@
    git clone https://github.com/evolutics/workstation.git .
 
    cp customization.template.nix customization.nix
-   cp scripts/autostart.template.sh scripts/autostart.sh
+   cp configuration/autostart.template.sh configuration/autostart.sh
    ```
 
 1. Customize as you wish with
@@ -26,7 +26,7 @@
    ```bash
    nano customization.nix
    diff customization.template.nix customization.nix
-   nano scripts/autostart.sh
+   nano configuration/autostart.sh
    ```
 
 1. Then, run

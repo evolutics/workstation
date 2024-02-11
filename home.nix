@@ -8,7 +8,7 @@ in {
       base = {
         ".config/autostart/custom.desktop" = ''
           [Desktop Entry]
-          Exec=/home/${customization.identity.username}/.config/home-manager/scripts/autostart.sh
+          Exec=/home/${customization.identity.username}/.config/home-manager/configuration/autostart.sh
           Name=Custom autostart
           Type=Application
         '';
@@ -82,7 +82,7 @@ in {
     bash = {
       enable = true;
       historyControl = ["ignoredups" "ignorespace"];
-      initExtra = builtins.readFile ./scripts/bash_init_extra.sh;
+      initExtra = builtins.readFile ./configuration/bash_init_extra.sh;
       shellAliases = {
         ls = "ls --color=auto";
       };

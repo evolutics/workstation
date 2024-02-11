@@ -48,18 +48,18 @@ configure_keyboard_layouts() {
 }
 
 configure_firefox() {
-  sudo rsync --archive --mkpath --verbose files/firefox_policies.json \
+  sudo rsync --archive --mkpath --verbose configuration/firefox_policies.json \
     /etc/firefox/policies/policies.json
 }
 
 configure_rsnapshot() {
-  sed "s/{{ USER }}/${USER}/g" templates/rsnapshot.conf \
+  sed "s/{{ USER }}/${USER}/g" configuration/rsnapshot.conf \
     | sudo tee /etc/rsnapshot.conf >/dev/null
 }
 
 configure_anacron_jobs() {
   for frequency in daily monthly weekly; do
-    sed "s/{{ frequency }}/${frequency}/g" files/back_up.sh \
+    sed "s/{{ frequency }}/${frequency}/g" configuration/back_up.sh \
       | sudo tee "/etc/cron.${frequency}/back_up" >/dev/null
   done
 }
