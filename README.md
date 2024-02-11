@@ -37,8 +37,8 @@
    sudo apt remove git
 
    rm flake.lock
-   home-manager switch
    scripts/update.sh
+   home-manager switch
    snap refresh
 
    reboot
