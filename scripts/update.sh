@@ -65,7 +65,10 @@ update_all_present_packages() {
 }
 
 configure_home() {
-  home-manager switch
+  # Try `home-manager switch` twice because it sometimes fails due to issue
+  # https://github.com/nix-community/home-manager/issues/2033.
+  # TODO: Remove workaround once issue is fixed.
+  home-manager switch || home-manager switch
 }
 
 collect_garbage() {
