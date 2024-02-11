@@ -83,7 +83,7 @@ main() {
     collect_garbage; do
     printf '§ %s\n\n' "${function}"
     "${function}"
-    printf "\n\n"
+    printf '\n\n'
   done
 }
 
