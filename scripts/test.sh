@@ -10,8 +10,6 @@ main() {
 
   git ls-files -z | xargs -0 nix run --no-write-lock-file \
     github:evolutics/travel-kit -- check --
-
-  nix run nixpkgs#ansible-lint
 }
 
 main "$@"

@@ -38,7 +38,7 @@
 
    rm flake.lock
    home-manager switch
-   ansible-playbook --ask-become-pass playbook.yml
+   scripts/update.sh
    snap refresh
 
    reboot
