@@ -61,6 +61,7 @@ configure_backup() {
 
 update_all_present_packages() {
   sudo apt-get dist-upgrade
+  sudo snap refresh
 }
 
 collect_garbage() {

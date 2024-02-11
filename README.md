@@ -39,7 +39,6 @@
    rm flake.lock
    scripts/update.sh
    home-manager switch
-   snap refresh
 
    reboot
    ```
