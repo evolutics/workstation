@@ -38,7 +38,6 @@
 
    rm flake.lock
    scripts/update.sh
-   home-manager switch
 
    reboot
    ```

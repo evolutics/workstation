@@ -64,6 +64,10 @@ update_all_present_packages() {
   sudo snap refresh
 }
 
+configure_home() {
+  home-manager switch
+}
+
 collect_garbage() {
   sudo apt-get autoclean
   sudo apt-get autoremove
@@ -81,6 +85,7 @@ main() {
     configure_firefox \
     configure_backup \
     update_all_present_packages \
+    configure_home \
     collect_garbage; do
     printf '§ %s\n\n' "${function}"
     "${function}"
