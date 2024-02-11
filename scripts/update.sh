@@ -69,8 +69,8 @@ configure_home() {
 }
 
 collect_garbage() {
-  sudo apt-get autoclean
   sudo apt-get autoremove
+  sudo apt-get clean
   nix-collect-garbage --delete-older-than 30d --quiet
 }
 
