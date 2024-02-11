@@ -32,9 +32,7 @@ install_packages() {
     virtualbox-dkms # For VirtualBox.
   )
   sudo apt-get install -- "${packages[@]}"
-}
 
-install_snaps() {
   sudo snap install \
     chromium
 }
@@ -51,12 +49,10 @@ configure_firefox() {
     /etc/firefox/policies/policies.json
 }
 
-configure_rsnapshot() {
+configure_backup() {
   sed "s/{{ USER }}/${USER}/g" configuration/rsnapshot.conf \
     | sudo tee /etc/rsnapshot.conf >/dev/null
-}
 
-configure_anacron_jobs() {
   for frequency in daily monthly weekly; do
     sed "s/{{ frequency }}/${frequency}/g" configuration/back_up.sh \
       | sudo tee "/etc/cron.${frequency}/back_up" >/dev/null
@@ -67,7 +63,7 @@ update_all_present_packages() {
   sudo apt-get dist-upgrade
 }
 
-clean_up_packages() {
+collect_garbage() {
   sudo apt-get autoclean
   sudo apt-get autoremove
 }
@@ -80,13 +76,11 @@ main() {
     update_repositories_cache \
     remove_packages \
     install_packages \
-    install_snaps \
     configure_keyboard_layouts \
     configure_firefox \
-    configure_rsnapshot \
-    configure_anacron_jobs \
+    configure_backup \
     update_all_present_packages \
-    clean_up_packages; do
+    collect_garbage; do
     printf '§ %s\n\n' "${function}"
     "${function}"
     printf "\n\n"
