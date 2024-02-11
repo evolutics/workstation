@@ -46,7 +46,6 @@ in {
         ansible
         black
         curl
-        docker
         flameshot
         haskellPackages.hadolint
         jq

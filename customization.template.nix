@@ -17,6 +17,8 @@
     };
     packages = pkgs:
       with pkgs; [
+        # docker
+
         chromium
         inkscape
         kazam
