@@ -49,7 +49,7 @@ configure_firefox() {
 }
 
 configure_backup() {
-  sed "s/{{ USER }}/${USER}/g" configuration/rsnapshot.conf \
+  sed "s/{{ user }}/${USER}/g" configuration/rsnapshot.conf \
     | sudo tee /etc/rsnapshot.conf >/dev/null
 
   for frequency in daily monthly weekly; do
