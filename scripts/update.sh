@@ -27,7 +27,6 @@ install_packages() {
     steam
     uidmap # For Podman.
     usb-creator-gtk
-    variety
     virtualbox
     virtualbox-dkms # For VirtualBox.
   )

@@ -61,6 +61,7 @@ in {
         skaffold
         texlive.combined.scheme-medium
         vagrant
+        variety
         vlc
       ];
       extra = customization.extra.packages pkgs;
