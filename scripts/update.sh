@@ -58,7 +58,7 @@ configure_backup() {
   done
 }
 
-update_all_present_packages() {
+update_packages() {
   sudo apt-get dist-upgrade
   sudo snap refresh
 }
@@ -87,7 +87,7 @@ main() {
     configure_keyboard_layouts \
     configure_firefox \
     configure_backup \
-    update_all_present_packages \
+    update_packages \
     configure_home \
     collect_garbage; do
     printf '§\n\n'
