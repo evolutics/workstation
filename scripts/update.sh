@@ -36,6 +36,11 @@ install_packages() {
     chromium
 }
 
+update_packages() {
+  sudo apt-get dist-upgrade
+  sudo snap refresh
+}
+
 configure_keyboard_layouts() {
   sudo sed \
     --expression 's/^XKBLAYOUT=.*/XKBLAYOUT="de,us"/' \
@@ -56,11 +61,6 @@ configure_backup() {
     sed "s/{{ frequency }}/${frequency}/g" configuration/back_up.sh \
       | sudo tee "/etc/cron.${frequency}/back_up" >/dev/null
   done
-}
-
-update_packages() {
-  sudo apt-get dist-upgrade
-  sudo snap refresh
 }
 
 configure_home() {
@@ -84,10 +84,10 @@ main() {
     update_repositories_cache \
     purge_packages \
     install_packages \
+    update_packages \
     configure_keyboard_layouts \
     configure_firefox \
     configure_backup \
-    update_packages \
     configure_home \
     collect_garbage; do
     printf '§\n\n'
