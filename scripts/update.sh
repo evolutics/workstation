@@ -22,7 +22,9 @@ install_packages() {
     containernetworking-plugins                      # For Podman.
     golang-github-containernetworking-plugin-dnsname # For Podman.
     libclang-dev
+    libvirt-daemon-system
     linux-headers-generic # For VirtualBox.
+    qemu-kvm
     rsnapshot
     steam
     uidmap # For Podman.
@@ -70,6 +72,11 @@ configure_home() {
   home-manager switch || home-manager switch
 }
 
+configure_vagrant() {
+  vagrant plugin install vagrant-libvirt
+  vagrant plugin update vagrant-libvirt
+}
+
 collect_garbage() {
   sudo apt-get autoremove
   sudo apt-get clean
@@ -91,6 +98,7 @@ main() {
     configure_firefox \
     configure_backup \
     configure_home \
+    configure_vagrant \
     collect_garbage; do
     printf '§\n\n'
     (

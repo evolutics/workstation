@@ -62,6 +62,7 @@ in {
         texlive.combined.scheme-medium
         vagrant
         variety
+        virt-manager
         vlc
       ];
       extra = customization.extra.packages pkgs;
