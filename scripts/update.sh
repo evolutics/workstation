@@ -23,14 +23,11 @@ install_packages() {
     golang-github-containernetworking-plugin-dnsname # For Podman.
     libclang-dev
     libvirt-daemon-system
-    linux-headers-generic # For VirtualBox.
     qemu-kvm
     rsnapshot
     steam
     uidmap # For Podman.
     usb-creator-gtk
-    virtualbox
-    virtualbox-dkms # For VirtualBox.
   )
   sudo apt-get install -- "${packages[@]}"
 
