@@ -47,6 +47,7 @@ in {
         black
         curl
         flameshot
+        git-absorb
         haskellPackages.hadolint
         jq
         keepassxc
