@@ -1,0 +1,1 @@
+[[ -z "$(git status --porcelain)" ]]
