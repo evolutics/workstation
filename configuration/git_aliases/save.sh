@@ -1,1 +1,1 @@
-git add --all && git commit --allow-empty --message "${1:-WIP}" && :
+git add --all && git commit --message "${1:-WIP}" && :
