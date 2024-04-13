@@ -72,7 +72,7 @@ in {
 
     stateVersion = "23.05";
 
-    username = customization.identity.username;
+    inherit (customization.identity) username;
   };
 
   nixpkgs.config = {

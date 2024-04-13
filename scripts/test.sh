@@ -8,8 +8,7 @@ main() {
   local -r script_folder="$(dirname "$(readlink --canonicalize "$0")")"
   cd "$(dirname "${script_folder}")"
 
-  git ls-files -z | xargs -0 nix run --no-write-lock-file \
-    github:evolutics/travel-kit -- check --
+  nix run --no-write-lock-file github:evolutics/travel-kit
 }
 
 main "$@"
