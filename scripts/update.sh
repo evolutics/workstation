@@ -82,6 +82,12 @@ collect_garbage() {
   podman system prune --all --filter until=720h --force
 }
 
+check_if_restart_required() {
+  if [[ -f /var/run/reboot-required ]]; then
+    notify-send 'System restart required'
+  fi
+}
+
 main() {
   local -r script_folder="$(dirname "$(readlink --canonicalize "$0")")"
   cd "$(dirname "${script_folder}")"
@@ -96,7 +102,8 @@ main() {
     configure_backup \
     configure_home \
     configure_vagrant \
-    collect_garbage; do
+    collect_garbage \
+    check_if_restart_required; do
     printf '§\n\n'
     (
       set -o xtrace
