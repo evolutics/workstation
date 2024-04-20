@@ -112,7 +112,7 @@ in {
         is-clean = "!${builtins.readFile ./configuration/git_aliases/is_clean.sh}";
         lift = "!${builtins.readFile ./configuration/git_aliases/lift.sh}";
         restart = "!${builtins.readFile ./configuration/git_aliases/restart.sh}";
-        save = "!${builtins.readFile ./configuration/git_aliases/save.sh}";
+        save = "!${pkgs.lib.strings.removeSuffix "\n" (builtins.readFile ./configuration/git_aliases/save.sh)}";
         trim = "!${builtins.readFile ./configuration/git_aliases/trim.sh}";
       };
       diff-so-fancy.enable = true;
