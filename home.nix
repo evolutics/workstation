@@ -57,7 +57,6 @@ in {
         pdftk
         podman
         podman-compose
-        roboto
         rustup
         skaffold
         texlive.combined.scheme-medium
@@ -65,6 +64,11 @@ in {
         variety
         virt-manager
         vlc
+
+        merriweather
+        open-sans
+        roboto
+        roboto-slab
       ];
       extra = customization.extra.packages pkgs;
     in
