@@ -31,7 +31,6 @@ install_packages() {
   )
   sudo apt-get install -- "${packages[@]}"
 
-  sudo snap install brave
   sudo snap install chromium
 }
 
