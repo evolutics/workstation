@@ -56,7 +56,6 @@ in {
         nodePackages.prettier
         pdftk
         podman
-        podman-compose
         rustup
         skaffold
         texlive.combined.scheme-medium
