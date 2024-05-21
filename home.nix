@@ -91,6 +91,7 @@ in {
       initExtra = builtins.readFile ./configuration/bash_init_extra.sh;
       shellAliases = {
         a = "git status";
+        ll = "ls --all --classify -l";
         ls = "ls --color=auto";
       };
     };
