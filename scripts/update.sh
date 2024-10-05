@@ -19,15 +19,17 @@ purge_packages() {
 install_packages() {
   local -r packages=(
     anacron
-    containernetworking-plugins                      # For Podman.
-    golang-github-containernetworking-plugin-dnsname # For Podman.
     libclang-dev
     libvirt-daemon-system
     qemu-kvm
     rsnapshot
     steam
-    uidmap # For Podman.
     usb-creator-gtk
+
+    # For Podman:
+    containernetworking-plugins
+    golang-github-containernetworking-plugin-dnsname
+    uidmap
   )
   sudo apt-get install -- "${packages[@]}"
 
