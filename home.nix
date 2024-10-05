@@ -82,11 +82,7 @@ in {
     inherit (customization.identity) username;
   };
 
-  nixpkgs.config = {
-    # As `allowUnfree = true` does not work, we use the following instead
-    # (see https://github.com/nix-community/home-manager/issues/2942).
-    allowUnfreePredicate = _: true;
-  };
+  nixpkgs.config.allowUnfree = true;
 
   programs = {
     bash = {
