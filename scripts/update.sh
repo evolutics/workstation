@@ -19,7 +19,6 @@ purge_packages() {
 install_packages() {
   local -r packages=(
     anacron
-    libclang-dev
     libvirt-daemon-system
     qemu-kvm
     rsnapshot
