@@ -8,26 +8,15 @@ update_repositories_cache() {
   sudo apt-get update
 }
 
-purge_packages() {
-  local -r packages=(
-    mousepad
-    numlockx # Purge due to possible issue with Neo 2 keyboard layout.
-  )
-  sudo apt-get purge -- "${packages[@]}"
-}
-
 install_packages() {
   local -r packages=(
-    anacron
     libvirt-daemon-system
     qemu-kvm
     rsnapshot
     steam
-    usb-creator-gtk
 
     # For Podman:
-    containernetworking-plugins
-    golang-github-containernetworking-plugin-dnsname
+    golang-github-containers-common
     uidmap
   )
   sudo apt-get install -- "${packages[@]}"
@@ -41,10 +30,10 @@ update_packages() {
   sudo snap refresh
 }
 
-configure_keyboard_layouts() {
+configure_system_keyboard_layout() {
   sudo sed \
-    --expression 's/^XKBLAYOUT=.*/XKBLAYOUT="de,us"/' \
-    --expression 's/^XKBVARIANT=.*/XKBVARIANT="neo,"/' \
+    --expression 's/^XKBLAYOUT=.*/XKBLAYOUT="de"/' \
+    --expression 's/^XKBVARIANT=.*/XKBVARIANT="neo"/' \
     --in-place /etc/default/keyboard
 }
 
@@ -117,10 +106,9 @@ main() {
 
   for function in \
     update_repositories_cache \
-    purge_packages \
     install_packages \
     update_packages \
-    configure_keyboard_layouts \
+    configure_system_keyboard_layout \
     configure_firefox \
     configure_backup \
     upgrade_nix \

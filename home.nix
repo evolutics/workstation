@@ -1,6 +1,33 @@
-{pkgs, ...}: let
+{
+  lib,
+  pkgs,
+  ...
+}: let
   customization = import ./customization.nix;
 in {
+  dconf.settings = {
+    "org/gnome/desktop/input-sources" = {
+      sources = [
+        (lib.hm.gvariant.mkTuple ["xkb" "de+neo"])
+        (lib.hm.gvariant.mkTuple ["xkb" "us"])
+      ];
+    };
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      gtk-theme = "Yaru-dark";
+      icon-theme = "Yaru-dark";
+    };
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      binding = "<Ctrl>Print";
+      # Workaround for https://github.com/flameshot-org/flameshot/issues/3365.
+      command = "script --command 'flameshot gui' /dev/null";
+      name = "Take editable screenshot";
+    };
+  };
+
   fonts.fontconfig.enable = true;
 
   home = {
@@ -130,7 +157,6 @@ in {
     home-manager.enable = true;
   };
 
-  # The following makes `xdg.mimeApps.defaultApplications` work.
   targets.genericLinux.enable = true;
 
   xdg = {
@@ -138,19 +164,6 @@ in {
     mimeApps = {
       defaultApplications = {"text/plain" = ["code.desktop"];};
       enable = true;
-    };
-  };
-
-  xfconf.settings = {
-    xfce4-keyboard-shortcuts = {
-      "commands/custom/Print" = "flameshot gui";
-    };
-    xfwm4 = {
-      "general/theme" = "Numix";
-      "general/workspace_count" = 2;
-    };
-    xsettings = {
-      "Net/ThemeName" = "Numix";
     };
   };
 }

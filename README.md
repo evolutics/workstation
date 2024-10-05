@@ -1,8 +1,10 @@
-1. Install [Xubuntu](https://xubuntu.org).
+1. Install [Ubuntu](https://ubuntu.com).
+   - Applications installed to start with: change from "Default selection" to
+     "Extended selection" for office tools, startup disk creator, etc.
    - Based on experience, it is safest not to install third-party software at
      first (default). If there are any issues, you can still change to another
      additional driver later.
-   - If you like to encrypt your system, it is easiest to do so by selecting
+   - Disk setup: to encrypt your system, it is easiest to do so by selecting
      this option now during the installation.
    - If the desktop freezes on first usage, try booting in recovery mode, then
      choose "dpkg: Repair broken packages" from the menu.

@@ -14,9 +14,7 @@
     packages = pkgs:
       with pkgs; [
         inkscape
-        kazam
         openvpn
-        remmina
       ];
   };
   identity = {
