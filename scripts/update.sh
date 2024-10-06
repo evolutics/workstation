@@ -62,6 +62,13 @@ configure_backup() {
   done
 }
 
+upgrade_nix() {
+  nix-env --install --file '<nixpkgs>' --attr nix cacert \
+    -I nixpkgs=channel:nixpkgs-unstable
+  sudo systemctl daemon-reload
+  sudo systemctl restart nix-daemon
+}
+
 configure_home() {
   export NIX_CONFIG='experimental-features = flakes nix-command'
   # Try `home-manager switch` twice because it sometimes fails due to issue
@@ -102,6 +109,7 @@ main() {
     configure_keyboard_layouts \
     configure_firefox \
     configure_backup \
+    upgrade_nix \
     configure_home \
     configure_vagrant \
     collect_garbage \
