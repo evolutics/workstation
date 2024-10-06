@@ -26,6 +26,7 @@ in {
       command = "script --command 'flameshot gui' /dev/null";
       name = "Take editable screenshot";
     };
+    "org/gnome/shell/extensions/dash-to-dock" = {dock-fixed = false;};
   };
 
   fonts.fontconfig.enable = true;
