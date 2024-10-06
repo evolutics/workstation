@@ -77,7 +77,7 @@ in {
       GIT_COMPLETION_CHECKOUT_NO_GUESS = 1;
     };
 
-    stateVersion = "23.05";
+    stateVersion = "23.05"; # TODO: Update.
 
     inherit (customization.identity) username;
   };
