@@ -21,7 +21,6 @@
 
         inkscape
         kazam
-        nettools
         openvpn
         remmina
         terraform
