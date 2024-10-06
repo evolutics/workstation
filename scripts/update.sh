@@ -63,10 +63,12 @@ configure_backup() {
 }
 
 configure_home() {
+  export NIX_CONFIG='experimental-features = flakes nix-command'
   # Try `home-manager switch` twice because it sometimes fails due to issue
   # https://github.com/nix-community/home-manager/issues/2033.
   # TODO: Remove workaround once issue is fixed.
   home-manager switch || home-manager switch
+  unset NIX_CONFIG
 }
 
 configure_vagrant() {
