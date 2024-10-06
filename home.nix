@@ -13,11 +13,7 @@ in {
           Type=Application
         '';
         ".config/containers/policy.json" = builtins.toJSON {
-          default = [
-            {
-              type = "insecureAcceptAnything";
-            }
-          ];
+          default = [{type = "insecureAcceptAnything";}];
         };
         ".config/containers/registries.conf" = ''
           [[registry]]
@@ -99,11 +95,7 @@ in {
     };
 
     direnv = {
-      config = {
-        global = {
-          strict_env = true;
-        };
-      };
+      config = {global = {strict_env = true;};};
       enable = true;
       nix-direnv.enable = true;
     };
@@ -122,11 +114,7 @@ in {
         };
       diff-so-fancy.enable = true;
       enable = true;
-      extraConfig = {
-        core = {
-          editor = "code --wait";
-        };
-      };
+      extraConfig = {core = {editor = "code --wait";};};
       package = pkgs.gitAndTools.gitFull;
       userEmail = customization.identity.email;
       userName = customization.identity.name;
@@ -151,9 +139,7 @@ in {
       in
         base ++ extra;
       userSettings = {
-        "[python]" = {
-          "editor.defaultFormatter" = "ms-python.black-formatter";
-        };
+        "[python]" = {"editor.defaultFormatter" = "ms-python.black-formatter";};
         "diffEditor.ignoreTrimWhitespace" = false;
         "editor.formatOnSave" = true;
         "editor.inlayHints.enabled" = "offUnlessPressed";
