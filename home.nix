@@ -87,7 +87,7 @@ in {
   programs = {
     bash = {
       enable = true;
-      historyControl = ["ignoredups" "ignorespace"];
+      historyControl = ["ignoreboth"];
       initExtra = builtins.readFile ./configuration/bash_init_extra.sh;
       shellAliases = {
         a = "git branch && git status";
