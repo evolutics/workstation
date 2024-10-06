@@ -64,6 +64,7 @@ in {
         virt-manager
         vlc
 
+        # Font families:
         merriweather
         open-sans
         roboto
