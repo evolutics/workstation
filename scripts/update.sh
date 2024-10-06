@@ -87,7 +87,6 @@ collect_garbage() {
   sudo apt-get autoremove
   sudo apt-get clean
   nix-collect-garbage --delete-older-than 30d --quiet
-  docker system prune --all --filter until=720h --force
   podman system prune --all --filter until=720h --force
 }
 

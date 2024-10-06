@@ -7,18 +7,12 @@
         [[registry.mirror]]
         location = "example.com"
       '';
-      ".docker/daemon.json" = builtins.toJSON {
-        ip = "127.0.0.1";
-        registry-mirrors = ["https://example.com"];
-      };
       ".npmrc" = ''
         registry=https://example.com
       '';
     };
     packages = pkgs:
       with pkgs; [
-        # docker
-
         inkscape
         kazam
         openvpn

@@ -24,10 +24,6 @@ in {
         ".config/nix/nix.conf" = ''
           experimental-features = flakes nix-command
         '';
-        ".docker/daemon.json" = builtins.toJSON {
-          ip = "127.0.0.1";
-          registry-mirrors = ["https://mirror.gcr.io"];
-        };
       };
     in
       builtins.mapAttrs (file: contents: {
@@ -42,6 +38,7 @@ in {
         ansible
         black
         curl
+        docker
         flameshot
         git-absorb
         haskellPackages.hadolint
