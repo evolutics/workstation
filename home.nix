@@ -141,9 +141,7 @@ in {
         "editor.formatOnSave" = true;
         "editor.inlayHints.enabled" = "offUnlessPressed";
         "editor.rulers" = [80];
-        "workbench.editorAssociations" = {
-          "git-rebase-todo" = "default";
-        };
+        "workbench.editorAssociations" = {"git-rebase-todo" = "default";};
       };
     };
   };
