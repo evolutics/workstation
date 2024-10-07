@@ -18,9 +18,6 @@
         openvpn
         remmina
       ];
-    vscodeExtensions = pkgs:
-      with pkgs.vscode-extensions; [
-      ];
   };
   identity = {
     email = "foo@example.com";

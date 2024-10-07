@@ -32,6 +32,7 @@ install_packages() {
   )
   sudo apt-get install -- "${packages[@]}"
 
+  sudo snap install --classic code
   sudo snap install chromium
 }
 
@@ -78,6 +79,20 @@ configure_home() {
   unset NIX_CONFIG
 }
 
+manage_vs_code_extensions() {
+  code \
+    --install-extension bbenoist.nix \
+    --install-extension eamodio.gitlens \
+    --install-extension esbenp.prettier-vscode \
+    --install-extension kamadorueda.alejandra \
+    --install-extension ms-python.black-formatter \
+    --install-extension rust-lang.rust-analyzer \
+    --install-extension streetsidesoftware.code-spell-checker \
+    --install-extension timonwong.shellcheck
+
+  code --update-extensions
+}
+
 configure_vagrant() {
   vagrant plugin install vagrant-libvirt
   vagrant plugin update vagrant-libvirt
@@ -110,6 +125,7 @@ main() {
     configure_backup \
     upgrade_nix \
     configure_home \
+    manage_vs_code_extensions \
     configure_vagrant \
     collect_garbage \
     check_if_restart_required; do

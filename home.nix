@@ -12,6 +12,16 @@ in {
           Name=Custom autostart
           Type=Application
         '';
+        ".config/Code/User/settings.json" = builtins.toJSON {
+          "[python]" = {
+            "editor.defaultFormatter" = "ms-python.black-formatter";
+          };
+          "diffEditor.ignoreTrimWhitespace" = false;
+          "editor.formatOnSave" = true;
+          "editor.inlayHints.enabled" = "offUnlessPressed";
+          "editor.rulers" = [80];
+          "workbench.editorAssociations" = {"git-rebase-todo" = "default";};
+        };
         ".config/containers/policy.json" = builtins.toJSON {
           default = [{type = "insecureAcceptAnything";}];
         };
@@ -118,32 +128,6 @@ in {
     };
 
     home-manager.enable = true;
-
-    vscode = {
-      enable = true;
-      extensions = let
-        base = with pkgs.vscode-extensions; [
-          bbenoist.nix
-          eamodio.gitlens
-          esbenp.prettier-vscode
-          kamadorueda.alejandra
-          ms-python.black-formatter
-          rust-lang.rust-analyzer
-          streetsidesoftware.code-spell-checker
-          timonwong.shellcheck
-        ];
-        extra = customization.extra.vscodeExtensions pkgs;
-      in
-        base ++ extra;
-      userSettings = {
-        "[python]" = {"editor.defaultFormatter" = "ms-python.black-formatter";};
-        "diffEditor.ignoreTrimWhitespace" = false;
-        "editor.formatOnSave" = true;
-        "editor.inlayHints.enabled" = "offUnlessPressed";
-        "editor.rulers" = [80];
-        "workbench.editorAssociations" = {"git-rebase-todo" = "default";};
-      };
-    };
   };
 
   # The following makes `xdg.mimeApps.defaultApplications` work.
