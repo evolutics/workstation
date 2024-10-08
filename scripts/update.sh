@@ -4,11 +4,9 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-update_repositories_cache() {
+manage_packages() {
   sudo apt-get update
-}
 
-install_packages() {
   local -r packages=(
     libvirt-daemon-system
     qemu-kvm
@@ -23,9 +21,7 @@ install_packages() {
 
   sudo snap install --classic code
   sudo snap install chromium
-}
 
-update_packages() {
   sudo apt-get dist-upgrade
   sudo snap refresh
 }
@@ -105,9 +101,7 @@ main() {
   cd "$(dirname "${script_folder}")"
 
   for function in \
-    update_repositories_cache \
-    install_packages \
-    update_packages \
+    manage_packages \
     configure_system_keyboard_layout \
     configure_firefox \
     configure_backup \
