@@ -4,15 +4,13 @@
 
 1. Install [Ubuntu](https://ubuntu.com).
 
-   - Applications installed to start with: change from "Default selection" to
-     "Extended selection" for office tools, startup disk creator, etc.
-   - Based on experience, it is safest not to install third-party software at
-     first (default). If there are any issues, you can still change to another
-     additional driver later.
-   - Disk setup: to encrypt your system, it is easiest to do so by selecting
-     this option now during the installation.
-   - If the desktop freezes on first usage, try booting in recovery mode, then
-     choose "dpkg: Repair broken packages" from the menu.
+   - Applications: switch from default to the extended selection of apps
+     installed to start with for office tools, startup disk creator, etc.
+   - Proprietary software: based on experience, do not to install third-party
+     drivers at first (default); in case of issues you can still do so later.
+   - Disk setup: select encryption as it is easiest to introduce now.
+   - Troubleshooting: if the desktop freezes on first usage, try booting in
+     recovery mode, then choose "dpkg: Repair broken packages" from the menu.
 
 1. Restore the latest backup by running (without `--dry-run`)
 
