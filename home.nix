@@ -34,13 +34,13 @@ in {
   home = {
     file = let
       base = {
-        ".config/autostart/custom.desktop" = ''
+        ".config/autostart/custom.desktop".text = ''
           [Desktop Entry]
           Exec=/home/${customization.identity.username}/.config/home-manager/configuration/autostart.sh
           Name=Custom autostart
           Type=Application
         '';
-        ".config/Code/User/settings.json" = builtins.toJSON {
+        ".config/Code/User/settings.json".text = builtins.toJSON {
           "[python]" = {
             "editor.defaultFormatter" = "ms-python.black-formatter";
           };
@@ -50,23 +50,20 @@ in {
           "editor.rulers" = [80];
           "workbench.editorAssociations" = {"git-rebase-todo" = "default";};
         };
-        ".config/containers/policy.json" = builtins.toJSON {
+        ".config/containers/policy.json".text = builtins.toJSON {
           default = [{type = "insecureAcceptAnything";}];
         };
-        ".config/containers/registries.conf" = ''
+        ".config/containers/registries.conf".text = ''
           [[registry]]
           location = "docker.io"
           [[registry.mirror]]
           location = "mirror.gcr.io"
         '';
-        ".config/nix/nix.conf" = ''
+        ".config/nix/nix.conf".text = ''
           experimental-features = flakes nix-command
         '';
       };
-    in
-      builtins.mapAttrs (file: contents: {
-        text = contents;
-      }) (base // customization.extra.files);
+    in (base // customization.extra.files);
 
     homeDirectory = "/home/${customization.identity.username}";
 

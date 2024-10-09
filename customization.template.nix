@@ -1,13 +1,13 @@
 {
   extra = {
     files = {
-      ".config/containers/registries.conf" = ''
+      ".config/containers/registries.conf".text = ''
         [[registry]]
         location = "docker.io"
         [[registry.mirror]]
         location = "example.com"
       '';
-      ".npmrc" = ''
+      ".npmrc".text = ''
         registry=https://example.com
       '';
     };
