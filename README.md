@@ -1,3 +1,7 @@
+# Workstation
+
+## Installation
+
 1. Install [Ubuntu](https://ubuntu.com).
    - Applications installed to start with: change from "Default selection" to
      "Extended selection" for office tools, startup disk creator, etc.
@@ -41,14 +45,17 @@
 1. Then, run
 
    ```bash
-   cd ~/.config/home-manager
-   git pull
    sudo apt remove git
-
-   rm flake.lock
    scripts/update.sh
-
    reboot
    ```
 
-   Repeat this step whenever you wish to **update**.
+## Updating
+
+```bash
+cd ~/.config/home-manager
+git pull
+
+rm flake.lock
+scripts/update.sh
+```
