@@ -24,11 +24,12 @@
 1. As a one time setup, run
 
    ```bash
-   sudo apt install git
-
    cd ~/.config/home-manager
    rm home.nix
+
+   sudo apt install git
    git clone https://github.com/evolutics/workstation.git .
+   sudo apt remove git
 
    cp customization.template.nix customization.nix
    cp configuration/autostart.template.sh configuration/autostart.sh
@@ -45,7 +46,6 @@
 1. Then, run
 
    ```bash
-   sudo apt remove git
    scripts/update.sh
    reboot
    ```
