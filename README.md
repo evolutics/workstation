@@ -8,6 +8,13 @@
      this option now during the installation.
    - If the desktop freezes on first usage, try booting in recovery mode, then
      choose "dpkg: Repair broken packages" from the menu.
+1. Restore the latest backup by running (without `--dry-run`)
+
+   ```bash
+   rsync --archive --dry-run --verbose \
+     "/media/${USER}/backup/rsnapshot/daily.0/localhost/home/${USER}/data" ~
+   ```
+
 1. Install [Nix](https://nixos.org).
 1. Install [Home Manager](https://nix-community.github.io/home-manager/).
 1. As a one time setup, run
