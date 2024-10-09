@@ -45,7 +45,7 @@
    nano configuration/autostart.sh
    ```
 
-1. Then, run
+1. Finally, apply with
 
    ```bash
    scripts/update.sh
