@@ -3,6 +3,7 @@
 ## Installation
 
 1. Install [Ubuntu](https://ubuntu.com).
+
    - Applications installed to start with: change from "Default selection" to
      "Extended selection" for office tools, startup disk creator, etc.
    - Based on experience, it is safest not to install third-party software at
@@ -12,6 +13,7 @@
      this option now during the installation.
    - If the desktop freezes on first usage, try booting in recovery mode, then
      choose "dpkg: Repair broken packages" from the menu.
+
 1. Restore the latest backup by running (without `--dry-run`)
 
    ```bash
@@ -20,7 +22,9 @@
    ```
 
 1. Install [Nix](https://nixos.org).
+
 1. Install [Home Manager](https://nix-community.github.io/home-manager/).
+
 1. Set up the workstation code with
 
    ```bash
