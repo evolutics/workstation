@@ -32,8 +32,8 @@ in {
   fonts.fontconfig.enable = true;
 
   home = {
-    file = let
-      base = {
+    file =
+      {
         ".config/autostart/custom.desktop".text = ''
           [Desktop Entry]
           Exec=/home/${customization.identity.username}/.config/home-manager/configuration/autostart.sh
@@ -62,8 +62,8 @@ in {
         ".config/nix/nix.conf".text = ''
           experimental-features = flakes nix-command
         '';
-      };
-    in (base // customization.extra.files);
+      }
+      // customization.extra.files;
 
     homeDirectory = "/home/${customization.identity.username}";
 
