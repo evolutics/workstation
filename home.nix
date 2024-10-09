@@ -160,7 +160,7 @@ in {
   xdg = {
     enable = true;
     mimeApps = {
-      defaultApplications = {"text/plain" = ["code.desktop"];};
+      defaultApplications = {"text/plain" = ["code_code.desktop"];};
       enable = true;
     };
   };
