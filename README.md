@@ -29,7 +29,7 @@
 
    sudo apt install git
    git clone https://github.com/evolutics/workstation.git .
-   sudo apt remove git
+   sudo apt purge git
 
    cp customization.template.nix customization.nix
    cp configuration/autostart.template.sh configuration/autostart.sh
