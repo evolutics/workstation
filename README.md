@@ -49,7 +49,7 @@
 1. Finally, apply with
 
    ```bash
-   scripts/update.sh
+   scripts/apply.sh
    reboot
    ```
 
@@ -60,5 +60,5 @@ cd ~/.config/home-manager
 git pull
 
 rm flake.lock
-scripts/update.sh
+scripts/apply.sh
 ```
