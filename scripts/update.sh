@@ -21,6 +21,7 @@ manage_packages() {
 
   sudo snap install --classic code
   sudo snap install chromium
+  sudo snap install gimp
 
   sudo apt-get dist-upgrade
   sudo snap refresh
