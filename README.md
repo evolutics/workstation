@@ -34,7 +34,6 @@
    sudo apt purge git
 
    cp customization.template.nix customization.nix
-   cp configuration/autostart.template.sh configuration/autostart.sh
    ```
 
 1. Customize as you wish with
@@ -42,7 +41,6 @@
    ```bash
    nano customization.nix
    diff customization.template.nix customization.nix
-   nano configuration/autostart.sh
    nano apply_extras.sh
    ```
 

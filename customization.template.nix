@@ -1,4 +1,5 @@
-{
+rec {
+  autostart_exec = "open \"/media/${identity.username}\"";
   extra_files = {
     ".config/containers/registries.conf".text = ''
       [[registry]]

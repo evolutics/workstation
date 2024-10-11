@@ -38,7 +38,7 @@ in {
       {
         ".config/autostart/custom.desktop".text = ''
           [Desktop Entry]
-          Exec=/home/${customization.identity.username}/.config/home-manager/configuration/autostart.sh
+          Exec=${customization.autostart_exec}
           Name=Custom autostart
           Type=Application
         '';
