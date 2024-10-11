@@ -43,6 +43,7 @@
    nano customization.nix
    diff customization.template.nix customization.nix
    nano configuration/autostart.sh
+   nano apply_extras.sh
    ```
 
 1. Finally, apply with

@@ -84,6 +84,12 @@ configure_vagrant() {
   vagrant plugin update vagrant-libvirt
 }
 
+apply_optional_extras() {
+  if [[ -f apply_extras.sh ]]; then
+    ./apply_extras.sh
+  fi
+}
+
 collect_garbage() {
   sudo apt-get autoremove
   sudo apt-get clean
@@ -112,6 +118,7 @@ main() {
     configure_home \
     manage_vs_code_extensions \
     configure_vagrant \
+    apply_optional_extras \
     collect_garbage \
     check_if_restart_required; do
     printf '§\n\n'
