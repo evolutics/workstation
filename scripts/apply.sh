@@ -19,9 +19,10 @@ manage_packages() {
   )
   sudo apt-get install -- "${packages[@]}"
 
-  sudo snap install --classic code
   sudo snap install chromium
   sudo snap install gimp
+
+  sudo snap install --classic code
 
   sudo apt-get dist-upgrade
   sudo snap refresh
