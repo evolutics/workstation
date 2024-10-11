@@ -65,44 +65,40 @@ in {
           experimental-features = flakes nix-command
         '';
       }
-      // customization.extra.files;
+      // customization.extra_files;
 
     homeDirectory = "/home/${customization.identity.username}";
 
-    packages = let
-      base = with pkgs; [
-        alejandra
-        ansible
-        black
-        curl
-        docker
-        flameshot
-        git-absorb
-        haskellPackages.hadolint
-        jq
-        keepassxc
-        kubectl
-        minikube
-        nodePackages.prettier
-        pdftk
-        podman
-        rustup
-        skaffold
-        texlive.combined.scheme-medium
-        vagrant
-        variety
-        virt-manager
-        vlc
+    packages = with pkgs; [
+      alejandra
+      ansible
+      black
+      curl
+      docker
+      flameshot
+      git-absorb
+      haskellPackages.hadolint
+      jq
+      keepassxc
+      kubectl
+      minikube
+      nodePackages.prettier
+      pdftk
+      podman
+      rustup
+      skaffold
+      texlive.combined.scheme-medium
+      vagrant
+      variety
+      virt-manager
+      vlc
 
-        # Font families:
-        merriweather
-        open-sans
-        roboto
-        roboto-slab
-      ];
-      extra = customization.extra.packages pkgs;
-    in
-      base ++ extra;
+      # Font families:
+      merriweather
+      open-sans
+      roboto
+      roboto-slab
+    ];
 
     sessionVariables = {
       GIT_COMPLETION_CHECKOUT_NO_GUESS = 1;

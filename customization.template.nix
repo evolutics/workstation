@@ -1,21 +1,14 @@
 {
-  extra = {
-    files = {
-      ".config/containers/registries.conf".text = ''
-        [[registry]]
-        location = "docker.io"
-        [[registry.mirror]]
-        location = "example.com"
-      '';
-      ".npmrc".text = ''
-        registry=https://example.com
-      '';
-    };
-    packages = pkgs:
-      with pkgs; [
-        inkscape
-        openvpn
-      ];
+  extra_files = {
+    ".config/containers/registries.conf".text = ''
+      [[registry]]
+      location = "docker.io"
+      [[registry.mirror]]
+      location = "example.com"
+    '';
+    ".npmrc".text = ''
+      registry=https://example.com
+    '';
   };
   identity = {
     email = "foo@example.com";
