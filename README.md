@@ -60,3 +60,10 @@ git pull
 rm flake.lock
 scripts/apply.sh
 ```
+
+## Developing
+
+### Desktop settings as code
+
+Many settings are stored in your dconf database. To see what keys to set to what
+values, keep `dconf watch /` running while you change a setting via UI.
