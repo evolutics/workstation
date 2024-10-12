@@ -47,6 +47,7 @@ configure_backup() {
   for frequency in daily monthly weekly; do
     sed "s/{{ frequency }}/${frequency}/g" configuration/back_up.sh \
       | sudo tee "/etc/cron.${frequency}/back_up" >/dev/null
+    sudo chmod +x "/etc/cron.${frequency}/back_up"
   done
 }
 
