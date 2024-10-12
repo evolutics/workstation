@@ -71,7 +71,6 @@ in {
 
     packages = with pkgs; [
       alejandra
-      ansible
       black
       curl
       docker
