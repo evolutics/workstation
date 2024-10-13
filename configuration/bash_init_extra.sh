@@ -8,12 +8,12 @@ _update_current_bash_prompt() {
   local -r exit_status="$?"
   local -r terminal_title='\[\e]0;\w\a\]'
 
-  local -r seconds_per_day=86400
-  local -r color_cycles_per_day=2
-  local -r hue_count=768
+  local -ir seconds_per_day=86400
+  local -ir color_cycles_per_day=2
+  local -ir hue_count=768
 
-  local -r seconds_per_color="$((seconds_per_day / (color_cycles_per_day * hue_count)))"
-  local -r hue="$(((EPOCHSECONDS / seconds_per_color) % hue_count))"
+  local -ir seconds_per_color="$((seconds_per_day / (color_cycles_per_day * hue_count)))"
+  local -ir hue="$(((EPOCHSECONDS / seconds_per_color) % hue_count))"
 
   local -ir saturation=255 value=255
   local -r rgb="$(_integer_hsv_to_rgb "${hue}" "${saturation}" "${value}")"
