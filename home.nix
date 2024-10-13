@@ -18,6 +18,7 @@ in {
       icon-theme = "Yaru-dark";
     };
     "org/gnome/mutter" = {workspaces-only-on-primary = false;};
+    "org/gnome/settings-daemon/plugins/color" = {night-light-enabled = true;};
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
     };
