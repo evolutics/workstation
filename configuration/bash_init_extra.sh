@@ -12,8 +12,8 @@ _update_current_bash_prompt() {
   local -ir color_cycles_per_day=2
   local -ir hue_count=768
 
-  local -ir seconds_per_color="$((seconds_per_day / (color_cycles_per_day * hue_count)))"
-  local -ir hue="$(((EPOCHSECONDS / seconds_per_color) % hue_count))"
+  local -ir seconds_per_hue="$((seconds_per_day / (color_cycles_per_day * hue_count)))"
+  local -ir hue="$(((EPOCHSECONDS / seconds_per_hue) % hue_count))"
 
   local -ir saturation=255 value=255
   local -r rgb="$(_integer_hsv_to_rgb "${hue}" "${saturation}" "${value}")"
