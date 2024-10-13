@@ -10,21 +10,15 @@ _update_current_bash_prompt() {
 
   local -r seconds_per_day=86400
   local -r color_cycles_per_day=2
-  local -r color_count=64
+  local -r hue_count=768
 
-  local -r seconds_per_color=$((seconds_per_day / (color_cycles_per_day * color_count)))
-  local -r color_index=$(((EPOCHSECONDS / seconds_per_color) % color_count))
+  local -r seconds_per_color="$((seconds_per_day / (color_cycles_per_day * hue_count)))"
+  local -r hue="$(((EPOCHSECONDS / seconds_per_color) % hue_count))"
 
-  local color_xyz
-  mapfile -t color_xyz < <(_cycle_through_4x4x4_cube "${color_index}")
-  readonly color_xyz
+  local -ir saturation=255 value=255
+  local -r rgb="$(_integer_hsv_to_rgb "${hue}" "${saturation}" "${value}")"
 
-  local -r red=$((color_xyz[0] + 1))
-  local -r green=$((color_xyz[1] + 1))
-  local -r blue=$((color_xyz[2] + 1))
-  local -r ansi_8_bit_color_number=$((16 + 36 * red + 6 * green + blue))
-
-  local -r color_code="\e[38;5;${ansi_8_bit_color_number}m"
+  local -r color_code="\e[38;2;${rgb}m"
   local -r color_reset='\e[0m'
 
   local separator
@@ -38,43 +32,41 @@ _update_current_bash_prompt() {
   PS1="${terminal_title}\[${color_code}\]\w\[${color_reset}\]${separator}"
 }
 
-_cycle_through_4x4x4_cube() {
-  local -r index="$1"
-
-  # Go through cube corners on this cycle (recursively):
+# HSV to RGB color for integers 0 ≤ h < 3 p; 0 ≤ s, v, r, g, b < p; p = 256.
+_integer_hsv_to_rgb() {
+  # See https://en.wikipedia.org/wiki/HSL_and_HSV#HSV_to_RGB for the fractional
+  # formulae with variables H, S, V; R, G, B; C, H', X, R₁, G₁, B₁, m.
   #
-  #       4────────5
-  #       │       ╱
-  #     7━━━━━━━━6
-  #     ┃ │
-  #     ┃ 3────────2
-  #     ┃         ╱
-  #     0━━━━━━━━1
+  # Let h = 3 p H / 2π, s = q S, v = q V; q = p - 1.
   #
-  # The shifts guarantee that the cycle does not have "jumps": 2 consecutive
-  # coordinate triples (x, y, z) always differ by exactly 1 in terms of 1-norm.
-  # For example, the first 2 subcubes (0 and 1 above) are visited on this path:
+  # We need (r, g, b) = q (R, G, B). Thus,
   #
-  #       ┌──────7 ┄┄┄┄ 8──────
-  #       │                   ╱
-  #     ┏━━━━━━0      ┏━━━━━━
-  #     ┃ └──────     ┃ 15─────
-  #     ┃       ╱     ┃       ╱
-  #     ┗━━━━━━       ┗━━━━━━
+  #   (r, g, b) = (q R₁ + q m, q G₁ + q m, q B₁ + q m)
+  #   q m = q V - q C = v - q C
+  #   q C = q V S = v s / q
+  #   H' = 2 h / p
+  #   H' mod 2 = (2 h / p) mod 2 = 2 (h mod p) / p
+  #   q X = q C (1 - |H' mod 2 - 1|) = q C - |2 q C (h mod p) / p - q C|.
 
-  local -r cube_cycle=(000 100 110 010 011 111 101 001)
-  local -r cycle_shifts=(6 4 0 6 2 0 4 2)
+  local -ir h="$1" s="$2" v="$3"
 
-  local -r high_octal_digit=$((index / 8))
-  local -r low_octal_digit=$((index % 8))
+  local -ir p=256
+  ((h >= 0 && h < 3 * p && s >= 0 && s < p && v >= 0 && v < p))
 
-  local -r high_xyz=${cube_cycle[$high_octal_digit]}
-  local -r shift=${cycle_shifts[$high_octal_digit]}
-  local -r low_xyz=${cube_cycle[$(((low_octal_digit + shift) % 8))]}
+  local -ir q_c="$(((v * s) / (p - 1)))"
+  local -ir y="$(((2 * q_c * (h % p)) / p - q_c))"
+  local -ir abs_y="${y#-}"
+  local -ir q_x="$((q_c - abs_y))"
 
-  local -r x=$((${high_xyz:0:1} << 1 | ${low_xyz:0:1}))
-  local -r y=$((${high_xyz:1:1} << 1 | ${low_xyz:1:1}))
-  local -r z=$((${high_xyz:2:1} << 1 | ${low_xyz:2:1}))
+  case "$(((2 * h) / p))" in
+    0) local -ir rgb1=("${q_c}" "${q_x}" 0) ;;
+    1) local -ir rgb1=("${q_x}" "${q_c}" 0) ;;
+    2) local -ir rgb1=(0 "${q_c}" "${q_x}") ;;
+    3) local -ir rgb1=(0 "${q_x}" "${q_c}") ;;
+    4) local -ir rgb1=("${q_x}" 0 "${q_c}") ;;
+    5) local -ir rgb1=("${q_c}" 0 "${q_x}") ;;
+  esac
 
-  printf '%s\n%s\n%s\n' "${x}" "${y}" "${z}"
+  local -ir q_m="$((q_m = v - q_c))"
+  echo "$((rgb1[0] + q_m));$((rgb1[1] + q_m));$((rgb1[2] + q_m))"
 }
