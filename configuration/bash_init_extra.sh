@@ -21,13 +21,8 @@ _update_current_bash_prompt() {
   local -r color_code="\e[38;2;${rgb}m"
   local -r color_reset='\e[0m'
 
-  local separator
-  if [[ "${exit_status}" -eq 0 ]]; then
-    separator=' • '
-  else
-    separator=' ◘ '
-  fi
-  readonly separator
+  local -r ok_separator=(' • ')
+  local -r separator="${ok_separator[exit_status]- ◘ }"
 
   PS1="${terminal_title}\[${color_code}\]\w\[${color_reset}\]${separator}"
 }
