@@ -11,6 +11,10 @@ rec {
       registry=https://example.com
     '';
   };
+  extra_packages = pkgs:
+    with pkgs; [
+      hello
+    ];
   identity = {
     email = "foo@example.com";
     name = "Foo Bar";
