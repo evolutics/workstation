@@ -97,7 +97,7 @@ collect_garbage() {
   sudo apt-get clean
   nix-collect-garbage --delete-older-than 30d --quiet
 
-  podman ps # Workaround for Podman error "failed to reexec: Permission denied".
+  podman ps || true # Workaround for "failed to reexec: Permission denied".
   podman system prune --all --filter until=720h --force
 }
 
