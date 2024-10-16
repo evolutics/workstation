@@ -59,12 +59,10 @@ upgrade_nix() {
 }
 
 configure_home() {
-  export NIX_CONFIG='experimental-features = flakes nix-command'
-  # Try `home-manager switch` twice because it sometimes fails due to issue
-  # https://github.com/nix-community/home-manager/issues/2033.
+  # Retry due to https://github.com/nix-community/home-manager/issues/2033.
   # TODO: Remove workaround once issue is fixed.
-  home-manager switch || home-manager switch
-  unset NIX_CONFIG
+  NIX_CONFIG='experimental-features = flakes nix-command' \
+    retry_once home-manager switch
 }
 
 manage_vs_code_extensions() {
@@ -96,15 +94,18 @@ collect_garbage() {
   sudo apt-get autoremove
   sudo apt-get clean
   nix-collect-garbage --delete-older-than 30d --quiet
-
-  podman ps || true # Workaround for "failed to reexec: Permission denied".
-  podman system prune --all --filter until=720h --force
+  # Retry works around Podman error "failed to reexec: Permission denied".
+  retry_once podman system prune --all --filter until=720h --force
 }
 
 check_if_restart_required() {
   if [[ -f /var/run/reboot-required ]]; then
     notify-send 'System restart required'
   fi
+}
+
+retry_once() {
+  "$@" || "$@"
 }
 
 main() {
