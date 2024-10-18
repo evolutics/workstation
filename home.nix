@@ -92,7 +92,6 @@ in {
         vagrant
         variety
         virt-manager
-        vlc
 
         # Font families:
         merriweather
