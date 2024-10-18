@@ -80,7 +80,6 @@ in {
         git-absorb
         haskellPackages.hadolint
         jq
-        keepassxc
         kubectl
         minikube
         nodePackages.prettier
