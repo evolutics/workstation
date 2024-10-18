@@ -88,7 +88,7 @@ in {
         podman
         rustup
         skaffold
-        texlive.combined.scheme-medium
+        texliveMedium
         vagrant
         variety
         virt-manager
