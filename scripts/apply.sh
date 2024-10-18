@@ -12,6 +12,7 @@ manage_packages() {
     qemu-kvm
     rsnapshot
     steam
+    virtiofsd
 
     # For Podman:
     golang-github-containers-common
