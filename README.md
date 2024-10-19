@@ -62,6 +62,14 @@ Update code marked with "update-worthy" about every 6 months.
 
 ## Developing
 
+### Deciding which package source to use
+
+The OS may already install a tool by default (e.g., Firefox). Otherwise:
+
+- **Ubuntu APT (no PPAs)** for system-wide tool configuration.
+- **Snap Store** if it is tool's official distribution channel (e.g., VS Code).
+- **Nixpkgs with Home Manager** for many developer tools.
+
 ### Desktop settings as code
 
 Many settings are stored in your dconf database. To see what keys to set to what
