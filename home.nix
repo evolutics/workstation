@@ -77,6 +77,7 @@ in {
         curl
         docker
         flameshot
+        gimp
         git-absorb
         haskellPackages.hadolint
         jq
