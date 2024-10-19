@@ -21,8 +21,6 @@
 
 1. Install [Nix](https://nixos.org).
 
-1. Install [Home Manager](https://nix-community.github.io/home-manager/).
-
 1. Set up the workstation code with
 
    ```bash
