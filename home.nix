@@ -21,6 +21,7 @@ in {
     "org/gnome/settings-daemon/plugins/color" = {night-light-enabled = true;};
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
+      power = ["<Control><Alt>BackSpace"];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Ctrl>Print";
