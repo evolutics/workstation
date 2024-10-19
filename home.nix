@@ -105,7 +105,7 @@ in {
     };
 
     # When updating state version, check Home Manager release notes for changes.
-    stateVersion = "24.05";
+    stateVersion = "24.05"; # Update-worthy.
 
     inherit (customization.identity) username;
   };

@@ -58,6 +58,8 @@ git pull
 scripts/apply.sh
 ```
 
+Update code marked with "update-worthy" about every 6 months.
+
 ## Developing
 
 ### Desktop settings as code

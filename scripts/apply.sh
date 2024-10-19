@@ -64,7 +64,7 @@ configure_home() {
   nix flake update
   # Retry due to https://github.com/nix-community/home-manager/issues/2033.
   # TODO: Remove workaround once issue is fixed.
-  retry_once nix run home-manager/release-24.05 -- switch
+  retry_once nix run home-manager/release-24.05 -- switch # Update-worthy.
   unset NIX_CONFIG
 }
 
