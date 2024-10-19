@@ -39,7 +39,9 @@
    ```bash
    nano customization.nix
    diff customization.template.nix customization.nix
+
    nano apply_extras.sh
+   chmod +x apply_extras.sh
    ```
 
 1. Finally, apply with
