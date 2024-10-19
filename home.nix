@@ -104,6 +104,7 @@ in {
       GIT_COMPLETION_CHECKOUT_NO_GUESS = 1;
     };
 
+    # When updating state version, check Home Manager release notes for changes.
     stateVersion = "24.05";
 
     inherit (customization.identity) username;
