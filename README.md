@@ -24,8 +24,8 @@
 1. Set up the workstation code with
 
    ```bash
+   mkdir ~/.config/home-manager
    cd ~/.config/home-manager
-   rm home.nix
 
    sudo apt install git
    git clone https://github.com/evolutics/workstation.git .
