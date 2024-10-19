@@ -60,10 +60,12 @@ upgrade_nix() {
 }
 
 configure_home() {
+  export NIX_CONFIG='experimental-features = flakes nix-command'
+  nix flake update
   # Retry due to https://github.com/nix-community/home-manager/issues/2033.
   # TODO: Remove workaround once issue is fixed.
-  NIX_CONFIG='experimental-features = flakes nix-command' \
-    retry_once home-manager switch
+  retry_once home-manager switch
+  unset NIX_CONFIG
 }
 
 manage_vs_code_extensions() {

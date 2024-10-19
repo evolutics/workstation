@@ -57,7 +57,6 @@
 cd ~/.config/home-manager
 git pull
 
-rm flake.lock
 scripts/apply.sh
 ```
 
