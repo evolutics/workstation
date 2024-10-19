@@ -29,7 +29,6 @@
 
    sudo apt install git
    git clone https://github.com/evolutics/workstation.git .
-   sudo apt purge git
 
    cp customization.template.nix customization.nix
    ```
@@ -44,10 +43,11 @@
    chmod +x apply_extras.sh
    ```
 
-1. Finally, apply with
+1. Finish with
 
    ```bash
    scripts/apply.sh
+   sudo apt purge git
    reboot
    ```
 
