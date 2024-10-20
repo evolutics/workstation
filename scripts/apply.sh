@@ -54,7 +54,7 @@ configure_backup() {
 }
 
 manage_nix() {
-  nix upgrade-nix
+  sudo --login nix upgrade-nix
 
   export NIX_CONFIG='experimental-features = flakes nix-command'
   nix flake update
