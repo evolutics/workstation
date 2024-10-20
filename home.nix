@@ -38,12 +38,6 @@ in {
   home = {
     file =
       {
-        ".config/autostart/custom.desktop".text = ''
-          [Desktop Entry]
-          Exec=${customization.autostart_exec}
-          Name=Custom autostart
-          Type=Application
-        '';
         ".config/autostart/minimal_update.desktop".text = ''
           [Desktop Entry]
           Comment=Update custom code, keeping terminal open on errors

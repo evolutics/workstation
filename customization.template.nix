@@ -1,6 +1,11 @@
 rec {
-  autostart_exec = "open \"/media/${identity.username}\"";
   extra_files = {
+    ".config/autostart/custom.desktop".text = ''
+      [Desktop Entry]
+      Exec=open "/media/${identity.username}"
+      Name=Custom autostart
+      Type=Application
+    '';
     ".config/containers/registries.conf".text = ''
       [[registry]]
       location = "docker.io"
