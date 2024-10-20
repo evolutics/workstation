@@ -47,11 +47,9 @@ configure_backup() {
   done
 }
 
-upgrade_nix() {
+manage_nix() {
   nix upgrade-nix
-}
 
-configure_home() {
   export NIX_CONFIG='experimental-features = flakes nix-command'
   nix flake update
   # Retry due to https://github.com/nix-community/home-manager/issues/2033.
@@ -104,8 +102,7 @@ main() {
     configure_system_keyboard_layout \
     configure_firefox \
     configure_backup \
-    upgrade_nix \
-    configure_home \
+    manage_nix \
     manage_vs_code_extensions \
     configure_vagrant \
     apply_optional_extras \
