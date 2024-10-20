@@ -6,14 +6,12 @@ set -o pipefail
 
 manage_packages() {
   sudo apt-get update
-
   local -r packages=(
     libvirt-daemon-system
     qemu-kvm
     rsnapshot
     steam
     virtiofsd
-
     # For Podman:
     golang-github-containers-common
     uidmap
