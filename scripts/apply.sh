@@ -54,17 +54,19 @@ configure_backup() {
 }
 
 manage_nix() {
+  export NIX_CONFIG='experimental-features = flakes nix-command'
+
   local -r installed_version="$(nix --version)"
   local -r latest_version="$(nix eval --raw nixpkgs#nixVersions.latest)"
   if [[ "${installed_version##* }" != "${latest_version##*-}" ]]; then
     sudo --login nix upgrade-nix
   fi
 
-  export NIX_CONFIG='experimental-features = flakes nix-command'
   nix flake update
   # Retry due to https://github.com/nix-community/home-manager/issues/2033.
   # TODO: Remove workaround once issue is fixed.
   retry_once nix run home-manager/release-24.05 -- switch # Update-worthy.
+
   unset NIX_CONFIG
 }
 
