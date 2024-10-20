@@ -48,10 +48,7 @@ configure_backup() {
 }
 
 upgrade_nix() {
-  nix-env --install --file '<nixpkgs>' --attr nix cacert \
-    -I nixpkgs=channel:nixpkgs-unstable
-  sudo systemctl daemon-reload
-  sudo systemctl restart nix-daemon
+  nix upgrade-nix
 }
 
 configure_home() {
