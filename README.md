@@ -53,10 +53,11 @@
 
 ## Updating
 
+A minimal update is auto-run for security. To apply other changes, too, run
+
 ```bash
 cd ~/.config/home-manager
 git pull
-
 scripts/apply.sh
 ```
 

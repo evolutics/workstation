@@ -44,6 +44,14 @@ in {
           Name=Custom autostart
           Type=Application
         '';
+        ".config/autostart/minimal_update.desktop".text = ''
+          [Desktop Entry]
+          Comment=Update custom code, keeping terminal open on errors
+          Exec=sh -c ".config/home-manager/scripts/apply.sh minimal || ''${SHELL}"
+          Name=Minimal update
+          Terminal=true
+          Type=Application
+        '';
         ".config/Code/User/settings.json".text = builtins.toJSON {
           "[python]" = {
             "editor.defaultFormatter" = "ms-python.black-formatter";
