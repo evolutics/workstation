@@ -76,8 +76,6 @@ manage_vs_code_extensions() {
     --install-extension rust-lang.rust-analyzer \
     --install-extension streetsidesoftware.code-spell-checker \
     --install-extension timonwong.shellcheck
-
-  code --update-extensions
 }
 
 configure_vagrant() {
