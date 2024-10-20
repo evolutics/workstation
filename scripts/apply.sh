@@ -54,7 +54,11 @@ configure_backup() {
 }
 
 manage_nix() {
-  sudo --login nix upgrade-nix
+  local -r installed_version="$(nix --version)"
+  local -r latest_version="$(nix eval --raw nixpkgs#nixVersions.latest)"
+  if [[ "${installed_version##* }" != "${latest_version##*-}" ]]; then
+    sudo --login nix upgrade-nix
+  fi
 
   export NIX_CONFIG='experimental-features = flakes nix-command'
   nix flake update
