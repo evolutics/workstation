@@ -22,9 +22,6 @@ manage_packages() {
 
   sudo snap install chromium
   sudo snap install --classic code
-
-  sudo apt-get dist-upgrade
-  sudo snap refresh
 }
 
 configure_system_keyboard_layout() {
@@ -97,12 +94,6 @@ collect_garbage() {
   retry_once podman system prune --all --filter until=720h --force
 }
 
-check_if_restart_required() {
-  if [[ -f /var/run/reboot-required ]]; then
-    notify-send 'System restart required'
-  fi
-}
-
 retry_once() {
   "$@" || "$@"
 }
@@ -121,8 +112,7 @@ main() {
     manage_vs_code_extensions \
     configure_vagrant \
     apply_optional_extras \
-    collect_garbage \
-    check_if_restart_required; do
+    collect_garbage; do
     printf '§\n\n'
     (
       set -o xtrace
