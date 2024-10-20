@@ -5,44 +5,52 @@ set -o nounset
 set -o pipefail
 
 manage_packages() {
-  sudo apt-get update
-  local -r packages=(
-    libvirt-daemon-system
-    qemu-kvm
-    rsnapshot
-    steam
-    virtiofsd
-    # For Podman:
-    golang-github-containers-common
-    uidmap
-  )
-  sudo apt-get install -- "${packages[@]}"
+  if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
+    sudo apt-get update
+    local -r packages=(
+      libvirt-daemon-system
+      qemu-kvm
+      rsnapshot
+      steam
+      virtiofsd
+      # For Podman:
+      golang-github-containers-common
+      uidmap
+    )
+    sudo apt-get install -- "${packages[@]}"
 
-  sudo snap install chromium
-  sudo snap install --classic code
+    sudo snap install chromium
+    sudo snap install --classic code
+  fi
 }
 
 configure_system_keyboard_layout() {
-  sudo sed \
-    --expression 's/^XKBLAYOUT=.*/XKBLAYOUT="de"/' \
-    --expression 's/^XKBVARIANT=.*/XKBVARIANT="neo"/' \
-    --in-place /etc/default/keyboard
+  if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
+    sudo sed \
+      --expression 's/^XKBLAYOUT=.*/XKBLAYOUT="de"/' \
+      --expression 's/^XKBVARIANT=.*/XKBVARIANT="neo"/' \
+      --in-place /etc/default/keyboard
+  fi
 }
 
 configure_firefox() {
-  sudo rsync --archive --mkpath --verbose configuration/firefox_policies.json \
-    /etc/firefox/policies/policies.json
+  if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
+    sudo rsync --archive --mkpath --verbose \
+      configuration/firefox_policies.json /etc/firefox/policies/policies.json
+  fi
 }
 
 configure_backup() {
-  sed "s/{{ user }}/${USER}/g" configuration/rsnapshot.conf \
-    | sudo tee /etc/rsnapshot.conf >/dev/null
+  if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
+    sed "s/{{ user }}/${USER}/g" configuration/rsnapshot.conf \
+      | sudo tee /etc/rsnapshot.conf >/dev/null
 
-  for frequency in daily monthly weekly; do
-    sed "s/{{ frequency }}/${frequency}/g" configuration/back_up.sh \
-      | sudo tee "/etc/cron.${frequency}/back_up" >/dev/null
-    sudo chmod +x "/etc/cron.${frequency}/back_up"
-  done
+    for frequency in daily monthly weekly; do
+      sed "s/{{ frequency }}/${frequency}/g" configuration/back_up.sh \
+        | sudo tee "/etc/cron.${frequency}/back_up" >/dev/null
+      sudo chmod +x "/etc/cron.${frequency}/back_up"
+    done
+  fi
 }
 
 manage_nix() {
@@ -57,19 +65,23 @@ manage_nix() {
 }
 
 manage_vs_code_extensions() {
-  code \
-    --install-extension bbenoist.nix \
-    --install-extension eamodio.gitlens \
-    --install-extension esbenp.prettier-vscode \
-    --install-extension kamadorueda.alejandra \
-    --install-extension ms-python.black-formatter \
-    --install-extension rust-lang.rust-analyzer \
-    --install-extension streetsidesoftware.code-spell-checker \
-    --install-extension timonwong.shellcheck
+  if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
+    code \
+      --install-extension bbenoist.nix \
+      --install-extension eamodio.gitlens \
+      --install-extension esbenp.prettier-vscode \
+      --install-extension kamadorueda.alejandra \
+      --install-extension ms-python.black-formatter \
+      --install-extension rust-lang.rust-analyzer \
+      --install-extension streetsidesoftware.code-spell-checker \
+      --install-extension timonwong.shellcheck
+  fi
 }
 
 configure_vagrant() {
-  vagrant plugin install vagrant-libvirt
+  if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
+    vagrant plugin install vagrant-libvirt
+  fi
   vagrant plugin update
 }
 
@@ -80,11 +92,13 @@ apply_optional_extras() {
 }
 
 collect_garbage() {
-  sudo apt-get autopurge
-  sudo apt-get clean
-  nix-collect-garbage --delete-older-than 30d --quiet
-  # Retry works around Podman error "failed to reexec: Permission denied".
-  retry_once podman system prune --all --filter until=720h --force
+  if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
+    sudo apt-get autopurge
+    sudo apt-get clean
+    nix-collect-garbage --delete-older-than 30d --quiet
+    # Retry works around Podman error "failed to reexec: Permission denied".
+    retry_once podman system prune --all --filter until=720h --force
+  fi
 }
 
 retry_once() {
@@ -94,6 +108,12 @@ retry_once() {
 main() {
   local -r script_folder="$(dirname "$(readlink --canonicalize "$0")")"
   cd "$(dirname "${script_folder}")"
+
+  if (( $# == 0 )); then
+    export IS_BEYOND_MINIMAL_UPDATE=
+  else
+    unset IS_BEYOND_MINIMAL_UPDATE
+  fi
 
   for function in \
     manage_packages \
