@@ -80,7 +80,7 @@ manage_vs_code_extensions() {
 
 configure_vagrant() {
   vagrant plugin install vagrant-libvirt
-  vagrant plugin update vagrant-libvirt
+  vagrant plugin update
 }
 
 apply_optional_extras() {
