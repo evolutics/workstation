@@ -77,10 +77,8 @@ configure_vagrant() {
   vagrant plugin update
 }
 
-apply_optional_extras() {
-  if [[ -f apply_extras.sh ]]; then
-    ./apply_extras.sh
-  fi
+apply_extras() {
+  ./apply_extras.sh
 }
 
 collect_garbage() {
@@ -114,7 +112,7 @@ main() {
     manage_nix \
     manage_vs_code_extensions \
     configure_vagrant \
-    apply_optional_extras \
+    apply_extras \
     collect_garbage; do
     printf '§\n\n'
     (

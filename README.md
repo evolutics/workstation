@@ -31,6 +31,7 @@
    git clone https://github.com/evolutics/workstation.git .
 
    cp customization.template.nix customization.nix
+   cp apply_extras.template.sh apply_extras.sh
    ```
 
 1. Customize as you wish with
@@ -38,8 +39,6 @@
    ```bash
    nano customization.nix
    diff customization.template.nix customization.nix
-
-   cp apply_extras.template.sh apply_extras.sh
    nano apply_extras.sh
    ```
 
