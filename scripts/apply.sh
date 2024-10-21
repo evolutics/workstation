@@ -10,7 +10,6 @@ manage_packages() {
     local -r packages=(
       libvirt-daemon-system
       qemu-kvm
-      rsnapshot
       steam
       virtiofsd
       # For Podman:
@@ -37,19 +36,6 @@ configure_firefox() {
   if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
     sudo rsync --archive --mkpath --verbose \
       configuration/firefox_policies.json /etc/firefox/policies/policies.json
-  fi
-}
-
-configure_backup() {
-  if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
-    sed "s/{{ user }}/${USER}/g" configuration/rsnapshot.conf \
-      | sudo tee /etc/rsnapshot.conf >/dev/null
-
-    for frequency in daily monthly weekly; do
-      sed "s/{{ frequency }}/${frequency}/g" configuration/back_up.sh \
-        | sudo tee "/etc/cron.${frequency}/back_up" >/dev/null
-      sudo chmod +x "/etc/cron.${frequency}/back_up"
-    done
   fi
 }
 
@@ -125,7 +111,6 @@ main() {
     manage_packages \
     configure_system_keyboard_layout \
     configure_firefox \
-    configure_backup \
     manage_nix \
     manage_vs_code_extensions \
     configure_vagrant \

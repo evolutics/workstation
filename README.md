@@ -39,8 +39,8 @@
    nano customization.nix
    diff customization.template.nix customization.nix
 
+   cp apply_extras.template.sh apply_extras.sh
    nano apply_extras.sh
-   chmod +x apply_extras.sh
    ```
 
 1. Finish with
