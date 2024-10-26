@@ -80,6 +80,7 @@ in {
         curl
         docker
         flameshot
+        gcc
         gimp
         git-absorb
         haskellPackages.hadolint
