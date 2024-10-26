@@ -105,6 +105,7 @@ in {
       ++ customization.extra_packages pkgs;
 
     sessionVariables = {
+      DOCKER_HOST = "unix://\${XDG_RUNTIME_DIR}/podman/podman.sock";
       GIT_COMPLETION_CHECKOUT_NO_GUESS = 1;
     };
 
@@ -156,6 +157,40 @@ in {
     };
 
     home-manager.enable = true;
+  };
+
+  systemd.user = {
+    enable = true;
+
+    # Source: https://github.com/containers/podman/tree/main/contrib/systemd
+    services.podman = {
+      Unit = {
+        Description = "Podman API Service";
+        Requires = "podman.socket";
+        After = "podman.socket";
+        Documentation = ["man:podman-system-service(1)"];
+        StartLimitIntervalSec = 0;
+      };
+      Service = {
+        Delegate = true;
+        Type = "exec";
+        KillMode = "process";
+        Environment = "LOGGING='--log-level=info'";
+        ExecStart = "%h/.nix-profile/bin/podman $LOGGING system service";
+      };
+      Install = {WantedBy = ["default.target"];};
+    };
+    sockets.podman = {
+      Unit = {
+        Description = "Podman API Socket";
+        Documentation = ["man:podman-system-service(1)"];
+      };
+      Socket = {
+        ListenStream = "%t/podman/podman.sock";
+        SocketMode = "0660";
+      };
+      Install = {WantedBy = ["sockets.target"];};
+    };
   };
 
   targets.genericLinux.enable = true;
