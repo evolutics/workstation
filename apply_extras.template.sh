@@ -3,7 +3,9 @@
 set -o errexit -o nounset -o pipefail
 
 if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
-  sudo apt-get install rsnapshot
+  sudo apt-get install -- \
+    rsnapshot \
+    steam
 
   sed "s/{{ user }}/${USER}/g" configuration/rsnapshot.conf \
     | sudo tee /etc/rsnapshot.conf >/dev/null

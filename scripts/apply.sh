@@ -8,7 +8,6 @@ manage_packages() {
     local -r packages=(
       libvirt-daemon-system
       qemu-kvm
-      steam
       virtiofsd
       # For Podman:
       golang-github-containers-common
