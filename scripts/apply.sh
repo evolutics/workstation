@@ -52,6 +52,7 @@ manage_vs_code_extensions() {
   if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
     code \
       --install-extension bbenoist.nix \
+      --install-extension bierner.markdown-mermaid \
       --install-extension eamodio.gitlens \
       --install-extension esbenp.prettier-vscode \
       --install-extension kamadorueda.alejandra \
