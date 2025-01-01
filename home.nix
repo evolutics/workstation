@@ -89,10 +89,10 @@ in {
         minikube
         nodePackages.prettier
         pdftk
-        podman
         rustup
         skaffold
         texliveMedium
+        unstable.podman
         vagrant
         variety
         virt-manager
