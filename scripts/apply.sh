@@ -88,8 +88,7 @@ retry_once() {
 }
 
 main() {
-  local -r script_folder="$(dirname "$(readlink --canonicalize "$0")")"
-  cd "$(dirname "${script_folder}")"
+  cd -- "$(dirname -- "$0")/.."
 
   if (($# == 0)); then
     export IS_BEYOND_MINIMAL_UPDATE=
