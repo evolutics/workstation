@@ -7,12 +7,16 @@ if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
     rsnapshot \
     steam
 
-  sed "s/{{ user }}/${USER}/g" configuration/rsnapshot.conf \
+  readonly sed_script="s/{{ user }}/${USER}/g"
+
+  echo "${sed_script}" \
+    | sed --file - configuration/rsnapshot.conf \
     | sudo tee /etc/rsnapshot.conf >/dev/null
 
   for frequency in daily monthly weekly; do
-    sed --expression "s/{{ frequency }}/${frequency}/g" \
-      --expression "s/{{ user }}/${USER}/g" configuration/back_up.sh \
+    echo "${sed_script}" \
+      | sed --expression "s/{{ frequency }}/${frequency}/g" --file - \
+        configuration/back_up.sh \
       | sudo tee "/etc/cron.${frequency}/back_up" >/dev/null
     sudo chmod +x "/etc/cron.${frequency}/back_up"
   done
