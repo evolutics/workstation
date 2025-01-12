@@ -8,6 +8,6 @@ if /usr/bin/rsnapshot '{{ frequency }}'; then
   fi
 else
   su '{{ user }}' --command \
-    'notify-send "Backup {{ frequency }} failed" "See: /var/log/rsnapshot.log"'
+    'notify-send "Backup {{ frequency }} failed" "See: {{ rsnapshot_log }}"'
   exit 1
 fi
