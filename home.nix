@@ -107,6 +107,7 @@ in {
 
     sessionVariables = {
       DOCKER_HOST = "unix://\${XDG_RUNTIME_DIR}/podman/podman.sock";
+      EDITOR = "nano";
       GIT_COMPLETION_CHECKOUT_NO_GUESS = 1;
     };
 
