@@ -21,4 +21,6 @@ s/{{ user }}/${USER}/g"
       | sudo tee "/etc/cron.${frequency}/back_up" >/dev/null
     sudo chmod +x "/etc/cron.${frequency}/back_up"
   done
+
+  sudo snap install xournalpp
 fi
