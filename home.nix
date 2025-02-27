@@ -55,6 +55,8 @@ in {
           "editor.inlayHints.enabled" = "offUnlessPressed";
           "editor.rulers" = [80];
           "workbench.editorAssociations" = {"git-rebase-todo" = "default";};
+          # Workaround for https://github.com/microsoft/vscode/issues/232361.
+          "workbench.externalBrowser" = "firefox";
         };
         ".config/containers/policy.json".text = builtins.toJSON {
           default = [{type = "insecureAcceptAnything";}];
