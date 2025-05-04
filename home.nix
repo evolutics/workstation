@@ -90,6 +90,7 @@ in {
         kubectl
         minikube
         nodePackages.prettier
+        pandoc
         pdftk
         rustup
         skaffold
