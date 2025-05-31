@@ -86,6 +86,7 @@ in {
         gimp
         git-absorb
         haskellPackages.hadolint
+        imagemagick
         jq
         kubectl
         minikube
