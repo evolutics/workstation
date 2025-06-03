@@ -47,6 +47,9 @@ in {
           Type=Application
         '';
         ".config/Code/User/settings.json".text = builtins.toJSON {
+          "[javascript]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
           "[python]" = {
             "editor.defaultFormatter" = "ms-python.black-formatter";
           };
