@@ -99,6 +99,7 @@ in {
         rustup
         skaffold
         texliveMedium
+        tilt
         unstable.podman
         vagrant
         variety
