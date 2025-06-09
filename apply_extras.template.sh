@@ -4,6 +4,7 @@ set -o errexit -o nounset -o pipefail
 
 if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
   sudo apt-get install -- \
+    musl-tools \
     rsnapshot \
     steam
 
