@@ -50,6 +50,9 @@ in {
           "[javascript]" = {
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
           };
+          "[json]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
           "[python]" = {
             "editor.defaultFormatter" = "ms-python.black-formatter";
           };
