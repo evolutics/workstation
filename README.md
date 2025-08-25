@@ -3,7 +3,6 @@
 ## Installation
 
 1. Install [Ubuntu](https://ubuntu.com).
-
    - Applications: switch from default to the extended selection of apps
      installed to start with for office tools, startup disk creator, etc.
    - Proprietary software: based on experience, do not to install third-party
