@@ -2,9 +2,12 @@
 
 set -o errexit -o nounset -o pipefail
 
-notify_user() {
+notify_users() {
   local -r message="$1"
-  su '{{ user }}' --command "notify-send '${message}'"
+  readarray -t users < <(who | awk '{print $1}' | sort --uniq)
+  for user in "${users[@]}"; do
+    su "${user}" --command "notify-send '${message}'"
+  done
 }
 
 main() {
@@ -13,10 +16,10 @@ main() {
 
   if /usr/bin/rsnapshot "${frequency}"; then
     if (("${RANDOM}" % 7 == 0)); then
-      notify_user "Backup ${frequency} succeeded"
+      notify_users "Backup ${frequency} succeeded"
     fi
   else
-    notify_user "Backup ${frequency} failed, see: /var/log/rsnapshot.log"
+    notify_users "Backup ${frequency} failed, see: /var/log/rsnapshot.log"
     exit 1
   fi
 }

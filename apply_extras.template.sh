@@ -8,17 +8,11 @@ if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
     rsnapshot \
     steam
 
-  readonly sed_script="s/{{ user }}/${USER}/g"
-
-  echo "${sed_script}" \
-    | sed --file - configuration/rsnapshot.conf \
+  sed "s/{{ user }}/${USER}/g" configuration/rsnapshot.conf \
     | sudo tee /etc/rsnapshot.conf >/dev/null
 
   for frequency in daily monthly weekly; do
-    echo "${sed_script}" \
-      | sed --file - configuration/back_up.sh \
-      | sudo tee "/etc/cron.${frequency}/back_up" >/dev/null
-    sudo chmod +x "/etc/cron.${frequency}/back_up"
+    sudo cp configuration/back_up.sh "/etc/cron.${frequency}/back_up"
   done
 
   sudo snap install xournalpp
