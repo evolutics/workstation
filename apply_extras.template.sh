@@ -8,8 +8,7 @@ if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
     rsnapshot \
     steam
 
-  readonly sed_script="s|{{ rsnapshot_log }}|/var/log/rsnapshot.log|g
-s/{{ user }}/${USER}/g"
+  readonly sed_script="s/{{ user }}/${USER}/g"
 
   echo "${sed_script}" \
     | sed --file - configuration/rsnapshot.conf \
