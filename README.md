@@ -15,7 +15,7 @@
 
    ```bash
    rsync --archive --dry-run --verbose \
-     "/media/${USER}/backup/rsnapshot/daily.0/localhost/home/${USER}/data" ~
+     "/media/${USER}/backup/rsnapshot/daily.0/localhost/home/${USER}/" ~
    ```
 
 1. Install [Nix](https://nixos.org).
