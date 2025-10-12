@@ -17,8 +17,7 @@ s/{{ user }}/${USER}/g"
 
   for frequency in daily monthly weekly; do
     echo "${sed_script}" \
-      | sed --expression "s/{{ frequency }}/${frequency}/g" --file - \
-        configuration/back_up.sh \
+      | sed --file - configuration/back_up.sh \
       | sudo tee "/etc/cron.${frequency}/back_up" >/dev/null
     sudo chmod +x "/etc/cron.${frequency}/back_up"
   done
