@@ -12,6 +12,6 @@ if /usr/bin/rsnapshot "${FREQUENCY}"; then
   fi
 else
   su '{{ user }}' --command \
-    "notify-send 'Backup ${FREQUENCY} failed' 'See: /var/log/rsnapshot.log'"
+    "notify-send 'Backup ${FREQUENCY} failed, see: /var/log/rsnapshot.log'"
   exit 1
 fi
