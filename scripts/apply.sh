@@ -55,6 +55,7 @@ manage_vs_code_extensions() {
       --install-extension bierner.markdown-mermaid \
       --install-extension eamodio.gitlens \
       --install-extension esbenp.prettier-vscode \
+      --install-extension golang.Go \
       --install-extension kamadorueda.alejandra \
       --install-extension ms-python.black-formatter \
       --install-extension rust-lang.rust-analyzer \
