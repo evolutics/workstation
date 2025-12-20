@@ -122,7 +122,7 @@ in {
     };
 
     # When updating state version, check Home Manager release notes for changes.
-    stateVersion = "25.05"; # Update-worthy.
+    stateVersion = "25.11"; # Update-worthy.
 
     inherit (customization.identity) username;
   };
@@ -142,6 +142,11 @@ in {
       };
     };
 
+    diff-so-fancy = {
+      enable = true;
+      enableGitIntegration = true;
+    };
+
     direnv = {
       config = {global = {strict_env = true;};};
       enable = true;
@@ -149,23 +154,26 @@ in {
     };
 
     git = {
-      aliases =
-        builtins.mapAttrs (alias: script: "!${pkgs.lib.strings.removeSuffix
-          "\n" (builtins.readFile script)}")
-        {
-          d1 = ./configuration/git_aliases/d1.sh;
-          is-clean = ./configuration/git_aliases/is_clean.sh;
-          lift = ./configuration/git_aliases/lift.sh;
-          restart = ./configuration/git_aliases/restart.sh;
-          save = ./configuration/git_aliases/save.sh;
-          trim = ./configuration/git_aliases/trim.sh;
-        };
-      diff-so-fancy.enable = true;
       enable = true;
-      extraConfig = {core = {editor = "code --wait";};};
-      package = pkgs.gitAndTools.gitFull;
-      userEmail = customization.identity.email;
-      userName = customization.identity.name;
+      package = pkgs.gitFull;
+      settings = {
+        alias =
+          builtins.mapAttrs (alias: script: "!${pkgs.lib.strings.removeSuffix
+            "\n" (builtins.readFile script)}")
+          {
+            d1 = ./configuration/git_aliases/d1.sh;
+            is-clean = ./configuration/git_aliases/is_clean.sh;
+            lift = ./configuration/git_aliases/lift.sh;
+            restart = ./configuration/git_aliases/restart.sh;
+            save = ./configuration/git_aliases/save.sh;
+            trim = ./configuration/git_aliases/trim.sh;
+          };
+        core.editor = "code --wait";
+        user = {
+          inherit (customization.identity) email;
+          inherit (customization.identity) name;
+        };
+      };
     };
 
     home-manager.enable = true;
