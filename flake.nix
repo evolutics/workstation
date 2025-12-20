@@ -21,7 +21,7 @@
       inherit system;
       overlays = [
         (final: prev: {
-          unstable = nixpkgs-unstable.legacyPackages.${prev.system};
+          unstable = nixpkgs-unstable.legacyPackages.${prev.stdenv.hostPlatform.system};
         })
       ];
     };
