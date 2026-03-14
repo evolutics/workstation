@@ -89,6 +89,7 @@ in {
         gcc
         gimp
         git-absorb
+        git-delete-merged-branches
         haskellPackages.hadolint
         imagemagick
         jq
@@ -164,7 +165,6 @@ in {
             lift = ./configuration/git_aliases/lift.sh;
             restart = ./configuration/git_aliases/restart.sh;
             save = ./configuration/git_aliases/save.sh;
-            trim = ./configuration/git_aliases/trim.sh;
           };
         core.editor = "code --wait";
         user = {
