@@ -115,6 +115,8 @@ in {
       ])
       ++ customization.extra_packages pkgs;
 
+    sessionPath = ["$HOME/.local/bin"];
+
     sessionVariables = {
       EDITOR = "nano";
       GIT_COMPLETION_CHECKOUT_NO_GUESS = 1;
