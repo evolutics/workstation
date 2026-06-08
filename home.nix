@@ -99,9 +99,9 @@ in {
         jq
         kubectl
         minikube
-        nodePackages.prettier
         pandoc
         pdftk
+        prettier
         rustup
         skaffold
         texliveMedium
