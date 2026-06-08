@@ -41,9 +41,7 @@ manage_nix() {
 
   nix upgrade-nix
   nix flake update
-  # Retry due to https://github.com/nix-community/home-manager/issues/2033.
-  # TODO: Remove workaround once issue is fixed.
-  retry_once nix run home-manager/release-26.05 -- --flake path:. switch # Update-worthy.
+  nix run home-manager/release-26.05 -- --flake path:. switch # Update-worthy.
 
   unset NIX_CONFIG
 }
@@ -82,10 +80,6 @@ collect_garbage() {
     nix-collect-garbage --delete-older-than 30d --quiet
     podman system prune --all --filter until=720h --force
   fi
-}
-
-retry_once() {
-  "$@" || "$@"
 }
 
 main() {
