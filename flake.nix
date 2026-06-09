@@ -6,25 +6,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager/release-26.05"; # Update-worthy.
     };
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05"; # Update-worthy.
   };
 
   outputs = {
     home-manager,
-    nixpkgs-unstable,
     nixpkgs,
     ...
   }: let
     customization = import ./customization.nix;
-    pkgs = import nixpkgs {
-      inherit system;
-      overlays = [
-        (final: prev: {
-          unstable = nixpkgs-unstable.legacyPackages.${prev.stdenv.hostPlatform.system};
-        })
-      ];
-    };
+    pkgs = nixpkgs.legacyPackages.${system};
 
     system = "x86_64-linux";
   in {

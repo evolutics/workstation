@@ -101,12 +101,12 @@ in {
         minikube
         pandoc
         pdftk
+        podman
         prettier
         rustup
         skaffold
         texliveMedium
         tilt
-        unstable.podman
         vagrant
         variety
         virt-manager
