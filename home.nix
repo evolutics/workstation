@@ -60,7 +60,6 @@ in {
           "[python]" = {
             "editor.defaultFormatter" = "ms-python.black-formatter";
           };
-          "dev.containers.dockerPath" = "podman";
           "diffEditor.ignoreTrimWhitespace" = false;
           "editor.formatOnSave" = true;
           "editor.inlayHints.enabled" = "offUnlessPressed";
