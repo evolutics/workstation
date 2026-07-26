@@ -51,11 +51,11 @@ manage_vs_code_extensions() {
     code --force \
       --install-extension bbenoist.nix \
       --install-extension bierner.markdown-mermaid \
+      --install-extension charliermarsh.ruff \
       --install-extension eamodio.gitlens \
       --install-extension esbenp.prettier-vscode \
       --install-extension golang.Go \
       --install-extension kamadorueda.alejandra \
-      --install-extension ms-python.black-formatter \
       --install-extension ms-vscode-remote.remote-containers \
       --install-extension rust-lang.rust-analyzer \
       --install-extension streetsidesoftware.code-spell-checker \

@@ -57,7 +57,7 @@ in {
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
           };
           "[python]" = {
-            "editor.defaultFormatter" = "ms-python.black-formatter";
+            "editor.defaultFormatter" = "charliermarsh.ruff";
           };
           "dev.containers.dockerPath" = "podman";
           "diffEditor.ignoreTrimWhitespace" = false;
@@ -92,7 +92,6 @@ in {
     packages =
       (with pkgs; [
         alejandra
-        black
         curl
         docker
         flameshot
@@ -109,6 +108,7 @@ in {
         pdftk
         podman
         prettier
+        ruff
         rustup
         skaffold
         texliveMedium
