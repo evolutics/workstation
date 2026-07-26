@@ -59,6 +59,7 @@ in {
           "[python]" = {
             "editor.defaultFormatter" = "ms-python.black-formatter";
           };
+          "dev.containers.dockerPath" = "podman";
           "diffEditor.ignoreTrimWhitespace" = false;
           "editor.formatOnSave" = true;
           "editor.inlayHints.enabled" = "offUnlessPressed";
@@ -73,6 +74,12 @@ in {
           location = "docker.io"
           [[registry.mirror]]
           location = "mirror.gcr.io"
+        '';
+        ".config/containers/storage.conf".text = ''
+          [storage]
+          # Workaround for https://github.com/microsoft/vscode/issues/232863.
+          driver = "overlay"
+          graphroot = "$HOME/.local/share/containers/storage"
         '';
         ".config/nix/nix.conf".text = ''
           experimental-features = flakes nix-command

@@ -56,6 +56,7 @@ manage_vs_code_extensions() {
       --install-extension golang.Go \
       --install-extension kamadorueda.alejandra \
       --install-extension ms-python.black-formatter \
+      --install-extension ms-vscode-remote.remote-containers \
       --install-extension rust-lang.rust-analyzer \
       --install-extension streetsidesoftware.code-spell-checker \
       --install-extension timonwong.shellcheck
