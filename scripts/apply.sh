@@ -49,15 +49,12 @@ manage_nix() {
 manage_vs_code_extensions() {
   if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
     code --force \
-      --install-extension bbenoist.nix \
       --install-extension bierner.markdown-mermaid \
       --install-extension charliermarsh.ruff \
       --install-extension eamodio.gitlens \
       --install-extension esbenp.prettier-vscode \
-      --install-extension golang.Go \
-      --install-extension kamadorueda.alejandra \
+      --install-extension ms-python.python \
       --install-extension ms-vscode-remote.remote-containers \
-      --install-extension rust-lang.rust-analyzer \
       --install-extension streetsidesoftware.code-spell-checker \
       --install-extension timonwong.shellcheck
   fi
