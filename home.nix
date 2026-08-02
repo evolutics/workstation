@@ -59,6 +59,15 @@ in {
           "[python]" = {
             "editor.defaultFormatter" = "charliermarsh.ruff";
           };
+          "dev.containers.defaultExtensions" = [
+            "bierner.markdown-mermaid"
+            "charliermarsh.ruff"
+            "eamodio.gitlens"
+            "esbenp.prettier-vscode"
+            "ms-python.python"
+            "streetsidesoftware.code-spell-checker"
+            "timonwong.shellcheck"
+          ];
           "dev.containers.dockerPath" = "podman";
           "diffEditor.ignoreTrimWhitespace" = false;
           "editor.formatOnSave" = true;
