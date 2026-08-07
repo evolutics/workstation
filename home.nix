@@ -64,7 +64,9 @@ in {
             "charliermarsh.ruff"
             "eamodio.gitlens"
             "esbenp.prettier-vscode"
+            "HashiCorp.terraform"
             "ms-python.python"
+            "redhat.ansible"
             "streetsidesoftware.code-spell-checker"
             "timonwong.shellcheck"
           ];
