@@ -43,7 +43,8 @@ in {
       {
         ".config/autostart/apply.desktop".text = ''
           [Desktop Entry]
-          Comment=Update custom code, keeping terminal open on errors
+          Comment=Update custom code
+          # Keep terminal open on errors.
           Exec=sh -c ".config/home-manager/scripts/apply.sh || ''${SHELL}"
           Name=Apply
           Terminal=true
