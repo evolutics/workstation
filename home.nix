@@ -44,7 +44,7 @@ in {
         ".config/autostart/apply.desktop".text = ''
           [Desktop Entry]
           Comment=Update custom code
-          # Keep terminal open on errors.
+          # Fall back to shell so errors stay visible to user.
           Exec=sh -c ".config/home-manager/scripts/apply.sh || ''${SHELL}"
           Name=Apply
           Terminal=true
