@@ -112,7 +112,7 @@ main() {
     configure_vagrant \
     apply_extras \
     collect_garbage; do
-    printf '§\n\n'
+    printf '\n%s  %s\n\n' "${IS_FULL_APPLY+●}${IS_FULL_APPLY-◐}" "${function}"
     (
       set -o xtrace
       "${function}"
