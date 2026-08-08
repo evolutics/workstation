@@ -8,7 +8,7 @@ is_full_apply_due() {
   local last_full_apply_time
   last_full_apply_time="$(tail --lines 1 full_apply_times 2>/dev/null || true)"
   local cutoff_time
-  cutoff_time="$(date --date="${due_period} ago" --iso-8601=seconds)"
+  cutoff_time="$(date --date="${due_period} ago" --iso-8601=seconds || exit)"
 
   [[ "${last_full_apply_time}" < "${cutoff_time}" ]]
 }
