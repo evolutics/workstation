@@ -2,6 +2,17 @@
 
 set -o errexit -o nounset -o pipefail
 
+is_full_apply_due() {
+  local -r due_period="${1:-7 days}"
+
+  local last_full_apply_time
+  last_full_apply_time="$(tail --lines 1 full_apply_times 2>/dev/null || true)"
+  local cutoff_time
+  cutoff_time="$(date --date="${due_period} ago" --iso-8601=seconds)"
+
+  [[ "${last_full_apply_time}" < "${cutoff_time}" ]]
+}
+
 manage_packages() {
   if [[ -v IS_FULL_APPLY ]]; then
     sudo apt-get update
@@ -83,7 +94,7 @@ collect_garbage() {
 main() {
   cd -- "$(dirname -- "$0")/.."
 
-  if (($# == 0)); then
+  if is_full_apply_due "$@"; then
     export IS_FULL_APPLY=
   else
     unset IS_FULL_APPLY
@@ -105,6 +116,10 @@ main() {
     )
     printf '\n\n'
   done
+
+  if [[ -v IS_FULL_APPLY ]]; then
+    date --iso-8601=seconds >>full_apply_times
+  fi
 }
 
 main "$@"

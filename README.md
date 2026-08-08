@@ -51,12 +51,13 @@
 
 ## Updating
 
-A minimal update is auto-run for security. To apply other changes, too, run
+An update is auto-run for security. To force a full apply (which otherwise only
+happens sometimes), run
 
 ```bash
 cd ~/.config/home-manager
 git pull
-scripts/apply.sh
+scripts/apply.sh '0 days'
 ```
 
 Update code marked with "update-worthy" about every 6 months.

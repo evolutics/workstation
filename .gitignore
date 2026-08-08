@@ -1,4 +1,5 @@
 /apply_extras.sh
 /customization.nix
 /flake.lock
+/full_apply_times
 /result

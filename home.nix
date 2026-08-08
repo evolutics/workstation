@@ -41,11 +41,11 @@ in {
   home = {
     file =
       {
-        ".config/autostart/minimal_update.desktop".text = ''
+        ".config/autostart/apply.desktop".text = ''
           [Desktop Entry]
           Comment=Update custom code, keeping terminal open on errors
-          Exec=sh -c ".config/home-manager/scripts/apply.sh minimal || ''${SHELL}"
-          Name=Minimal update
+          Exec=sh -c ".config/home-manager/scripts/apply.sh || ''${SHELL}"
+          Name=Apply
           Terminal=true
           Type=Application
         '';
