@@ -50,7 +50,10 @@ configure_firefox() {
 manage_nix() {
   export NIX_CONFIG='experimental-features = flakes nix-command'
 
-  nix upgrade-nix
+  if [[ -v IS_FULL_APPLY ]]; then
+    nix upgrade-nix
+  fi
+
   nix flake update
   nix run home-manager/release-26.05 -- --flake path:. switch # Update-worthy.
 
