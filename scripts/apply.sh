@@ -3,7 +3,7 @@
 set -o errexit -o nounset -o pipefail
 
 manage_packages() {
-  if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
+  if [[ -v IS_FULL_APPLY ]]; then
     sudo apt-get update
     local -r packages=(
       libvirt-daemon-system
@@ -21,7 +21,7 @@ manage_packages() {
 }
 
 configure_system_keyboard_layout() {
-  if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
+  if [[ -v IS_FULL_APPLY ]]; then
     sudo sed \
       --expression 's/^XKBLAYOUT=.*/XKBLAYOUT="de"/' \
       --expression 's/^XKBVARIANT=.*/XKBVARIANT="neo"/' \
@@ -30,7 +30,7 @@ configure_system_keyboard_layout() {
 }
 
 configure_firefox() {
-  if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
+  if [[ -v IS_FULL_APPLY ]]; then
     sudo rsync --archive --mkpath --verbose \
       configuration/firefox_policies.json /etc/firefox/policies/policies.json
   fi
@@ -47,7 +47,7 @@ manage_nix() {
 }
 
 manage_vs_code_extensions() {
-  if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
+  if [[ -v IS_FULL_APPLY ]]; then
     code --force \
       --install-extension bierner.markdown-mermaid \
       --install-extension charliermarsh.ruff \
@@ -61,7 +61,7 @@ manage_vs_code_extensions() {
 }
 
 configure_vagrant() {
-  if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
+  if [[ -v IS_FULL_APPLY ]]; then
     vagrant plugin install vagrant-libvirt
   fi
   vagrant plugin update
@@ -72,7 +72,7 @@ apply_extras() {
 }
 
 collect_garbage() {
-  if [[ -v IS_BEYOND_MINIMAL_UPDATE ]]; then
+  if [[ -v IS_FULL_APPLY ]]; then
     sudo apt-get autopurge
     sudo apt-get clean
     nix-collect-garbage --delete-older-than 30d --quiet
@@ -84,9 +84,9 @@ main() {
   cd -- "$(dirname -- "$0")/.."
 
   if (($# == 0)); then
-    export IS_BEYOND_MINIMAL_UPDATE=
+    export IS_FULL_APPLY=
   else
-    unset IS_BEYOND_MINIMAL_UPDATE
+    unset IS_FULL_APPLY
   fi
 
   for function in \
