@@ -105,7 +105,7 @@ in {
       (with pkgs; [
         alejandra
         curl
-        docker
+        docker-client
         flameshot
         gcc
         gimp
