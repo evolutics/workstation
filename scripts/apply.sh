@@ -42,7 +42,7 @@ configure_system_keyboard_layout() {
 
 configure_firefox() {
   if [[ -v IS_FULL_APPLY ]]; then
-    sudo rsync --archive --mkpath --verbose \
+    sudo install -D --mode 'u=rw,go=r' \
       configuration/firefox_policies.json /etc/firefox/policies/policies.json
   fi
 }
