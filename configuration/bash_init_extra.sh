@@ -60,6 +60,6 @@ _integer_hsv_to_rgb() {
     5) local -ir rgb1=("${q_c}" 0 "${q_x}") ;;
   esac
 
-  local -ir q_m="$((q_m = v - q_c))"
+  local -ir q_m="$((v - q_c))"
   echo "$((rgb1[0] + q_m));$((rgb1[1] + q_m));$((rgb1[2] + q_m))"
 }
