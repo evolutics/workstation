@@ -197,43 +197,14 @@ in {
     home-manager.enable = true;
   };
 
-  systemd.user = {
-    enable = true;
-
-    # Source: https://github.com/containers/podman/tree/main/contrib/systemd
-    services.podman = {
-      Unit = {
-        Description = "Podman API Service";
-        Requires = "podman.socket";
-        After = "podman.socket";
-        Documentation = ["man:podman-system-service(1)"];
-        StartLimitIntervalSec = 0;
-      };
-      Service = {
-        Delegate = true;
-        Type = "exec";
-        KillMode = "process";
-        Environment = "LOGGING='--log-level=info'";
-        ExecStart = "${lib.getExe pkgs.podman} $LOGGING system service";
-      };
-      Install = {WantedBy = ["default.target"];};
-    };
-    sockets.podman = {
-      Unit = {
-        Description = "Podman API Socket";
-        Documentation = ["man:podman-system-service(1)"];
-      };
-      Socket = {
-        ListenStream = "%t/podman/podman.sock";
-        SocketMode = "0660";
-      };
-      Install = {WantedBy = ["sockets.target"];};
-    };
-  };
-
   targets.genericLinux.enable = true;
 
   xdg = {
+    configFile = {
+      "systemd/user/podman.service".source = "${pkgs.podman}/share/systemd/user/podman.service";
+      "systemd/user/podman.socket".source = "${pkgs.podman}/share/systemd/user/podman.socket";
+      "systemd/user/sockets.target.wants/podman.socket".source = "${pkgs.podman}/share/systemd/user/podman.socket";
+    };
     enable = true;
     mimeApps = {
       defaultApplications = {"text/plain" = ["code_code.desktop"];};
