@@ -89,10 +89,7 @@ collect_garbage() {
   if [[ -v IS_FULL_APPLY ]]; then
     sudo apt-get autopurge
     sudo apt-get clean
-
-    nix-env --profile ~/.nix-profile --delete-generations 30d
     nix-collect-garbage --delete-older-than 30d --quiet
-
     podman system prune --all --filter until=720h --force
   fi
 }
