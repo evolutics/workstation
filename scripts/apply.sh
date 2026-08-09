@@ -55,7 +55,7 @@ manage_nix() {
   fi
 
   nix flake update
-  nix run home-manager/release-26.05 -- --flake path:. switch # Update-worthy.
+  nix run path:.#home-manager -- --flake path:. switch
 
   unset NIX_CONFIG
 }

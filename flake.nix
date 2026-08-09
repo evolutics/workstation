@@ -24,5 +24,7 @@
 
       modules = [./home.nix];
     };
+
+    packages.${system} = {inherit (home-manager.packages.${system}) home-manager;};
   };
 }
