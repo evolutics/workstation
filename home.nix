@@ -214,7 +214,7 @@ in {
         Type = "exec";
         KillMode = "process";
         Environment = "LOGGING='--log-level=info'";
-        ExecStart = "%h/.nix-profile/bin/podman $LOGGING system service";
+        ExecStart = "${lib.getExe pkgs.podman} $LOGGING system service";
       };
       Install = {WantedBy = ["default.target"];};
     };
