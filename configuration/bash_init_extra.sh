@@ -1,7 +1,5 @@
 #!/bin/bash
 
-export XDG_DATA_DIRS="${HOME}/.nix-profile/share:${XDG_DATA_DIRS}"
-
 PROMPT_COMMAND=_update_current_bash_prompt
 
 _update_current_bash_prompt() {
