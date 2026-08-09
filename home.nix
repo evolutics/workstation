@@ -190,10 +190,7 @@ in {
             save = ./configuration/git_aliases/save.sh;
           };
         core.editor = "code --wait";
-        user = {
-          inherit (customization.identity) email;
-          inherit (customization.identity) name;
-        };
+        user = {inherit (customization.identity) email name;};
       };
     };
 
