@@ -181,7 +181,7 @@ in {
       package = pkgs.gitFull;
       settings = {
         alias =
-          builtins.mapAttrs (alias: script: "!${lib.fileContents script}")
+          builtins.mapAttrs (_: script: "!${lib.fileContents script}")
           {
             d1 = ./configuration/git_aliases/d1.sh;
             is-clean = ./configuration/git_aliases/is_clean.sh;
