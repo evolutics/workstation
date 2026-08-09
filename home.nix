@@ -45,7 +45,7 @@ in {
           [Desktop Entry]
           Comment=Update system by applying user config
           # Fall back to shell so errors stay visible to user.
-          Exec=sh -c ".config/home-manager/scripts/apply.sh || ''${SHELL}"
+          Exec=sh -c "''${HOME}/.config/home-manager/scripts/apply.sh || ''${SHELL}"
           Name=Apply config
           Terminal=true
           Type=Application
