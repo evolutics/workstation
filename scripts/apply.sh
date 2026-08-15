@@ -74,13 +74,6 @@ manage_vs_code_extensions() {
   fi
 }
 
-configure_vagrant() {
-  if [[ -v IS_FULL_APPLY ]]; then
-    vagrant plugin install vagrant-libvirt
-  fi
-  vagrant plugin update
-}
-
 apply_extras() {
   ./apply_extras.sh
 }
@@ -109,7 +102,6 @@ main() {
     configure_firefox \
     manage_nix \
     manage_vs_code_extensions \
-    configure_vagrant \
     apply_extras \
     collect_garbage; do
     printf '\n%s  %s\n\n' "${IS_FULL_APPLY+●}${IS_FULL_APPLY-◐}" "${function}"
