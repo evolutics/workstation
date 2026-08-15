@@ -111,7 +111,7 @@ in {
         gimp
         git-absorb
         git-delete-merged-branches
-        haskellPackages.hadolint
+        hadolint
         imagemagick
         jq
         kubectl
