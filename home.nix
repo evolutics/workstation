@@ -117,9 +117,9 @@ in {
         kubectl
         minikube
         pandoc
-        pdftk
         podman
         prettier
+        qpdf
         ruff
         rustup
         skaffold
