@@ -28,6 +28,7 @@ manage_packages() {
 
     sudo snap install chromium
     sudo snap install --classic code
+    sudo snap install gradia
   fi
 }
 

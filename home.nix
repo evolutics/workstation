@@ -25,8 +25,7 @@ in {
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Ctrl>Print";
-      # Workaround for https://github.com/flameshot-org/flameshot/issues/3365.
-      command = "script --command 'flameshot gui' /dev/null";
+      command = "gradia --screenshot";
       name = "Take editable screenshot";
     };
     "org/gnome/shell/extensions/dash-to-dock" = {dock-fixed = false;};
@@ -106,7 +105,6 @@ in {
         alejandra
         curl
         docker-client
-        flameshot
         gcc
         gimp
         git-absorb
