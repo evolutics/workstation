@@ -19,10 +19,8 @@ manage_packages() {
     local -r packages=(
       libvirt-daemon-system
       qemu-kvm
+      uidmap # For rootless Podman.
       virtiofsd
-      # For Podman:
-      golang-github-containers-common
-      uidmap
     )
     sudo apt-get install -- "${packages[@]}"
 
