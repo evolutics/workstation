@@ -2,7 +2,7 @@ rec {
   extra_files = {
     ".config/autostart/custom.desktop".text = ''
       [Desktop Entry]
-      Exec=open "/media/${identity.username}"
+      Exec=open "/run/media/${identity.username}"
       Name=Custom autostart
       Type=Application
     '';
