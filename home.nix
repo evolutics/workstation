@@ -12,11 +12,7 @@ in {
         (lib.hm.gvariant.mkTuple ["xkb" "us"])
       ];
     };
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-      gtk-theme = "Yaru-dark";
-      icon-theme = "Yaru-dark";
-    };
+    "org/gnome/desktop/interface" = {color-scheme = "prefer-dark";};
     "org/gnome/mutter" = {workspaces-only-on-primary = false;};
     "org/gnome/settings-daemon/plugins/color" = {night-light-enabled = true;};
     "org/gnome/settings-daemon/plugins/media-keys" = {
