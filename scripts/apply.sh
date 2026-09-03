@@ -18,7 +18,7 @@ manage_packages() {
     sudo apt-get update
     local -r packages=(
       libvirt-daemon-system
-      qemu-kvm
+      qemu-system
       uidmap # For rootless Podman.
       virtiofsd
     )
