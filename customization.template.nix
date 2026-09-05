@@ -2,8 +2,9 @@ rec {
   extra_files = {
     ".config/autostart/custom.desktop".text = ''
       [Desktop Entry]
-      Exec=open "/run/media/${identity.username}"
+      Exec=gio mount --device /dev/sdb1
       Name=Custom autostart
+      Terminal=true
       Type=Application
     '';
     ".config/containers/registries.conf".text = ''
