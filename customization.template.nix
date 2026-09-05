@@ -1,9 +1,9 @@
 rec {
   extra_files = {
-    ".config/autostart/custom.desktop".text = ''
+    ".config/autostart/mount_backup_drive.desktop".text = ''
       [Desktop Entry]
       Exec=gio mount --device /dev/sdb1
-      Name=Custom autostart
+      Name=Mount backup drive
       Terminal=true
       Type=Application
     '';
