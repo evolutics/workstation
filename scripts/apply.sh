@@ -51,7 +51,7 @@ manage_nix() {
 
   if [[ -v IS_FULL_APPLY ]]; then
     # Source: https://nix.dev/manual/nix/latest/installation/upgrading.html
-    sudo nix-env --install --file '<nixpkgs>' --attr nix cacert \
+    sudo -i nix-env --install --file '<nixpkgs>' --attr nix cacert \
       --include nixpkgs=channel:nixpkgs-unstable
     sudo systemctl daemon-reload
     sudo systemctl restart nix-daemon
