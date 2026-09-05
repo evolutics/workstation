@@ -50,7 +50,11 @@ manage_nix() {
   export NIX_CONFIG='experimental-features = flakes nix-command'
 
   if [[ -v IS_FULL_APPLY ]]; then
-    nix upgrade-nix
+    # Source: https://nix.dev/manual/nix/latest/installation/upgrading.html
+    sudo nix-env --install --file '<nixpkgs>' --attr nix cacert \
+      --include nixpkgs=channel:nixpkgs-unstable
+    sudo systemctl daemon-reload
+    sudo systemctl restart nix-daemon
   fi
 
   nix flake update
