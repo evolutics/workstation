@@ -122,7 +122,6 @@ in {
         skaffold
         texliveMedium
         tilt
-        vagrant
         variety
         virt-manager
 
