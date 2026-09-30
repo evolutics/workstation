@@ -126,6 +126,7 @@ in {
         virt-manager
 
         # Font families:
+        fira
         merriweather
         open-sans
         roboto
