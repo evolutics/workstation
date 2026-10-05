@@ -69,15 +69,12 @@ in {
             "streetsidesoftware.code-spell-checker"
             "timonwong.shellcheck"
           ];
-          "dev.containers.dockerPath" = "podman";
+          "dev.containers.dockerPath" = "/usr/bin/podman"; # Not from Nix flake.
           "diffEditor.ignoreTrimWhitespace" = false;
           "editor.formatOnSave" = true;
           "editor.inlayHints.enabled" = "offUnlessPressed";
           "editor.rulers" = [80];
           "workbench.editorAssociations" = {"git-rebase-todo" = "default";};
-        };
-        ".config/containers/policy.json".text = builtins.toJSON {
-          default = [{type = "insecureAcceptAnything";}];
         };
         ".config/containers/registries.conf".text = ''
           [[registry]]
@@ -114,7 +111,6 @@ in {
         kubectl
         minikube
         pandoc
-        podman
         prettier
         qpdf
         ruff
@@ -197,11 +193,6 @@ in {
   targets.genericLinux.enable = true;
 
   xdg = {
-    configFile = {
-      "systemd/user/podman.service".source = "${pkgs.podman}/share/systemd/user/podman.service";
-      "systemd/user/podman.socket".source = "${pkgs.podman}/share/systemd/user/podman.socket";
-      "systemd/user/sockets.target.wants/podman.socket".source = "${pkgs.podman}/share/systemd/user/podman.socket";
-    };
     enable = true;
     mimeApps = {
       defaultApplications = {"text/plain" = ["code_code.desktop"];};

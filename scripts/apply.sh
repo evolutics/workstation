@@ -18,8 +18,8 @@ manage_packages() {
     sudo apt-get update
     local -r packages=(
       libvirt-daemon-system
+      podman # From APT for Ubuntu's AppArmor profile.
       qemu-system
-      uidmap # For rootless Podman.
       virtiofsd
     )
     sudo apt-get install -- "${packages[@]}"
@@ -44,6 +44,10 @@ configure_firefox() {
     sudo install -D --mode 'u=rw,go=r' \
       configuration/firefox_policies.json /etc/firefox/policies/policies.json
   fi
+}
+
+configure_podman() {
+  systemctl --user enable podman.socket
 }
 
 manage_nix() {
@@ -103,6 +107,7 @@ main() {
     manage_packages \
     configure_system_keyboard_layout \
     configure_firefox \
+    configure_podman \
     manage_nix \
     manage_vs_code_extensions \
     apply_extras \
