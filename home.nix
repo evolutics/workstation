@@ -185,6 +185,7 @@ in {
             save = ./configuration/git_aliases/save.sh;
           };
         core.editor = "code --wait";
+        push.autoSetupRemote = true;
         user = {inherit (customization.identity) email name;};
       };
     };

@@ -1,1 +1,1 @@
-git bud && git push --set-upstream origin HEAD
+git bud && git push
