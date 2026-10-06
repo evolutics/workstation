@@ -176,6 +176,8 @@ in {
         alias =
           builtins.mapAttrs (_: script: "!${lib.fileContents script}")
           {
+            bloom = ./configuration/git_aliases/bloom.sh;
+            bud = ./configuration/git_aliases/bud.sh;
             d1 = ./configuration/git_aliases/d1.sh;
             is-clean = ./configuration/git_aliases/is_clean.sh;
             lift = ./configuration/git_aliases/lift.sh;
