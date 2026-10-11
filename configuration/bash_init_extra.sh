@@ -22,7 +22,7 @@ _update_current_bash_prompt() {
   local -r ok_separator=(' • ')
   local -r separator="${ok_separator[exit_status]- ◘ }"
 
-  PS1="${terminal_title}\[${color_code}\]\w\[${color_reset}\]${separator}"
+  PS1="${terminal_title}\n\[${color_code}\]\w\[${color_reset}\]${separator}"
 }
 
 # HSV to RGB color for integers 0 ≤ h, s, v, r, g, b < 256.
