@@ -17,12 +17,12 @@ _update_current_bash_prompt() {
   local -r rgb="$(_integer_hsv_to_rgb "${hue}" "${saturation}" "${value}")"
 
   local -r color_code="\e[38;2;${rgb}m"
-  local -r color_reset='\e[0m'
+  local -r style_reset='\e[0m'
 
   local -r ok_separator=(' • ')
   local -r separator="${ok_separator[exit_status]- ◘ }"
 
-  PS1="${terminal_title}\n\[${color_code}\]\w\[${color_reset}\]${separator}"
+  PS1="${terminal_title}\n\[${color_code}\]\w\[${style_reset}\]${separator}"
 }
 
 # HSV to RGB color for integers 0 ≤ h, s, v, r, g, b < 256.
