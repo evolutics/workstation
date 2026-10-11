@@ -12,8 +12,8 @@ _update_current_bash_prompt() {
     local -r style='\e[1m' # Bold.
   fi
 
-  local -r separator='$'
+  local -r indicator='$'
   local -r style_reset='\e[0m'
 
-  PS1="${terminal_title}\n\[${style}\]${separator}\[${style_reset}\] "
+  PS1="${terminal_title}\n\[${style}\]${indicator}\[${style_reset}\] "
 }
