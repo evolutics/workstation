@@ -30,7 +30,12 @@ _update_current_bash_prompt() {
     styled_path="\[${style_faint}\]${path}\[${style_reset}\]"
   fi
 
-  local indicator_styles="${style_bold}"
+  local month
+  printf -v month '%(%-m)T'
+  # Color by meteorological season, from spring as yellow with code 43.
+  local -r style_season_background="\e[$((43 + ((month + 9) % 12) / 3))m"
+
+  local indicator_styles="${style_bold}${style_season_background}"
   if ((exit_status)); then
     indicator_styles+="${style_reverse_video}"
   fi
