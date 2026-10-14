@@ -13,7 +13,7 @@ _update_current_bash_prompt() {
   fi
 
   local git_folder
-  if git_folder=$(git rev-parse --show-prefix 2>/dev/null); then
+  if git_folder="$(git rev-parse --show-prefix 2>/dev/null)"; then
     if [[ -n "${git_folder}" ]]; then
       style+=";4" # Underlined.
     fi
