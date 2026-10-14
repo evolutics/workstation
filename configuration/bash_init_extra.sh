@@ -1,4 +1,4 @@
-#!/bin/bash
+# shellcheck shell=bash
 
 PROMPT_COMMAND=_update_current_bash_prompt
 
