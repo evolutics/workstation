@@ -18,7 +18,7 @@ _update_current_bash_prompt() {
       style+=";4" # Underlined.
     fi
   else
-    style+=";53" # Overlined.
+    style+=";2" # Faint.
   fi
 
   style+="m"
