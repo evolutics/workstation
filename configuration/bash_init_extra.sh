@@ -32,8 +32,8 @@ _update_current_bash_prompt() {
 
   local month
   printf -v month '%(%-m)T'
-  # Color by meteorological season, from spring as yellow with code 43.
-  local -r style_season_background="\e[$((43 + ((month + 9) % 12) / 3))m"
+  # Seasons: spring yellow/43, summer cyan/46, fall magenta/45, winter blue/44.
+  local -r style_season_background="\e[$((46 - ((month + 6) % 12) / 3))m"
 
   local indicator_styles="${style_bold}${style_season_background}"
   if ((exit_status)); then
