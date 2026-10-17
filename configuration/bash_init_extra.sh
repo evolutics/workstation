@@ -18,7 +18,6 @@ _update_current_bash_prompt() {
   elif [[ -z "${_prompt_git_folder}" ]]; then
     path=''
   else
-    _prompt_git_folder="${_prompt_git_folder%/}"
     # shellcheck disable=SC2016
     path='${_prompt_git_folder}'
   fi
