@@ -20,6 +20,7 @@ manage_packages() {
       libvirt-daemon-system
       podman # From APT for Ubuntu's AppArmor profile.
       qemu-system
+      virt-manager
       virtiofsd
     )
     sudo apt-get install -- "${packages[@]}"

@@ -119,7 +119,6 @@ in {
         texliveMedium
         tilt
         variety
-        virt-manager
 
         # Font families:
         fira
