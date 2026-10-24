@@ -27,7 +27,7 @@ in {
       command = "gradia --screenshot";
       name = "Take editable screenshot";
     };
-    "org/gnome/shell/extensions/dash-to-dock" = {dash-max-icon-size = 16;};
+    "org/gnome/shell/extensions/dash-to-dock" = {dock-fixed = false;};
     "org/gnome/shell/extensions/tiling-assistant" = {
       disable-tile-groups = true;
       enable-tiling-popup = false;
