@@ -152,6 +152,7 @@ in {
       shellAliases = {
         a = "git branch && git status";
         grep = "grep --color=auto";
+        i = "git show";
         ll = "ls --all --classify -l";
         ls = "ls --color=auto";
       };
